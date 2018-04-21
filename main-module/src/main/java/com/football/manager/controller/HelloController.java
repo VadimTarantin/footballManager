@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HelloController {
@@ -30,9 +29,8 @@ public class HelloController {
     }
 
     @RequestMapping(path = "/hello", method = RequestMethod.GET)
-    public ModelAndView sayHello(ModelAndView modelAndView) {
-        modelAndView.setViewName(answerForHello);
-        return modelAndView;
+    public String sayHello() {
+        return answerForHello;
     }
 
     @RequestMapping(path = "/rest", method = RequestMethod.GET)

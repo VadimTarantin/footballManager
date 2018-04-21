@@ -41,4 +41,9 @@ public abstract class BaseParser implements Parser {
         return content;
     }
 
+    protected String fixQuotes(String content) {
+        String result = content.replaceAll("\\\\\"", "\"");
+        return result.replaceAll("\\\\/", "/");
+    }
+
 }

@@ -8,7 +8,9 @@
 
         <table>
             <c:forEach var="wideTableTeam" items="${wideTableTeams}" >
-                <tr><td><c:out value="${wideTableTeam}"></td></tr>
+                <tr>
+                    <td>"${wideTableTeam}"</td>
+                </tr>
             </c:forEach>
         </table>
     </body>

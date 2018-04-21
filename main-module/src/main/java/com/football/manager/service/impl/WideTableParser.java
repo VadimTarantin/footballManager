@@ -21,6 +21,7 @@ public class WideTableParser extends BaseParser {
     @Override
     public List<? extends TableTeam> parse(String response) {
         String content = cutTable(response);
+        content = fixQuotes(content);
         try {
             return getListWideTableTeams(content);
         } catch (Exception e) {
@@ -89,7 +90,12 @@ public class WideTableParser extends BaseParser {
             if (td) {
                 String value = new String(ch, start, length).trim();
                 if (!value.isEmpty()) {
-                    fillField(Integer.valueOf(value));
+                    try {
+                        fillField(Integer.valueOf(value));
+                    } catch (NumberFormatException e) {
+                        System.out.println(value + " is not a number!");
+                    }
+
                 }
                 td = false;
             }
