@@ -1,4 +1,4 @@
-package com.football.manager.parser;
+package com.football.manager.service.parser;
 
 import java.io.BufferedReader;
 import java.io.File;
