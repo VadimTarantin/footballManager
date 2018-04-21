@@ -116,7 +116,7 @@
         <td class="direction"/>
         <td class="text team large-link">
         <a href="/teams/wales/cardiff-city-fc/691/" title="\u041a\u0430\u0440\u0434\u0438\u0444\u0444 \u0421\u0438\u0442\u0438">Кардифф Сити</a>
-        </td>
+                     </td>
         <td class="number total mp" >42</td>
         <td class="number total won total_won">25</td>
         <td class="number total drawn total_drawn">8</td>

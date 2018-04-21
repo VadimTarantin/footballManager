@@ -1,6 +1,6 @@
 package com.football.manager.controller;
 
-import com.football.manager.service.Parser;
+import com.football.manager.service.parser.Parser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

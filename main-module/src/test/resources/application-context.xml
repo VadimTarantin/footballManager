@@ -20,10 +20,16 @@
         </property>
     </bean>
 
-    <bean id="wideTableParser" class="com.football.manager.service.impl.WideTableParser">
-        <property name="startTag" value="${wide.table.parser.start.tag}"/>
-        <property name="endTag" value="${wide.table.parser.end.tag}"/>
-        <property name="entitiesToCut" value="${wide.table.parser.entities.to.cut}"/>
+    <bean id="wideTableTeamParser" class="com.football.manager.service.parser.impl.WideTableTeamParser">
+        <property name="startTag" value="${tables.parser.start.tag}"/>
+        <property name="endTag" value="${tables.parser.end.tag}"/>
+        <property name="entitiesToCut" value="${tables.parser.entities.to.cut}"/>
+    </bean>
+
+    <bean id="formTableTeamParser" class="com.football.manager.service.parser.impl.FormTableTeamParser">
+        <property name="startTag" value="${tables.parser.start.tag}"/>
+        <property name="endTag" value="${tables.parser.end.tag}"/>
+        <property name="entitiesToCut" value="${tables.parser.entities.to.cut}"/>
     </bean>
 
 </beans>

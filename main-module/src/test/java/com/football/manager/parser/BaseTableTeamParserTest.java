@@ -4,7 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-public class BaseTableParserTest {
+public class BaseTableTeamParserTest {
 
     protected String getResponse(String fileName) throws Exception {
         File updateWideTable = new File(this.getClass().getClassLoader().getResource(fileName).getFile());

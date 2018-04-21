@@ -1,4 +1,4 @@
-package com.football.manager.service;
+package com.football.manager.service.parser;
 
 import com.football.manager.entity.TableTeam;
 

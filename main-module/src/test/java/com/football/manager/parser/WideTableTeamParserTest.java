@@ -1,7 +1,7 @@
 package com.football.manager.parser;
 
 import com.football.manager.entity.TableTeam;
-import com.football.manager.service.Parser;
+import com.football.manager.service.parser.Parser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +16,13 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:application-context.xml")
-public class WideTableParserTest extends BaseTableParserTest {
+public class WideTableTeamParserTest extends BaseTableTeamParserTest {
 
-    @Value("${wide.table.parser.test.file.name}")
-    private  String fileName;
+    @Value("${wide.table.team.parser.test.file.name}")
+    private String fileName;
 
     @Autowired
-    @Qualifier(value = "wideTableParser")
+    @Qualifier(value = "wideTableTeamParser")
     private Parser parser;
 
     public void setFileName(String fileName) {
