@@ -10,12 +10,15 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <import resource="classpath:spring/jdbc.xml"/>
+
     <context:annotation-config />
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations">
             <list>
-                <value>classpath:application.properties</value>
+                <value>classpath:properties/application.properties</value>
+                <value>classpath:properties/jdbc.properties</value>
             </list>
         </property>
     </bean>

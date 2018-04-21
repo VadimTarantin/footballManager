@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileReader;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:application-context.xml")
+@ContextConfiguration("classpath:spring/application-context.xml")
 public abstract class BaseTableTeamParserTest {
 
     protected String getResponse(String fileName) throws Exception {
