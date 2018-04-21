@@ -2,19 +2,14 @@ package com.football.manager.service.parser;
 
 import com.football.manager.entity.TableTeam;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("classpath:application-context.xml")
 public class FormTableTeamParserTest extends BaseTableTeamParserTest {
 
     @Value("${form.table.team.parser.test.file.name}")
@@ -29,7 +24,7 @@ public class FormTableTeamParserTest extends BaseTableTeamParserTest {
     }
 
     @Test
-    public void testWideTableParser() throws Exception {
+    public void testFormTableParser() throws Exception {
         List<? extends TableTeam> formTableTeams = parser.parse(getResponse(fileName));
 
         for (TableTeam wideTableTeam : formTableTeams) {

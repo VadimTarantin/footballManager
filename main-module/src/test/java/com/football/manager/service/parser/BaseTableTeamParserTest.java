@@ -1,10 +1,16 @@
 package com.football.manager.service.parser;
 
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-public class BaseTableTeamParserTest {
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:application-context.xml")
+public abstract class BaseTableTeamParserTest {
 
     protected String getResponse(String fileName) throws Exception {
         File updateWideTable = new File(this.getClass().getClassLoader().getResource(fileName).getFile());

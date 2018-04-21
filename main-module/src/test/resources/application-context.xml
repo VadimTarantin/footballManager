@@ -32,4 +32,10 @@
         <property name="entitiesToCut" value="${tables.parser.entities.to.cut}"/>
     </bean>
 
+    <bean id="overUnderTableTeamParser" class="com.football.manager.service.parser.impl.OverUnderTableTeamParser">
+        <property name="startTag" value="${tables.parser.start.tag}"/>
+        <property name="endTag" value="${tables.parser.end.tag}"/>
+        <property name="entitiesToCut" value="${tables.parser.entities.to.cut}"/>
+    </bean>
+
 </beans>
