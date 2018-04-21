@@ -1,5 +1,6 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
         http://www.springframework.org/schema/beans
@@ -15,6 +16,12 @@
                 <value>classpath:properties/application.properties</value>
             </list>
         </property>
+    </bean>
+
+    <bean id="wideTableParser" class="com.football.manager.service.impl.WideTableParser">
+        <property name="startTag" value="${wide.table.parser.start.tag}"/>
+        <property name="endTag" value="${wide.table.parser.end.tag}"/>
+        <property name="entitiesToCut" value="${wide.table.parser.entities.to.cut}"/>
     </bean>
 
 </beans>

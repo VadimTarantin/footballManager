@@ -1,0 +1,794 @@
+{
+  commands: [
+    {
+      name: "updateContainer",
+      parameters: {
+        content: "<div class="block_competition_wide_table block block-nomb clearfix" id="page_competition_1_block_competition_tables_7_block_competition_wide_table_1">
+        <form action="/teams/comparison/" method="get" accept-charset="utf-8">
+        <table class="leaguetable sortable table detailed-table fixed-wide-table" id="page_competition_1_block_competition_tables_7_block_competition_wide_table_1_table" data-round_id="42070">
+        <thead>
+        <tr class="main-head">
+        <th class="rank">&nbsp;</th>
+        <th class="direction">&nbsp;</th>
+        <th class="team">&nbsp;</th>
+        <th colspan="6" class="type">Итого</th>
+        <th colspan="6" class="type">Дома</th>
+        <th colspan="6" class="type">В гостях</th>
+        <th class="number gd">&nbsp;</th>
+        <th class="number points">&nbsp;</th>
+        </tr>
+        <tr class="sub-head">
+        <th title="Место" class="sortasc sortdefaultasc">#</th>
+        <th class="direction nosort">&nbsp;</th>
+        <th class="text team sortdefaultasc">Команда</th>
+        <th class="number total mp">
+        <acronym title="Сыграно матчей">МС</acronym>
+        </th>
+        <th class="number total won total_won">
+        <acronym title="Победы">В</acronym>
+        </th>
+        <th class="number total drawn total_drawn">
+        <acronym title="Ничьи">Н</acronym>
+        </th>
+        <th class="number total lost total_lost">
+        <acronym title="Поражения">П</acronym>
+        </th>
+        <th class="number total gf total_gf">
+        <acronym title="Забитые мячи">З</acronym>
+        </th>
+        <th class="number total ga total_ga">
+        <acronym title="Пропущенные мячи">Пр</acronym>
+        </th>
+        <th class="number home mp home_total">
+        <acronym title="Сыграно матчей">МС</acronym>
+        </th>
+        <th class="number home won home_won">
+        <acronym title="Победы">В</acronym>
+        </th>
+        <th class="number home drawn home_drawn">
+        <acronym title="Ничьи">Н</acronym>
+        </th>
+        <th class="number home lost home_lost">
+        <acronym title="Поражения">П</acronym>
+        </th>
+        <th class="number home gf home_gf">
+        <acronym title="Забитые мячи">З</acronym>
+        </th>
+        <th class="number home ga home_ga">
+        <acronym title="Пропущенные мячи">Пр</acronym>
+        </th>
+        <th class="number away mp away_total">
+        <acronym title="Сыграно матчей">МС</acronym>
+        </th>
+        <th class="number away won away_won">
+        <acronym title="Победы">В</acronym>
+        </th>
+        <th class="number away drawn away_drawn">
+        <acronym title="Ничьи">Н</acronym>
+        </th>
+        <th class="number away lost away_lost">
+        <acronym title="Поражения">П</acronym>
+        </th>
+        <th class="number away gf away_gf">
+        <acronym title="Забитые мячи">З</acronym>
+        </th>
+        <th class="number away ga away_ga">
+        <acronym title="Пропущенные мячи">Пр</acronym>
+        </th>
+        <th class="number gd">
+        <acronym title="Разница забитых и пропущенных">Р</acronym>
+        </th>
+        <th class="number points">
+        <acronym title="Очки">О</acronym>
+        </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd team_rank" id="team_rank_row_680" data-team_id="680" >
+        <td class="rank rank-dark-green">1</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/wolverhampton-wanderers-fc/680/" title="Вулверхэмптон Уондерерс">Вулверхэмпт&hellip;</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">29</td>
+        <td class="number total drawn total_drawn">8</td>
+        <td class="number total lost total_lost">6</td>
+        <td class="number total gf total_gf">78</td>
+        <td class="number total ga total_ga">36</td>
+        <td class="number home mp home_total">22</td>
+        <td class="number home won home_won">16</td>
+        <td class="number home drawn home_drawn">4</td>
+        <td class="number home lost home_lost">2</td>
+        <td class="number home gf home_gf">47</td>
+        <td class="number home ga home_ga">18</td>
+        <td class="number away mp away_total">21</td>
+        <td class="number away won away_won">13</td>
+        <td class="number away drawn away_drawn">4</td>
+        <td class="number away lost away_lost">4</td>
+        <td class="number away gf away_gf">31</td>
+        <td class="number away ga away_ga">18</td>
+        <td class="number gd">+42</td>
+        <td class="number points">95</td>
+        </tr>
+        <tr class="even team_rank" id="team_rank_row_691" data-team_id="691" >
+        <td class="rank rank-dark-green">2</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/wales/cardiff-city-fc/691/" title="Кардифф Сити">Кардифф Сити</a>
+        </td>
+        <td class="number total mp" >42</td>
+        <td class="number total won total_won">25</td>
+        <td class="number total drawn total_drawn">8</td>
+        <td class="number total lost total_lost">9</td>
+        <td class="number total gf total_gf">64</td>
+        <td class="number total ga total_ga">35</td>
+        <td class="number home mp home_total">21</td>
+        <td class="number home won home_won">15</td>
+        <td class="number home drawn home_drawn">3</td>
+        <td class="number home lost home_lost">3</td>
+        <td class="number home gf home_gf">38</td>
+        <td class="number home ga home_ga">15</td>
+        <td class="number away mp away_total">21</td>
+        <td class="number away won away_won">10</td>
+        <td class="number away drawn away_drawn">5</td>
+        <td class="number away lost away_lost">6</td>
+        <td class="number away gf away_gf">26</td>
+        <td class="number away ga away_ga">20</td>
+        <td class="number gd">+29</td>
+        <td class="number points">83</td>
+        </tr>
+        <tr class="odd team_rank" id="team_rank_row_667" data-team_id="667" >
+        <td class="rank rank-light-green">3</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/fulham-football-club/667/" title="Фулхэм">Фулхэм</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">23</td>
+        <td class="number total drawn total_drawn">13</td>
+        <td class="number total lost total_lost">7</td>
+        <td class="number total gf total_gf">73</td>
+        <td class="number total ga total_ga">42</td>
+        <td class="number home mp home_total">22</td>
+        <td class="number home won home_won">12</td>
+        <td class="number home drawn home_drawn">8</td>
+        <td class="number home lost home_lost">2</td>
+        <td class="number home gf home_gf">38</td>
+        <td class="number home ga home_ga">16</td>
+        <td class="number away mp away_total">21</td>
+        <td class="number away won away_won">11</td>
+        <td class="number away drawn away_drawn">5</td>
+        <td class="number away lost away_lost">5</td>
+        <td class="number away gf away_gf">35</td>
+        <td class="number away ga away_ga">26</td>
+        <td class="number gd">+31</td>
+        <td class="number points">82</td>
+        </tr>
+        <tr class="even team_rank" id="team_rank_row_665" data-team_id="665" >
+        <td class="rank rank-light-green">4</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/aston-villa-football-club/665/" title="Астон Вилла">Астон Вилла</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">23</td>
+        <td class="number total drawn total_drawn">10</td>
+        <td class="number total lost total_lost">10</td>
+        <td class="number total gf total_gf">67</td>
+        <td class="number total ga total_ga">40</td>
+        <td class="number home mp home_total">22</td>
+        <td class="number home won home_won">14</td>
+        <td class="number home drawn home_drawn">6</td>
+        <td class="number home lost home_lost">2</td>
+        <td class="number home gf home_gf">41</td>
+        <td class="number home ga home_ga">18</td>
+        <td class="number away mp away_total">21</td>
+        <td class="number away won away_won">9</td>
+        <td class="number away drawn away_drawn">4</td>
+        <td class="number away lost away_lost">8</td>
+        <td class="number away gf away_gf">26</td>
+        <td class="number away ga away_ga">22</td>
+        <td class="number gd">+27</td>
+        <td class="number points">79</td>
+        </tr>
+        <tr class="odd team_rank" id="team_rank_row_671" data-team_id="671" >
+        <td class="rank rank-light-green">5</td>
+        <td class="direction">
+        <img src="https://s1.swimg.net/gsmf/673/img/delta_plus.gif" width="7" height="4" title="Предыдущее место: 6" alt="Предыдущее место: 6" />
+        </td>
+        <td class="text team large-link">
+        <a href="/teams/england/middlesbrough-football-club/671/" title="Миддлсбро">Миддлсбро</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">20</td>
+        <td class="number total drawn total_drawn">9</td>
+        <td class="number total lost total_lost">14</td>
+        <td class="number total gf total_gf">61</td>
+        <td class="number total ga total_ga">42</td>
+        <td class="number home mp home_total">22</td>
+        <td class="number home won home_won">13</td>
+        <td class="number home drawn home_drawn">3</td>
+        <td class="number home lost home_lost">6</td>
+        <td class="number home gf home_gf">31</td>
+        <td class="number home ga home_ga">17</td>
+        <td class="number away mp away_total">21</td>
+        <td class="number away won away_won">7</td>
+        <td class="number away drawn away_drawn">6</td>
+        <td class="number away lost away_lost">8</td>
+        <td class="number away gf away_gf">30</td>
+        <td class="number away ga away_ga">25</td>
+        <td class="number gd">+19</td>
+        <td class="number points">69</td>
+        </tr>
+        <tr class="even team_rank" id="team_rank_row_689" data-team_id="689" >
+        <td class="rank rank-light-green">6</td>
+        <td class="direction">
+        <img src="https://s1.swimg.net/gsmf/673/img/delta_plus.gif" width="7" height="4" title="Предыдущее место: 8" alt="Предыдущее место: 8" />
+        </td>
+        <td class="text team large-link">
+        <a href="/teams/england/millwall-fc/689/" title="Миллуол">Миллуол</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">18</td>
+        <td class="number total drawn total_drawn">15</td>
+        <td class="number total lost total_lost">10</td>
+        <td class="number total gf total_gf">55</td>
+        <td class="number total ga total_ga">40</td>
+        <td class="number home mp home_total">21</td>
+        <td class="number home won home_won">11</td>
+        <td class="number home drawn home_drawn">7</td>
+        <td class="number home lost home_lost">3</td>
+        <td class="number home gf home_gf">32</td>
+        <td class="number home ga home_ga">18</td>
+        <td class="number away mp away_total">22</td>
+        <td class="number away won away_won">7</td>
+        <td class="number away drawn away_drawn">8</td>
+        <td class="number away lost away_lost">7</td>
+        <td class="number away gf away_gf">23</td>
+        <td class="number away ga away_ga">22</td>
+        <td class="number gd">+15</td>
+        <td class="number points">69</td>
+        </tr>
+        <tr class="odd team_rank" id="team_rank_row_699" data-team_id="699" >
+        <td class="rank ">7</td>
+        <td class="direction">
+        <img src="https://s1.swimg.net/gsmf/673/img/delta_min.gif" width="7" height="4" title="Предыдущее место: 5" alt="Предыдущее место: 5" />
+        </td>
+        <td class="text team large-link">
+        <a href="/teams/england/derby-county-fc/699/" title="Дерби Каунти">Дерби Каунти</a>
+        </td>
+        <td class="number total mp" >42</td>
+        <td class="number total won total_won">18</td>
+        <td class="number total drawn total_drawn">14</td>
+        <td class="number total lost total_lost">10</td>
+        <td class="number total gf total_gf">61</td>
+        <td class="number total ga total_ga">43</td>
+        <td class="number home mp home_total">20</td>
+        <td class="number home won home_won">10</td>
+        <td class="number home drawn home_drawn">5</td>
+        <td class="number home lost home_lost">5</td>
+        <td class="number home gf home_gf">33</td>
+        <td class="number home ga home_ga">18</td>
+        <td class="number away mp away_total">22</td>
+        <td class="number away won away_won">8</td>
+        <td class="number away drawn away_drawn">9</td>
+        <td class="number away lost away_lost">5</td>
+        <td class="number away gf away_gf">28</td>
+        <td class="number away ga away_ga">25</td>
+        <td class="number gd">+18</td>
+        <td class="number points">68</td>
+        </tr>
+        <tr class="even team_rank" id="team_rank_row_693" data-team_id="693" >
+        <td class="rank ">8</td>
+        <td class="direction">
+        <img src="https://s1.swimg.net/gsmf/673/img/delta_plus.gif" width="7" height="4" title="Предыдущее место: 10" alt="Предыдущее место: 10" />
+        </td>
+        <td class="text team large-link">
+        <a href="/teams/england/preston-north-end-fc/693/" title="Престон Норт Энд">Престон Нор&hellip;</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">17</td>
+        <td class="number total drawn total_drawn">15</td>
+        <td class="number total lost total_lost">11</td>
+        <td class="number total gf total_gf">54</td>
+        <td class="number total ga total_ga">45</td>
+        <td class="number home mp home_total">21</td>
+        <td class="number home won home_won">8</td>
+        <td class="number home drawn home_drawn">7</td>
+        <td class="number home lost home_lost">6</td>
+        <td class="number home gf home_gf">25</td>
+        <td class="number home ga home_ga">21</td>
+        <td class="number away mp away_total">22</td>
+        <td class="number away won away_won">9</td>
+        <td class="number away drawn away_drawn">8</td>
+        <td class="number away lost away_lost">5</td>
+        <td class="number away gf away_gf">29</td>
+        <td class="number away ga away_ga">24</td>
+        <td class="number gd">+9</td>
+        <td class="number points">66</td>
+        </tr>
+        <tr class="odd team_rank" id="team_rank_row_687" data-team_id="687" >
+        <td class="rank ">9</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/sheffield-united-fc/687/" title="Шеффилд Юнайтед">Шеффилд Юнайтед</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">19</td>
+        <td class="number total drawn total_drawn">9</td>
+        <td class="number total lost total_lost">15</td>
+        <td class="number total gf total_gf">58</td>
+        <td class="number total ga total_ga">50</td>
+        <td class="number home mp home_total">22</td>
+        <td class="number home won home_won">12</td>
+        <td class="number home drawn home_drawn">5</td>
+        <td class="number home lost home_lost">5</td>
+        <td class="number home gf home_gf">33</td>
+        <td class="number home ga home_ga">19</td>
+        <td class="number away mp away_total">21</td>
+        <td class="number away won away_won">7</td>
+        <td class="number away drawn away_drawn">4</td>
+        <td class="number away lost away_lost">10</td>
+        <td class="number away gf away_gf">25</td>
+        <td class="number away ga away_ga">31</td>
+        <td class="number gd">+8</td>
+        <td class="number points">66</td>
+        </tr>
+        <tr class="even team_rank" id="team_rank_row_722" data-team_id="722" >
+        <td class="rank ">10</td>
+        <td class="direction">
+        <img src="https://s1.swimg.net/gsmf/673/img/delta_plus.gif" width="7" height="4" title="Предыдущее место: 11" alt="Предыдущее место: 11" />
+        </td>
+        <td class="text team large-link">
+        <a href="/teams/england/brentford-fc/722/" title="Брентфорд">Брентфорд</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">17</td>
+        <td class="number total drawn total_drawn">14</td>
+        <td class="number total lost total_lost">12</td>
+        <td class="number total gf total_gf">59</td>
+        <td class="number total ga total_ga">48</td>
+        <td class="number home mp home_total">21</td>
+        <td class="number home won home_won">8</td>
+        <td class="number home drawn home_drawn">10</td>
+        <td class="number home lost home_lost">3</td>
+        <td class="number home gf home_gf">34</td>
+        <td class="number home ga home_ga">22</td>
+        <td class="number away mp away_total">22</td>
+        <td class="number away won away_won">9</td>
+        <td class="number away drawn away_drawn">4</td>
+        <td class="number away lost away_lost">9</td>
+        <td class="number away gf away_gf">25</td>
+        <td class="number away ga away_ga">26</td>
+        <td class="number gd">+11</td>
+        <td class="number points">65</td>
+        </tr>
+        <tr class="odd team_rank" id="team_rank_row_707" data-team_id="707" >
+        <td class="rank ">11</td>
+        <td class="direction">
+        <img src="https://s1.swimg.net/gsmf/673/img/delta_min.gif" width="7" height="4" title="Предыдущее место: 7" alt="Предыдущее место: 7" />
+        </td>
+        <td class="text team large-link">
+        <a href="/teams/england/bristol-city-fc/707/" title="Бристол Сити">Бристол Сити</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">17</td>
+        <td class="number total drawn total_drawn">14</td>
+        <td class="number total lost total_lost">12</td>
+        <td class="number total gf total_gf">60</td>
+        <td class="number total ga total_ga">50</td>
+        <td class="number home mp home_total">21</td>
+        <td class="number home won home_won">11</td>
+        <td class="number home drawn home_drawn">5</td>
+        <td class="number home lost home_lost">5</td>
+        <td class="number home gf home_gf">34</td>
+        <td class="number home ga home_ga">20</td>
+        <td class="number away mp away_total">22</td>
+        <td class="number away won away_won">6</td>
+        <td class="number away drawn away_drawn">9</td>
+        <td class="number away lost away_lost">7</td>
+        <td class="number away gf away_gf">26</td>
+        <td class="number away ga away_ga">30</td>
+        <td class="number gd">+10</td>
+        <td class="number points">65</td>
+        </tr>
+        <tr class="even team_rank" id="team_rank_row_685" data-team_id="685" >
+        <td class="rank ">12</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/ipswich-town-fc/685/" title="Ипсвич Таун">Ипсвич Таун</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">16</td>
+        <td class="number total drawn total_drawn">8</td>
+        <td class="number total lost total_lost">19</td>
+        <td class="number total gf total_gf">51</td>
+        <td class="number total ga total_ga">54</td>
+        <td class="number home mp home_total">21</td>
+        <td class="number home won home_won">9</td>
+        <td class="number home drawn home_drawn">5</td>
+        <td class="number home lost home_lost">7</td>
+        <td class="number home gf home_gf">27</td>
+        <td class="number home ga home_ga">21</td>
+        <td class="number away mp away_total">22</td>
+        <td class="number away won away_won">7</td>
+        <td class="number away drawn away_drawn">3</td>
+        <td class="number away lost away_lost">12</td>
+        <td class="number away gf away_gf">24</td>
+        <td class="number away ga away_ga">33</td>
+        <td class="number gd">-3</td>
+        <td class="number points">56</td>
+        </tr>
+        <tr class="odd team_rank" id="team_rank_row_677" data-team_id="677" >
+        <td class="rank ">13</td>
+        <td class="direction">
+        <img src="https://s1.swimg.net/gsmf/673/img/delta_plus.gif" width="7" height="4" title="Предыдущее место: 14" alt="Предыдущее место: 14" />
+        </td>
+        <td class="text team large-link">
+        <a href="/teams/england/norwich-city-fc/677/" title="Норвич Сити">Норвич Сити</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">14</td>
+        <td class="number total drawn total_drawn">14</td>
+        <td class="number total lost total_lost">15</td>
+        <td class="number total gf total_gf">46</td>
+        <td class="number total ga total_ga">54</td>
+        <td class="number home mp home_total">22</td>
+        <td class="number home won home_won">7</td>
+        <td class="number home drawn home_drawn">8</td>
+        <td class="number home lost home_lost">7</td>
+        <td class="number home gf home_gf">23</td>
+        <td class="number home ga home_ga">24</td>
+        <td class="number away mp away_total">21</td>
+        <td class="number away won away_won">7</td>
+        <td class="number away drawn away_drawn">6</td>
+        <td class="number away lost away_lost">8</td>
+        <td class="number away gf away_gf">23</td>
+        <td class="number away ga away_ga">30</td>
+        <td class="number gd">-8</td>
+        <td class="number points">56</td>
+        </tr>
+        <tr class="even team_rank" id="team_rank_row_681" data-team_id="681" >
+        <td class="rank ">14</td>
+        <td class="direction">
+        <img src="https://s1.swimg.net/gsmf/673/img/delta_min.gif" width="7" height="4" title="Предыдущее место: 13" alt="Предыдущее место: 13" />
+        </td>
+        <td class="text team large-link">
+        <a href="/teams/england/leeds-united-afc/681/" title="Лидс Юнайтед">Лидс Юнайтед</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">15</td>
+        <td class="number total drawn total_drawn">9</td>
+        <td class="number total lost total_lost">19</td>
+        <td class="number total gf total_gf">54</td>
+        <td class="number total ga total_ga">61</td>
+        <td class="number home mp home_total">21</td>
+        <td class="number home won home_won">8</td>
+        <td class="number home drawn home_drawn">6</td>
+        <td class="number home lost home_lost">7</td>
+        <td class="number home gf home_gf">28</td>
+        <td class="number home ga home_ga">26</td>
+        <td class="number away mp away_total">22</td>
+        <td class="number away won away_won">7</td>
+        <td class="number away drawn away_drawn">3</td>
+        <td class="number away lost away_lost">12</td>
+        <td class="number away gf away_gf">26</td>
+        <td class="number away ga away_ga">35</td>
+        <td class="number gd">-7</td>
+        <td class="number points">54</td>
+        </tr>
+        <tr class="odd team_rank" id="team_rank_row_702" data-team_id="702" >
+        <td class="rank ">15</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/queens-park-rangers-fc/702/" title="Куинз Парк Рейнджерс">Куинз Парк &hellip;</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">14</td>
+        <td class="number total drawn total_drawn">11</td>
+        <td class="number total lost total_lost">18</td>
+        <td class="number total gf total_gf">54</td>
+        <td class="number total ga total_ga">65</td>
+        <td class="number home mp home_total">22</td>
+        <td class="number home won home_won">11</td>
+        <td class="number home drawn home_drawn">5</td>
+        <td class="number home lost home_lost">6</td>
+        <td class="number home gf home_gf">35</td>
+        <td class="number home ga home_ga">30</td>
+        <td class="number away mp away_total">21</td>
+        <td class="number away won away_won">3</td>
+        <td class="number away drawn away_drawn">6</td>
+        <td class="number away lost away_lost">12</td>
+        <td class="number away gf away_gf">19</td>
+        <td class="number away ga away_ga">35</td>
+        <td class="number gd">-11</td>
+        <td class="number points">53</td>
+        </tr>
+        <tr class="even team_rank" id="team_rank_row_719" data-team_id="719" >
+        <td class="rank ">16</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/sheffield-wednesday-fc/719/" title="Шеффилд Уэнсдэй">Шеффилд Уэнсдэй</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">12</td>
+        <td class="number total drawn total_drawn">14</td>
+        <td class="number total lost total_lost">17</td>
+        <td class="number total gf total_gf">51</td>
+        <td class="number total ga total_ga">59</td>
+        <td class="number home mp home_total">21</td>
+        <td class="number home won home_won">6</td>
+        <td class="number home drawn home_drawn">7</td>
+        <td class="number home lost home_lost">8</td>
+        <td class="number home gf home_gf">29</td>
+        <td class="number home ga home_ga">30</td>
+        <td class="number away mp away_total">22</td>
+        <td class="number away won away_won">6</td>
+        <td class="number away drawn away_drawn">7</td>
+        <td class="number away lost away_lost">9</td>
+        <td class="number away gf away_gf">22</td>
+        <td class="number away ga away_ga">29</td>
+        <td class="number gd">-8</td>
+        <td class="number points">50</td>
+        </tr>
+        <tr class="odd team_rank" id="team_rank_row_694" data-team_id="694" >
+        <td class="rank ">17</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/nottingham-forest-fc/694/" title="Ноттингем Форест">Ноттингем Ф&hellip;</a>
+        </td>
+        <td class="number total mp" >42</td>
+        <td class="number total won total_won">14</td>
+        <td class="number total drawn total_drawn">7</td>
+        <td class="number total lost total_lost">21</td>
+        <td class="number total gf total_gf">45</td>
+        <td class="number total ga total_ga">60</td>
+        <td class="number home mp home_total">21</td>
+        <td class="number home won home_won">9</td>
+        <td class="number home drawn home_drawn">2</td>
+        <td class="number home lost home_lost">10</td>
+        <td class="number home gf home_gf">22</td>
+        <td class="number home ga home_ga">27</td>
+        <td class="number away mp away_total">21</td>
+        <td class="number away won away_won">5</td>
+        <td class="number away drawn away_drawn">5</td>
+        <td class="number away lost away_lost">11</td>
+        <td class="number away gf away_gf">23</td>
+        <td class="number away ga away_ga">33</td>
+        <td class="number gd">-15</td>
+        <td class="number points">49</td>
+        </tr>
+        <tr class="even team_rank" id="team_rank_row_725" data-team_id="725" >
+        <td class="rank ">18</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/hull-city-afc/725/" title="Халл Сити">Халл Сити</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">11</td>
+        <td class="number total drawn total_drawn">14</td>
+        <td class="number total lost total_lost">18</td>
+        <td class="number total gf total_gf">64</td>
+        <td class="number total ga total_ga">62</td>
+        <td class="number home mp home_total">22</td>
+        <td class="number home won home_won">7</td>
+        <td class="number home drawn home_drawn">8</td>
+        <td class="number home lost home_lost">7</td>
+        <td class="number home gf home_gf">41</td>
+        <td class="number home ga home_ga">30</td>
+        <td class="number away mp away_total">21</td>
+        <td class="number away won away_won">4</td>
+        <td class="number away drawn away_drawn">6</td>
+        <td class="number away lost away_lost">11</td>
+        <td class="number away gf away_gf">23</td>
+        <td class="number away ga away_ga">32</td>
+        <td class="number gd">+2</td>
+        <td class="number points">47</td>
+        </tr>
+        <tr class="odd team_rank" id="team_rank_row_688" data-team_id="688" >
+        <td class="rank ">19</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/reading-fc/688/" title="Рединг">Рединг</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">10</td>
+        <td class="number total drawn total_drawn">13</td>
+        <td class="number total lost total_lost">20</td>
+        <td class="number total gf total_gf">48</td>
+        <td class="number total ga total_ga">63</td>
+        <td class="number home mp home_total">22</td>
+        <td class="number home won home_won">5</td>
+        <td class="number home drawn home_drawn">8</td>
+        <td class="number home lost home_lost">9</td>
+        <td class="number home gf home_gf">25</td>
+        <td class="number home ga home_ga">31</td>
+        <td class="number away mp away_total">21</td>
+        <td class="number away won away_won">5</td>
+        <td class="number away drawn away_drawn">5</td>
+        <td class="number away lost away_lost">11</td>
+        <td class="number away gf away_gf">23</td>
+        <td class="number away ga away_ga">32</td>
+        <td class="number gd">-15</td>
+        <td class="number points">43</td>
+        </tr>
+        <tr class="even team_rank" id="team_rank_row_666" data-team_id="666" >
+        <td class="rank ">20</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/bolton-wanderers-football-club/666/" title="Болтон Уондерерс">Болтон Уонд&hellip;</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">9</td>
+        <td class="number total drawn total_drawn">13</td>
+        <td class="number total lost total_lost">21</td>
+        <td class="number total gf total_gf">36</td>
+        <td class="number total ga total_ga">66</td>
+        <td class="number home mp home_total">21</td>
+        <td class="number home won home_won">8</td>
+        <td class="number home drawn home_drawn">4</td>
+        <td class="number home lost home_lost">9</td>
+        <td class="number home gf home_gf">22</td>
+        <td class="number home ga home_ga">27</td>
+        <td class="number away mp away_total">22</td>
+        <td class="number away won away_won">1</td>
+        <td class="number away drawn away_drawn">9</td>
+        <td class="number away lost away_lost">12</td>
+        <td class="number away gf away_gf">14</td>
+        <td class="number away ga away_ga">39</td>
+        <td class="number gd">-30</td>
+        <td class="number points">40</td>
+        </tr>
+        <tr class="odd team_rank" id="team_rank_row_669" data-team_id="669" >
+        <td class="rank ">21</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/birmingham-city-fc/669/" title="Бирмингем Сити">Бирмингем Сити</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">11</td>
+        <td class="number total drawn total_drawn">7</td>
+        <td class="number total lost total_lost">25</td>
+        <td class="number total gf total_gf">32</td>
+        <td class="number total ga total_ga">63</td>
+        <td class="number home mp home_total">21</td>
+        <td class="number home won home_won">8</td>
+        <td class="number home drawn home_drawn">3</td>
+        <td class="number home lost home_lost">10</td>
+        <td class="number home gf home_gf">16</td>
+        <td class="number home ga home_ga">22</td>
+        <td class="number away mp away_total">22</td>
+        <td class="number away won away_won">3</td>
+        <td class="number away drawn away_drawn">4</td>
+        <td class="number away lost away_lost">15</td>
+        <td class="number away gf away_gf">16</td>
+        <td class="number away ga away_ga">41</td>
+        <td class="number gd">-31</td>
+        <td class="number points">40</td>
+        </tr>
+        <tr class="even team_rank" id="team_rank_row_716" data-team_id="716" >
+        <td class="rank rank-red">22</td>
+        <td class="direction"/>
+        <td class="text team large-link">
+        <a href="/teams/england/barnsley-fc/716/" title="Барнсли">Барнсли</a>
+        </td>
+        <td class="number total mp" >42</td>
+        <td class="number total won total_won">8</td>
+        <td class="number total drawn total_drawn">14</td>
+        <td class="number total lost total_lost">20</td>
+        <td class="number total gf total_gf">44</td>
+        <td class="number total ga total_ga">63</td>
+        <td class="number home mp home_total">22</td>
+        <td class="number home won home_won">4</td>
+        <td class="number home drawn home_drawn">9</td>
+        <td class="number home lost home_lost">9</td>
+        <td class="number home gf home_gf">23</td>
+        <td class="number home ga home_ga">32</td>
+        <td class="number away mp away_total">20</td>
+        <td class="number away won away_won">4</td>
+        <td class="number away drawn away_drawn">5</td>
+        <td class="number away lost away_lost">11</td>
+        <td class="number away gf away_gf">21</td>
+        <td class="number away ga away_ga">31</td>
+        <td class="number gd">-19</td>
+        <td class="number points">38</td>
+        </tr>
+        <tr class="odd team_rank" id="team_rank_row_764" data-team_id="764" >
+        <td class="rank rank-red">23</td>
+        <td class="direction">
+        <img src="https://s1.swimg.net/gsmf/673/img/delta_plus.gif" width="7" height="4" title="Предыдущее место: 24" alt="Предыдущее место: 24" />
+        </td>
+        <td class="text team large-link">
+        <a href="/teams/england/burton-albion-fc/764/" title="Бертон Альбион">Бертон Альбион</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">8</td>
+        <td class="number total drawn total_drawn">11</td>
+        <td class="number total lost total_lost">24</td>
+        <td class="number total gf total_gf">33</td>
+        <td class="number total ga total_ga">78</td>
+        <td class="number home mp home_total">22</td>
+        <td class="number home won home_won">3</td>
+        <td class="number home drawn home_drawn">5</td>
+        <td class="number home lost home_lost">14</td>
+        <td class="number home gf home_gf">17</td>
+        <td class="number home ga home_ga">43</td>
+        <td class="number away mp away_total">21</td>
+        <td class="number away won away_won">5</td>
+        <td class="number away drawn away_drawn">6</td>
+        <td class="number away lost away_lost">10</td>
+        <td class="number away gf away_gf">16</td>
+        <td class="number away ga away_ga">35</td>
+        <td class="number gd">-45</td>
+        <td class="number points">35</td>
+        </tr>
+        <tr class="even team_rank" id="team_rank_row_683" data-team_id="683" >
+        <td class="rank rank-red">24</td>
+        <td class="direction">
+        <img src="https://s1.swimg.net/gsmf/673/img/delta_min.gif" width="7" height="4" title="Предыдущее место: 23" alt="Предыдущее место: 23" />
+        </td>
+        <td class="text team large-link">
+        <a href="/teams/england/sunderland-association-football-club/683/" title="Сандерленд">Сандерленд</a>
+        </td>
+        <td class="number total mp" >43</td>
+        <td class="number total won total_won">6</td>
+        <td class="number total drawn total_drawn">16</td>
+        <td class="number total lost total_lost">21</td>
+        <td class="number total gf total_gf">47</td>
+        <td class="number total ga total_ga">76</td>
+        <td class="number home mp home_total">21</td>
+        <td class="number home won home_won">2</td>
+        <td class="number home drawn home_drawn">7</td>
+        <td class="number home lost home_lost">12</td>
+        <td class="number home gf home_gf">19</td>
+        <td class="number home ga home_ga">37</td>
+        <td class="number away mp away_total">22</td>
+        <td class="number away won away_won">4</td>
+        <td class="number away drawn away_drawn">9</td>
+        <td class="number away lost away_lost">9</td>
+        <td class="number away gf away_gf">28</td>
+        <td class="number away ga away_ga">39</td>
+        <td class="number gd">-29</td>
+        <td class="number points">34</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+        <td colspan="24" class="zones-legend">
+        <div class="clearfix zone-legend-line">
+        <div class="zone-legend-item-container">
+        <div class="zone-legend-item legend-dark-green">Promotion</div>
+        </div>
+        <div class="zone-legend-item-container">
+        <div class="zone-legend-item legend-light-green">Promotion Play-off</div>
+        </div>
+        <div class="zone-legend-item-container">
+        <div class="zone-legend-item legend-red">Relegation</div>
+        </div>
+        </div>
+        </td>
+        </tr>
+        </tfoot>
+        </table>
+        </form>
+        <script type="text/javascript" charset="utf-8">LeagueTable('page_competition_1_block_competition_tables_7_block_competition_wide_table_1_table'); </script>
+        </div>
+        <script type="text/javascript" charset="utf-8">(function() {var block = new Block('page_competition_1_block_competition_tables_7_block_competition_wide_table_1', 'block_competition_wide_table', null);TimestampFormatter.format('page_competition_1_block_competition_tables_7_block_competition_wide_table_1');})(); </script>"
+    }
+  },
+    {
+      name: "updateCallbackParams",
+      parameters: {
+        params: {
+          season_id: "14218",
+          round_id: "42070",
+          outgroup: "",
+          competition_id: "70",
+          new_design_callback: ""
+        }
+      }
+    }
+  ],
+  timestamp: "Fri, 20 Apr 2018 20:22:17 +0200"
+}
