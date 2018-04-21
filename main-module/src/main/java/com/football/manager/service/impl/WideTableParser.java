@@ -76,7 +76,7 @@ public class WideTableParser extends BaseParser {
             if ("a".equals(qName)) {
                 wideTableTeam = new WideTableTeam();
                 wideTableTeams.add(wideTableTeam);
-                wideTableTeam.setTeamName(attributes.getValue("title"));
+                wideTableTeam.setTeamName(decodeToUtf(attributes.getValue("title")));
                 return;
             }
             if ("td".equals(qName)) {
@@ -99,6 +99,30 @@ public class WideTableParser extends BaseParser {
                 }
                 td = false;
             }
+        }
+
+        protected String decodeToUtf(String src) {
+            StringBuilder result = new StringBuilder();
+
+            String[] worlds = src.split(" ");
+
+            for (String world : worlds) {
+                String[] letters = world.split("\\\\u");
+                for (int i = 1; i < letters.length; i++) {
+                    String letter = letters[i];
+                    int symCode = Integer.valueOf(letter, 16);
+                    char currentChar = (char) symCode;
+                    result.append(currentChar);
+                }
+                result.append(" ");
+            }
+            return result.toString().trim();
+        }
+
+        public static void main(String[] args) {
+            String test = new String("\\u0412\\u0443\\u043b\\u0432");
+            test = test.replaceAll("\\\\", "");
+            System.out.println(test);
         }
 
         private void fillField(int value) {
