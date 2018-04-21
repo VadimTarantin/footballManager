@@ -9,9 +9,8 @@ import java.util.List;
 
 public class WideTableTeamParserHandler extends TableTeamParserHandler {
 
-    private String currentAttribute;
     private WideTableTeam wideTableTeam;
-    protected List<WideTableTeam> wideTableTeams;
+    private List<WideTableTeam> wideTableTeams;
 
     public List<WideTableTeam> getWideTableTeams() {
         return wideTableTeams;
@@ -42,7 +41,7 @@ public class WideTableTeamParserHandler extends TableTeamParserHandler {
             String value = new String(ch, start, length).trim();
             if (!value.isEmpty()) {
                 try {
-                    fillField(Integer.valueOf(value), wideTableTeam, currentAttribute);
+                    fillField(Integer.valueOf(value), wideTableTeam);
                 } catch (NumberFormatException e) {
                     System.out.println(value + " is not a number!");
                 }

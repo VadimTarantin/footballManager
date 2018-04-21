@@ -1,15 +1,15 @@
 package com.football.manager.service.parser.impl;
 
-import com.football.manager.entity.TableTeam;
+import com.football.manager.entity.OverUnderTableTeam;
 import com.football.manager.service.exception.TableParserException;
-import com.football.manager.service.parser.Parser;
+import com.football.manager.service.parser.OverUnderParser;
 import com.football.manager.util.ParserUtil;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class BaseTableTeamParser implements Parser {
+public abstract class BaseOverUnderTableTeamParser implements OverUnderParser {
 
     @Value("${tables.parser.start.tag}")
     protected String startTag;
@@ -31,7 +31,7 @@ public abstract class BaseTableTeamParser implements Parser {
     }
 
     @Override
-    public List<? extends TableTeam> parse(String response) {
+    public List<? extends OverUnderTableTeam> parse(String response) {
         try {
             String preparedResponse = prepareTable(response);
             return getListTableTeams(preparedResponse);
@@ -40,7 +40,7 @@ public abstract class BaseTableTeamParser implements Parser {
         }
     }
 
-    protected abstract List<? extends TableTeam> getListTableTeams(String preparedResponse) throws Exception;
+    protected abstract List<? extends OverUnderTableTeam> getListTableTeams(String preparedResponse) throws Exception;
 
     protected String prepareTable(String response) {
         String cutTable = cutTable(response);

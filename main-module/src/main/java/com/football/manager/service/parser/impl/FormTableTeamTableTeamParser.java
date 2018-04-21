@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class FormTableTeamParser extends BaseTableTeamParser {
+public class FormTableTeamTableTeamParser extends BaseTableTeamParser {
 
     @Override
     protected List<? extends TableTeam> getListTableTeams(String preparedResponse) throws Exception {

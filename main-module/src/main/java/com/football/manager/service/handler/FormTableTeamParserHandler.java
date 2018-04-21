@@ -9,9 +9,8 @@ import java.util.List;
 
 public class FormTableTeamParserHandler extends TableTeamParserHandler {
 
-    private String currentAttribute;
     private FormTableTeam formTableTeam;
-    protected List<FormTableTeam> formTableTeams;
+    private List<FormTableTeam> formTableTeams;
 
     public List<FormTableTeam> getFormTableTeams() {
         return formTableTeams;
@@ -42,7 +41,7 @@ public class FormTableTeamParserHandler extends TableTeamParserHandler {
             String value = new String(ch, start, length).trim();
             if (!value.isEmpty()) {
                 try {
-                    fillField(Integer.valueOf(value), formTableTeam, currentAttribute);
+                    fillField(Integer.valueOf(value), formTableTeam);
                 } catch (NumberFormatException e) {
                     System.out.println(value + " is not a number!");
                 }

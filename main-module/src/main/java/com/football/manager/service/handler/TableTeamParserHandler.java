@@ -1,11 +1,13 @@
 package com.football.manager.service.handler;
 
 import com.football.manager.entity.TableTeam;
+import com.football.manager.util.ParserUtil;
 import org.xml.sax.helpers.DefaultHandler;
 
 public abstract class TableTeamParserHandler extends DefaultHandler {
 
     protected boolean td = false;
+    protected String currentAttribute;
 
     protected static final String TOTAL_MATCHES = "number total mp";
     protected static final String TOTAL_MATCHES_WON = "number total won total_won";
@@ -28,7 +30,7 @@ public abstract class TableTeamParserHandler extends DefaultHandler {
     protected static final String DIFFERENCE_GOALS_MISSED = "number gd";
     protected static final String SCORE = "number points";
 
-    protected void fillField(int value, TableTeam tableTeam, String currentAttribute) {
+    protected void fillField(int value, TableTeam tableTeam) {
         switch (currentAttribute) {
             case TOTAL_MATCHES: tableTeam.setTotalMatches(value);
                 break;
@@ -77,26 +79,11 @@ public abstract class TableTeamParserHandler extends DefaultHandler {
         if (!shouldDecodeToUtf(src)) {
             return src;
         }
-
-        StringBuilder result = new StringBuilder();
-
-        String[] worlds = src.split(" ");
-
-        for (String world : worlds) {
-            String[] letters = world.split("\\\\u");
-            for (int i = 1; i < letters.length; i++) {
-                String letter = letters[i];
-                int symCode = Integer.valueOf(letter, 16);
-                char currentChar = (char) symCode;
-                result.append(currentChar);
-            }
-            result.append(" ");
-        }
-        return result.toString().trim();
+        return ParserUtil.decodeToUtf(src);
     }
 
     protected boolean shouldDecodeToUtf(String src) {
-        return src.contains("\\u");
+        return ParserUtil.shouldDecodeToUtf(src);
     }
 
 }
