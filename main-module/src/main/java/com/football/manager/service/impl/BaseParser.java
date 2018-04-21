@@ -1,14 +1,18 @@
 package com.football.manager.service.impl;
 
 import com.football.manager.service.Parser;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseParser implements Parser {
 
+    @Value("${wide.table.parser.start.tag}")
     protected String startTag;
+    @Value("${wide.table.parser.end.tag}")
     protected String endTag;
+    @Value("${wide.table.parser.entities.to.cut}")
     protected List<String> entitiesToCut = new ArrayList<>();
 
     public void setStartTag(String startTag) {

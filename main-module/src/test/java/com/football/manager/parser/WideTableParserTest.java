@@ -5,6 +5,7 @@ import com.football.manager.service.Parser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -21,6 +22,7 @@ public class WideTableParserTest extends BaseTableParserTest {
     private  String fileName;
 
     @Autowired
+    @Qualifier(value = "wideTableParser")
     private Parser parser;
 
     public void setFileName(String fileName) {
