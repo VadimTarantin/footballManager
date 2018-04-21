@@ -6,14 +6,14 @@ public class Prediction {
 
     private int id;
 
-    private int teamHome;
+    private int idTeamHome;
     private float doesGoalsHome;
     private float doesMissedHome;
     private float victoriesHomePercents;
     private float drawnsHomePercents;
     private float lostsHomePercens;
 
-    private int teamAway;
+    private int idTeamAway;
     private float doesGoalsAway;
     private float doesMissedAway;
     private float victoriesAwayPercents;
@@ -28,12 +28,12 @@ public class Prediction {
         this.id = id;
     }
 
-    public int getTeamHome() {
-        return teamHome;
+    public int getIdTeamHome() {
+        return idTeamHome;
     }
 
-    public void setTeamHome(int teamHome) {
-        this.teamHome = teamHome;
+    public void setIdTeamHome(int idTeamHome) {
+        this.idTeamHome = idTeamHome;
     }
 
     public float getDoesGoalsHome() {
@@ -76,12 +76,12 @@ public class Prediction {
         this.lostsHomePercens = lostsHomePercens;
     }
 
-    public int getTeamAway() {
-        return teamAway;
+    public int getIdTeamAway() {
+        return idTeamAway;
     }
 
-    public void setTeamAway(int teamAway) {
-        this.teamAway = teamAway;
+    public void setIdTeamAway(int idTeamAway) {
+        this.idTeamAway = idTeamAway;
     }
 
     public float getDoesGoalsAway() {
@@ -142,13 +142,13 @@ public class Prediction {
     public String toString() {
         return "Prediction{" +
                 "id=" + id +
-                ", teamHome=" + teamHome +
+                ", idTeamHome=" + idTeamHome +
                 ", doesGoalsHome=" + doesGoalsHome +
                 ", doesMissedHome=" + doesMissedHome +
                 ", victoriesHomePercents=" + victoriesHomePercents +
                 ", drawnsHomePercents=" + drawnsHomePercents +
                 ", lostsHomePercens=" + lostsHomePercens +
-                ", teamAway=" + teamAway +
+                ", idTeamAway=" + idTeamAway +
                 ", doesGoalsAway=" + doesGoalsAway +
                 ", doesMissedAway=" + doesMissedAway +
                 ", victoriesAwayPercents=" + victoriesAwayPercents +

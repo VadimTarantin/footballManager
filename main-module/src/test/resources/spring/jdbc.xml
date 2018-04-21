@@ -23,6 +23,7 @@
         <jdbc:script location="classpath:sql/events.sql"/>
         <jdbc:script location="classpath:sql/tasks.sql"/>
         <jdbc:script location="classpath:sql/teams.sql"/>
+        <jdbc:script location="classpath:sql/predictions.sql"/>
     </jdbc:embedded-database>
 
 </beans>
