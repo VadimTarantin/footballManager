@@ -1,0 +1,32 @@
+drop table TEAMS IF EXISTS;
+
+CREATE TABLE TEAMS
+(
+    ID INT,
+    NAME VARCHAR(255)
+);
+
+INSERT INTO TEAMS (ID, NAME) VALUES (1, 'Вулверхэмптон Уондерерс');
+INSERT INTO TEAMS (ID, NAME) VALUES (2, 'Кардифф Сити');
+INSERT INTO TEAMS (ID, NAME) VALUES (3, 'Фулхэм');
+INSERT INTO TEAMS (ID, NAME) VALUES (4, 'Астон Вилла');
+INSERT INTO TEAMS (ID, NAME) VALUES (5, 'Миддлсбро');
+INSERT INTO TEAMS (ID, NAME) VALUES (6, 'Миллуол');
+INSERT INTO TEAMS (ID, NAME) VALUES (7, 'Дерби Каумти');
+INSERT INTO TEAMS (ID, NAME) VALUES (8, 'Брентфорд');
+INSERT INTO TEAMS (ID, NAME) VALUES (9, 'Престон Норт Энд');
+INSERT INTO TEAMS (ID, NAME) VALUES (10, 'Бристол Сити');
+INSERT INTO TEAMS (ID, NAME) VALUES (11, 'Шеффилд Юнайтед');
+INSERT INTO TEAMS (ID, NAME) VALUES (12, 'Лидс Юнайтед');
+INSERT INTO TEAMS (ID, NAME) VALUES (13, 'Норвич Сити');
+INSERT INTO TEAMS (ID, NAME) VALUES (14, 'Ипсвич Таун');
+INSERT INTO TEAMS (ID, NAME) VALUES (15, 'Шеффилд Уэнсдэй');
+INSERT INTO TEAMS (ID, NAME) VALUES (16, 'Куинз Парк Рей');
+INSERT INTO TEAMS (ID, NAME) VALUES (17, 'Ноттингем Форест');
+INSERT INTO TEAMS (ID, NAME) VALUES (18, 'Халл Сити');
+INSERT INTO TEAMS (ID, NAME) VALUES (19, 'Рединг');
+INSERT INTO TEAMS (ID, NAME) VALUES (20, 'Бирмингем Сити');
+INSERT INTO TEAMS (ID, NAME) VALUES (21, 'Болтон Уондерерс');
+INSERT INTO TEAMS (ID, NAME) VALUES (22, 'Барнсли');
+INSERT INTO TEAMS (ID, NAME) VALUES (23, 'Бертон Альбион');
+INSERT INTO TEAMS (ID, NAME) VALUES (24, 'Сандерленд');

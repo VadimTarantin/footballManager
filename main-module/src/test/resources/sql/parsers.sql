@@ -2,10 +2,10 @@ drop table PARSERS IF EXISTS;
 
 CREATE TABLE PARSERS
 (
-    PARSER_ID INT,
+    ID INT,
     NAME VARCHAR(255)
 );
 
-INSERT INTO PARSERS (PARSER_ID, NAME) VALUES (1, 'WideTableTeamTableTeamParser');
-INSERT INTO PARSERS (PARSER_ID, NAME) VALUES (2, 'FormTableTeamTableTeamParser');
-INSERT INTO PARSERS (PARSER_ID, NAME) VALUES (3, 'OverUnderTableTeamParser');
+INSERT INTO PARSERS (ID, NAME) VALUES (1, 'WideTableTeamTableTeamParser');
+INSERT INTO PARSERS (ID, NAME) VALUES (2, 'FormTableTeamTableTeamParser');
+INSERT INTO PARSERS (ID, NAME) VALUES (3, 'OverUnderTableTeamParser');

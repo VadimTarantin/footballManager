@@ -18,7 +18,9 @@ import static org.junit.Assert.assertTrue;
 @ContextConfiguration("classpath:spring/application-context.xml")
 public class DatabaseCheck {
 
-    private static final String SELECT_ALL = "SELECT t.TASK_ID, t.SESSION_ID, t.ROUND_ID, t.COMPETITION_ID, t.TYPE, p.NAME PARSER_NAME, e.NAME EVENT_NAME FROM TASKS t JOIN PARSERS p ON t.PARSER_ID = p.PARSER_ID JOIN EVENTS e ON t.EVENT_ID = e.EVENT_ID";
+    private static final String SELECT_ALL = "SELECT t.ID, t.SESSION_ID, t.ROUND_ID, t.COMPETITION_ID, t.TYPE, " +
+            "p.NAME PARSER_NAME, e.NAME EVENT_NAME " +
+            "FROM TASKS t JOIN PARSERS p ON t.PARSER_ID = p.ID JOIN EVENTS e ON t.EVENT_ID = e.ID";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -29,7 +31,7 @@ public class DatabaseCheck {
             @Override
             public Task mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Task task = new Task();
-                task.id = rs.getInt("TASK_ID");
+                task.id = rs.getInt("ID");
                 task.sessionId = rs.getInt("SESSION_ID");
                 task.roundId = rs.getInt("ROUND_ID");
                 task.competitionId = rs.getInt("COMPETITION_ID");
