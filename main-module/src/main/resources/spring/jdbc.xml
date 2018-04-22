@@ -46,12 +46,4 @@
         </property>
     </bean>
 
-    <jdbc:initialize-database data-source="dataSource" enabled="true">
-        <jdbc:script location="classpath:properties/sql/parsers.sql"/>
-        <jdbc:script location="classpath:properties/sql/events.sql"/>
-        <jdbc:script location="classpath:properties/sql/tasks.sql"/>
-        <jdbc:script location="classpath:properties/sql/teams.sql"/>
-        <jdbc:script location="classpath:properties/sql/predictions.sql"/>
-    </jdbc:initialize-database>
-
 </beans>

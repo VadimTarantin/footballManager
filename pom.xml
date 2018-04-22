@@ -17,6 +17,7 @@
         <encoding>UTF-8</encoding>
         <java.version>1.8</java.version>
         <spring.version>5.0.5.RELEASE</spring.version>
+        <mysql.version>8.0.11</mysql.version>
         <h2.version>1.4.197</h2.version>
         <hikary.connection-pool.version>3.1.0</hikary.connection-pool.version>
         <aspectj.vetsion>1.8.13</aspectj.vetsion>
@@ -75,17 +76,21 @@
 
             <!--DATABASE-->
             <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
                 <version>${h2.version}</version>
-                <!--<scope>test</scope>-->
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>com.zaxxer</groupId>
                 <artifactId>HikariCP</artifactId>
                 <version>${hikary.connection-pool.version}</version>
             </dependency>
-
 
             <!--VIEW-->
             <dependency>
