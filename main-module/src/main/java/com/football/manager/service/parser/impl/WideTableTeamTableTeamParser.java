@@ -20,7 +20,7 @@ public class WideTableTeamTableTeamParser extends BaseTableTeamParser {
         return getListWideTableTeams(preparedResponse);
     }
 
-    private synchronized List<WideTableTeam> getListWideTableTeams(String content) throws Exception {
+    private List<WideTableTeam> getListWideTableTeams(String content) throws Exception {
         List<WideTableTeam> result = new ArrayList<>();
 
         SAXParserFactory factory = SAXParserFactory.newInstance();

@@ -18,7 +18,7 @@ public class OverUnderTableTeamParser extends BaseOverUnderTableTeamParser {
         return getListWideTableTeams(preparedResponse);
     }
 
-    private synchronized List<OverUnderTableTeamImpl> getListWideTableTeams(String content) throws Exception {
+    private List<OverUnderTableTeamImpl> getListWideTableTeams(String content) throws Exception {
         List<OverUnderTableTeamImpl> result = new ArrayList<>();
 
         SAXParserFactory factory = SAXParserFactory.newInstance();

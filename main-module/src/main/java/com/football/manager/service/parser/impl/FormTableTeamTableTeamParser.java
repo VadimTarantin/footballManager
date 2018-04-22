@@ -20,7 +20,7 @@ public class FormTableTeamTableTeamParser extends BaseTableTeamParser {
         return getListFormTableTeams(preparedResponse);
     }
 
-    private synchronized List<FormTableTeam> getListFormTableTeams(String content) throws Exception {
+    private List<FormTableTeam> getListFormTableTeams(String content) throws Exception {
         List<FormTableTeam> result = new ArrayList<>();
 
         SAXParserFactory factory = SAXParserFactory.newInstance();
