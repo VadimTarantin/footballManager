@@ -20,6 +20,8 @@ public class Prediction {
     private float drawnAwayPercents;
     private float lostsAwayPercents;
 
+    private int eventId;
+
     public int getId() {
         return id;
     }
@@ -124,6 +126,14 @@ public class Prediction {
         this.lostsAwayPercents = lostsAwayPercents;
     }
 
+    public int getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(int eventId) {
+        this.eventId = eventId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -154,6 +164,7 @@ public class Prediction {
                 ", victoriesAwayPercents=" + victoriesAwayPercents +
                 ", drawnAwayPercents=" + drawnAwayPercents +
                 ", lostsAwayPercents=" + lostsAwayPercents +
+                ", eventId=" + eventId +
                 '}';
     }
 

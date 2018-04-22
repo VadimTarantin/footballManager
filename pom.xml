@@ -28,6 +28,8 @@
         <jackson.version>2.9.5</jackson.version>
         <log4j.version>1.7.25</log4j.version>
         <log4j2.version>2.11.0</log4j2.version>
+        <hibernate-validator.version>6.0.9.Final</hibernate-validator.version>
+        <el-api.version>2.2.1-b04</el-api.version>
 
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
         <maven-war-plugin.version>3.2.0</maven-war-plugin.version>
@@ -148,6 +150,21 @@
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-validator-cdi</artifactId>
+                <version>${hibernate-validator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.el</groupId>
+                <artifactId>el-api</artifactId>
+                <version>${el-api.version}</version>
+            </dependency>
 
         </dependencies>
 
@@ -171,7 +188,6 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <version>${maven-war-plugin.version}</version>
                 </plugin>
-                <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/aspectj-maven-plugin -->
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>aspectj-maven-plugin</artifactId>

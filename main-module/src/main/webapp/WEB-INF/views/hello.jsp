@@ -6,6 +6,7 @@
     <body>
         <h1>Hello from main page</h1>
         <a href="./showTeams">Показать зарегистрированные команды</a>
-
+        <br/>
+        <a href="./addDataForPredictions">Добавить данные для прогнозов</a>
 
 </html>

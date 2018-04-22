@@ -89,6 +89,7 @@ public class DatabaseCheck {
             prediction.setVictoriesAwayPercents(rs.getFloat("VICTORIES_AWAY_PERCENTS"));
             prediction.setDrawnAwayPercents(rs.getFloat("DRAWNS_AWAY_PERCENTS"));
             prediction.setLostsAwayPercents(rs.getFloat("LOSTS_AWAY_PERCENTS"));
+            prediction.setEventId(rs.getInt("EVENT_ID"));
             return prediction;
         });
         for (Prediction prediction : predictions) {

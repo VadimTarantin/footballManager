@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import java.util.List;
-import java.util.Random;
 
 @Repository
 public class TeamDaoImpl implements TeamDao {
@@ -34,13 +33,6 @@ public class TeamDaoImpl implements TeamDao {
             team.setName(rs.getString("NAME"));
             return team;
         });
-    }
-
-    @Override
-    public void addTeam() {
-        int id = new Random().nextInt();
-        String name = String.valueOf(new Random().nextInt());
-        jdbcTemplate.update(INSERT_RANDOM_TEAM, new Object[]{id, name});
     }
 
 }

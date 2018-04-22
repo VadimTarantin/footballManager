@@ -32,10 +32,4 @@ public class TeamServiceImpl implements TeamService {
         }
     }
 
-    @Override
-    @Transactional(rollbackFor = Exception.class)
-    public void addTeam() {
-        teamDao.addTeam();
-    }
-
 }
