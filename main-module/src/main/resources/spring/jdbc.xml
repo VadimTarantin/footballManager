@@ -25,8 +25,7 @@
     </bean>
 
     <!-- HikariCP configuration -->
-    <bean id="dataSource" class="com.football.manager.util.initializator.HikariDataSourceWithDatabaseInitialization"
-          init-method="databaseInitialize" destroy-method="close">
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
         <constructor-arg ref="hikariConfig" />
     </bean>
 

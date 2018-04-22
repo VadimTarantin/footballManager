@@ -1,32 +1,26 @@
 package com.football.manager.util.initializator;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
 import org.h2.tools.RunScript;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 import java.io.File;
 import java.io.FileReader;
 import java.net.URL;
 import java.sql.Connection;
 import java.util.Arrays;
 
-public class HikariDataSourceWithDatabaseInitialization extends HikariDataSource {
+public class HikariDataSourceWithDatabaseInitialization implements ServletContextListener {
 
     private static final Logger log = LoggerFactory.getLogger(HikariDataSourceWithDatabaseInitialization.class);
 
-    public HikariDataSourceWithDatabaseInitialization() {
-    }
-
-    public HikariDataSourceWithDatabaseInitialization(HikariConfig configuration) {
-        super(configuration);
-    }
-
-    public void databaseInitialize() {
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName(getDataSourceClassName());
+        dataSource.setDriverClassName("org.h2.jdbcx.JdbcDataSource");
         dataSource.setUrl("jdbc:h2:mem:FOOTBALL_MANAGER");
         dataSource.setUsername("sa");
         dataSource.setPassword("");

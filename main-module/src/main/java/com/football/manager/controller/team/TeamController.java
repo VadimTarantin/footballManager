@@ -5,6 +5,7 @@ import com.football.manager.service.domain.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -15,12 +16,12 @@ public class TeamController {
     @Autowired
     private TeamService teamService;
 
-    @RequestMapping(path = "/showTeams")
+    @RequestMapping(path = "/showTeams", method = RequestMethod.GET)
     public ModelAndView showAllTeams(){
         List<Team> allTeams = teamService.getAll();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("teams/teams");
-        modelAndView.addObject("/teams", allTeams);
+        modelAndView.addObject("teams", allTeams);
         return modelAndView;
     }
 

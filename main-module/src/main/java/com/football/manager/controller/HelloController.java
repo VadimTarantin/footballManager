@@ -23,7 +23,7 @@ public class HelloController {
         this.restMessage = restMessage;
     }
 
-    @RequestMapping(path = "/", method = RequestMethod.GET)
+    @RequestMapping(path = {"/", "/index.jsp", "/index"}, method = RequestMethod.GET)
     public String sayHello() {
         return answerForHello;
     }
