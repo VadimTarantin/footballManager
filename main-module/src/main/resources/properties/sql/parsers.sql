@@ -1,0 +1,11 @@
+drop table PARSERS IF EXISTS;
+
+CREATE TABLE PARSERS
+(
+    ID INT,
+    NAME VARCHAR(255)
+);
+
+INSERT INTO PARSERS (ID, NAME) VALUES (1, 'WideTableTeamTableTeamParser');
+INSERT INTO PARSERS (ID, NAME) VALUES (2, 'FormTableTeamTableTeamParser');
+INSERT INTO PARSERS (ID, NAME) VALUES (3, 'OverUnderTableTeamParser');

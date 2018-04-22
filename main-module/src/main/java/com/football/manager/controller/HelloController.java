@@ -1,7 +1,5 @@
 package com.football.manager.controller;
 
-import com.football.manager.service.parser.Parser;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,9 +15,6 @@ public class HelloController {
     @Value("${rest.message}")
     private String restMessage;
 
-    @Autowired
-    private Parser parser;
-
     public void setAnswerForHello(String answerForHello) {
         this.answerForHello = answerForHello;
     }
@@ -28,7 +23,7 @@ public class HelloController {
         this.restMessage = restMessage;
     }
 
-    @RequestMapping(path = "/hello", method = RequestMethod.GET)
+    @RequestMapping(path = "/", method = RequestMethod.GET)
     public String sayHello() {
         return answerForHello;
     }

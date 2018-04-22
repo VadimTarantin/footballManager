@@ -28,6 +28,9 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+    <listener>
+        <listener-class>com.football.manager.util.initializator.HikariDataSourceWithDatabaseInitialization</listener-class>
+    </listener>
 
     <filter>
         <filter-name>encodingFilter</filter-name>

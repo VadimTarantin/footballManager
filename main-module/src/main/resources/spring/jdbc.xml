@@ -25,13 +25,14 @@
     </bean>
 
     <!-- HikariCP configuration -->
-    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource" destroy-method="close">
+    <bean id="dataSource" class="com.football.manager.util.initializator.HikariDataSourceWithDatabaseInitialization"
+          init-method="databaseInitialize" destroy-method="close">
         <constructor-arg ref="hikariConfig" />
     </bean>
 
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <property name="poolName" value="springHikariCP" />
-        <property name="connectionTestQuery" value="SELECT 1" />
+        <property name="connectionTestQuery" value="VALUES 1" />
         <property name="dataSourceClassName" value="${datasource.driverClassName}" />
         <property name="maximumPoolSize" value="${hikari.maximumPoolSize}" />
         <property name="idleTimeout" value="${hikari.idleTimeout}" />

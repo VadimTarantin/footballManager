@@ -2,6 +2,8 @@ package com.football.manager.service.parser;
 
 import com.football.manager.entity.TableTeam;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -11,6 +13,8 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 public class FormTableTeamParserTest extends BaseTableTeamParserTest {
+
+    private static final Logger log = LoggerFactory.getLogger(FormTableTeamParserTest.class);
 
     @Value("${form.table.team.parser.test.file.name}")
     private String fileName;
@@ -28,7 +32,7 @@ public class FormTableTeamParserTest extends BaseTableTeamParserTest {
         List<? extends TableTeam> formTableTeams = parser.parse(getResponse(fileName));
 
         for (TableTeam wideTableTeam : formTableTeams) {
-            System.out.println(wideTableTeam);
+            log.info(wideTableTeam.toString());
         }
 
         assertEquals(formTableTeams.size(), 24);
