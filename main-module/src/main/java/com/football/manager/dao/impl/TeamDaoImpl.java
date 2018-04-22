@@ -8,8 +8,6 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.TransactionStatus;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
 import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import java.util.List;
@@ -29,9 +27,6 @@ public class TeamDaoImpl implements TeamDao {
     public List<Team> getAll() {
         boolean actualTransactionActive = TransactionSynchronizationManager.isActualTransactionActive();
         System.out.println("TeamDaoImpl, actualTransactionActive=" + actualTransactionActive);
-
-        TransactionStatus status = TransactionAspectSupport.currentTransactionStatus();
-        System.out.println("TeamDaoImpl, TransactionStatus" + status);
 
         return jdbcTemplate.query(SELECT_ALL, (rs, rowNum) -> {
             Team team = new Team();

@@ -9,10 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.TransactionStatus;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.transaction.interceptor.TransactionAspectSupport;
-import org.springframework.transaction.support.TransactionSynchronizationManager;
 
 import java.util.List;
 
@@ -28,12 +25,6 @@ public class TeamServiceImpl implements TeamService {
     @Override
     public List<Team> getAll() {
         try {
-            boolean actualTransactionActive = TransactionSynchronizationManager.isActualTransactionActive();
-            System.out.println("TeamServiceImpl, actualTransactionActive=" + actualTransactionActive);
-
-            TransactionStatus status = TransactionAspectSupport.currentTransactionStatus();
-            System.out.println("TeamServiceImpl, TransactionStatus" + status);
-
             return teamDao.getAll();
         } catch (Exception e) {
             log.warn("Unexpected exception while getting all teams", e);
