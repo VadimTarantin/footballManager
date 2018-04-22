@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface TeamDao {
     List<Team> getAll();
+    void addTeam();
 }

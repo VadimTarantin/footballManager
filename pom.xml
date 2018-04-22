@@ -19,14 +19,18 @@
         <spring.version>5.0.5.RELEASE</spring.version>
         <h2.version>1.4.197</h2.version>
         <hikary.connection-pool.version>3.1.0</hikary.connection-pool.version>
+        <aspectj.vetsion>1.8.13</aspectj.vetsion>
         <servlet.version>4.0.0</servlet.version>
         <inject.verrsion>1</inject.verrsion>
         <jstl.version>1.2</jstl.version>
         <junit.version>4.12</junit.version>
         <jackson.version>2.9.5</jackson.version>
+        <log4j.version>1.7.25</log4j.version>
+        <log4j2.version>2.11.0</log4j2.version>
 
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
         <maven-war-plugin.version>3.2.0</maven-war-plugin.version>
+        <aspectj-maven-plugin.version>1.11</aspectj-maven-plugin.version>
     </properties>
 
     <dependencyManagement>
@@ -47,6 +51,27 @@
                 <artifactId>spring-jdbc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aspects</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjrt</artifactId>
+                <version>${aspectj.vetsion}</version>
+            </dependency>
 
             <!--DATABASE-->
             <dependency>
@@ -60,7 +85,6 @@
                 <artifactId>HikariCP</artifactId>
                 <version>${hikary.connection-pool.version}</version>
             </dependency>
-
 
 
             <!--VIEW-->
@@ -80,6 +104,18 @@
                 <groupId>javax.inject</groupId>
                 <artifactId>javax.inject</artifactId>
                 <version>${inject.verrsion}</version>
+            </dependency>
+
+            <!--LOG4J 2-->
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j2.version}</version>
             </dependency>
 
             <!--TESTS-->
@@ -130,6 +166,13 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <version>${maven-war-plugin.version}</version>
                 </plugin>
+                <!-- https://mvnrepository.com/artifact/org.codehaus.mojo/aspectj-maven-plugin -->
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>aspectj-maven-plugin</artifactId>
+                    <version>${aspectj-maven-plugin.version}</version>
+                </plugin>
+
             </plugins>
         </pluginManagement>
     </build>

@@ -25,4 +25,14 @@ public class TeamController {
         return modelAndView;
     }
 
+    @RequestMapping(path = "/addTeam", method = RequestMethod.GET)
+    public ModelAndView ModelAndView() {
+        teamService.addTeam();
+        List<Team> allTeams = teamService.getAll();
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("teams/teams");
+        modelAndView.addObject("teams", allTeams);
+        return modelAndView;
+    }
+
 }

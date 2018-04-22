@@ -2,9 +2,8 @@ package com.football.manager.service.parser;
 
 import com.football.manager.entity.OverUnderTableTeam;
 import com.football.manager.util.SystemUtil;
+import org.apache.logging.log4j.LogManager;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,7 +14,7 @@ import static org.junit.Assert.assertEquals;
 
 public class OverUnderTableTeamParserTest extends BaseTableTeamParserTest {
 
-    private static final Logger log = LoggerFactory.getLogger(SystemUtil.getCurrentClass());
+    private static final org.apache.logging.log4j.Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
 
     @Value("${over.under.table.team.parser.test.file.name}")
     private String fileName;
