@@ -29,7 +29,7 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
     <listener>
-        <listener-class>com.football.manager.util.initializator.HikariDataSourceWithDatabaseInitialization</listener-class>
+        <listener-class>com.football.manager.util.listener.SqlInitializerScriptsExecutorListener</listener-class>
     </listener>
 
     <filter>

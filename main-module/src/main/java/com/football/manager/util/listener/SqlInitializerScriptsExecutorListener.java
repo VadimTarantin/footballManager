@@ -1,5 +1,6 @@
-package com.football.manager.util.initializator;
+package com.football.manager.util.listener;
 
+import com.football.manager.util.SystemUtil;
 import org.h2.tools.RunScript;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,9 +14,9 @@ import java.net.URL;
 import java.sql.Connection;
 import java.util.Arrays;
 
-public class HikariDataSourceWithDatabaseInitialization implements ServletContextListener {
+public class SqlInitializerScriptsExecutorListener implements ServletContextListener {
 
-    private static final Logger log = LoggerFactory.getLogger(HikariDataSourceWithDatabaseInitialization.class);
+    private static final Logger log = LoggerFactory.getLogger(SystemUtil.getCurrentClass());
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
@@ -24,7 +25,7 @@ public class HikariDataSourceWithDatabaseInitialization implements ServletContex
         dataSource.setUrl("jdbc:h2:mem:FOOTBALL_MANAGER");
         dataSource.setUsername("sa");
         dataSource.setPassword("");
-        log.info("Trying to execute sql-scripts for initializator...");
+        log.info("Trying to execute sql-scripts for listener...");
         try  (Connection conn = dataSource.getConnection()) {
             URL resource = this.getClass().getClassLoader().getResource("properties/sql");
             File file = new File(resource.getFile());

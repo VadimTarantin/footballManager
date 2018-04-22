@@ -1,6 +1,7 @@
 package com.football.manager.dao;
 
 import com.football.manager.entity.Prediction;
+import com.football.manager.util.SystemUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -18,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 @ContextConfiguration("classpath:spring/application-context.xml")
 public class DatabaseCheck {
 
-    private static final Logger log = LoggerFactory.getLogger(DatabaseCheck.class);
+    private static final Logger log = LoggerFactory.getLogger(SystemUtil.getCurrentClass());
 
     private static final String SELECT_ALL = "SELECT t.ID, t.SESSION_ID, t.ROUND_ID, t.COMPETITION_ID, t.TYPE, " +
             "p.NAME PARSER_NAME, e.NAME EVENT_NAME " +
