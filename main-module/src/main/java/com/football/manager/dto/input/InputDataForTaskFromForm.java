@@ -1,10 +1,7 @@
 package com.football.manager.dto.input;
 
-import org.springframework.stereotype.Component;
-
 import javax.validation.constraints.NotNull;
 
-@Component
 public class InputDataForTaskFromForm {
 
     private static final String ERROR_MESSAGE = "Поле не может быть пустым";

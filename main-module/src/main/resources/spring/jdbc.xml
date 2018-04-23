@@ -14,7 +14,7 @@
         http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <tx:annotation-driven transaction-manager="txManager"/>
+    <tx:annotation-driven transaction-manager="txManager" mode="aspectj"/>
 
 
     <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
