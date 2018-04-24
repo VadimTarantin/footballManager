@@ -7,4 +7,5 @@ import java.util.List;
 public interface TaskDao {
     void add(Task task);
     void add(List<Task> tasks);
+    List<Task> getAll();
 }
