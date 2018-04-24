@@ -10,22 +10,9 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <import resource="classpath:spring/jdbc.xml"/>
-    <import resource="classpath:spring/dao.xml"/>
-    <import resource="classpath:spring/service.xml"/>
-    <import resource="classpath:spring/parsers.xml"/>
-
-    <context:annotation-config />
-
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="locations">
-            <list>
-                <value>classpath:properties/application.properties</value>
-                <value>classpath:properties/jdbc.properties</value>
-                <value>classpath:properties/for-app-context-startup.properties</value>
-            </list>
-        </property>
+    <bean id="taskService" class="com.football.manager.service.domain.impl.TaskServiceImp">
+        <property name="taskDao" ref="taskDao"/>
+        <property name="eventDao" ref="eventDao"/>
     </bean>
-
 
 </beans>
