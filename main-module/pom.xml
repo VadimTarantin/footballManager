@@ -117,6 +117,10 @@
             <groupId>javax.el</groupId>
             <artifactId>el-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+        </dependency>
     </dependencies>
 
     <build>

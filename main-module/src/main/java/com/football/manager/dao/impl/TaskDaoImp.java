@@ -68,7 +68,7 @@ public class TaskDaoImp extends BaseDaoImpl implements TaskDao {
             result.setSessionId(rs.getInt("SESSION_ID"));
             result.setRoundId(rs.getInt("ROUND_ID"));
             result.setCompetitionId(rs.getInt("COMPETITION_ID"));
-            result.setType(rs.getString("COMPETITION_ID"));
+            result.setType(rs.getString("TYPE"));
             result.setParserId(rs.getInt("PARSER_ID"));
             result.setEventId(rs.getInt("EVENT_ID"));
             return result;
