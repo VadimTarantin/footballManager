@@ -19,6 +19,7 @@
             <list>
                 <value>classpath:properties/application.properties</value>
                 <value>classpath:properties/jdbc.properties</value>
+                <value>classpath:properties/for-app-context-startup.properties</value>
             </list>
         </property>
     </bean>
@@ -39,6 +40,19 @@
         <property name="startTag" value="${tables.parser.start.tag}"/>
         <property name="endTag" value="${tables.parser.end.tag}"/>
         <property name="entitiesToCut" value="${tables.parser.entities.to.cut}"/>
+    </bean>
+
+    <bean id="taskServiceImp" class="com.football.manager.service.domain.impl.TaskServiceImp">
+        <property name="taskDao" ref="taskDao"/>
+        <property name="eventDao" ref="eventDao"/>
+    </bean>
+
+    <bean id="eventDao" class="com.football.manager.dao.impl.EventDaoImpl">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
+    </bean>
+
+    <bean id="taskDao" class="com.football.manager.dao.impl.TaskDaoImp">
+        <property name="jdbcTemplate" ref="jdbcTemplate"/>
     </bean>
 
 </beans>

@@ -21,8 +21,8 @@ public class TeamServiceImpl implements TeamService {
     @Autowired
     private TeamDao teamDao;
 
-    @Transactional(readOnly = true)
     @Override
+    @Transactional(readOnly = true)
     public List<Team> getAll() {
         try {
             return teamDao.getAll();
