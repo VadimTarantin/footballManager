@@ -48,10 +48,9 @@ public class PredictionController {
             } catch (TaskServiceException e) {
                 log.info("Cannot insert data for new task: ", e);
                 answer = FAIL;
-                errorMessage = e.getMessage();
-                modelMap.put("errorMessage", errorMessage);
+                modelMap.put("errorMessage", e.getMessage());
             }
-            modelMap.put("inputDataForTaskFromForm", new InputDataForTaskFromForm());
+            modelMap.put("inputDataForTaskFromForm", inputDataForTaskFromForm);
         }
         modelMap.put("answer", answer);
         return PAGE_ADD_DATA_FOR_PREDICTION;

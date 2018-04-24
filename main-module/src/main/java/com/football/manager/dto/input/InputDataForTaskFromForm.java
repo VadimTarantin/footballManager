@@ -1,5 +1,6 @@
 package com.football.manager.dto.input;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 public class InputDataForTaskFromForm {
@@ -12,7 +13,7 @@ public class InputDataForTaskFromForm {
     private Integer roundId;
     @NotNull(message = ERROR_MESSAGE)
     private Integer competitionId;
-    @NotNull(message = ERROR_MESSAGE)
+    @NotBlank(message = ERROR_MESSAGE)
     private String eventName;
 
     public Integer getSessionId() {
