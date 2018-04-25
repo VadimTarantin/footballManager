@@ -29,4 +29,39 @@
         </property>
     </bean>
 
+    <bean id="getTasksFromDatabaseTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="${amount.tasks.managers}" />
+        <property name="maxPoolSize" value="${amount.tasks.managers}" />
+        <property name="WaitForTasksToCompleteOnShutdown" value="true" />
+        <property name="queueCapacity" value="1000"/>
+    </bean>
+
+    <bean id="crawlerTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="${amount.crawler.managers}" />
+        <property name="maxPoolSize" value="${amount.crawler.managers}" />
+        <property name="WaitForTasksToCompleteOnShutdown" value="true" />
+        <property name="queueCapacity" value="1000"/>
+    </bean>
+
+    <bean id="parsersTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="${amount.parsers.managers}" />
+        <property name="maxPoolSize" value="${amount.parsers.managers}" />
+        <property name="WaitForTasksToCompleteOnShutdown" value="true" />
+        <property name="queueCapacity" value="1000"/>
+    </bean>
+
+    <bean id="calculatePredictionsTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="${amount.predictions.managers}" />
+        <property name="maxPoolSize" value="${amount.predictions.managers}" />
+        <property name="WaitForTasksToCompleteOnShutdown" value="true" />
+        <property name="queueCapacity" value="1000"/>
+    </bean>
+
+    <bean id="saverPredictionsInDatabaseTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="${amount.prediction.savers.managers}" />
+        <property name="maxPoolSize" value="${amount.prediction.savers.managers}" />
+        <property name="WaitForTasksToCompleteOnShutdown" value="true" />
+        <property name="queueCapacity" value="1000"/>
+    </bean>
+
 </beans>

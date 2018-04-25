@@ -37,6 +37,18 @@ public class TaskServiceImp implements TaskService {
         this.eventDao = eventDao;
     }
 
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Task> getAll() {
+        try {
+            return taskDao.getAll();
+        } catch (Exception e) {
+            throw new TaskServiceException("Cannot get all tasks", e);
+        }
+
+    }
+
     @Override
     @Transactional(isolation = Isolation.REPEATABLE_READ, rollbackFor = Exception.class)
     public void addTask(InputDataForTaskFromForm inputData) {
