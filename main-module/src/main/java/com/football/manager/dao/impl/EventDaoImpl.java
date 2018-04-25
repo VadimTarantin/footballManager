@@ -7,13 +7,14 @@ import com.football.manager.entity.Event;
 import com.football.manager.util.SystemUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.PreparedStatement;
-import java.sql.Statement;
-import java.sql.Types;
+import java.sql.*;
+import java.util.List;
 
 @Component
 public class EventDaoImpl extends BaseDaoImpl implements EventDao {
@@ -21,6 +22,7 @@ public class EventDaoImpl extends BaseDaoImpl implements EventDao {
     private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
     private static final String SELECT_BY_NAME = "SELECT ID, NAME FROM EVENTS WHERE NAME = ?;";
     private static final String INSERT_NEW_EVENT = "INSERT INTO EVENTS (NAME) VALUES (?);";
+    private static final String SELECT_ALL_EVENTS = "SELECT ID, NAME FROM EVENTS;";
 
     @Override
     public Integer add(Event event) {
@@ -74,6 +76,17 @@ public class EventDaoImpl extends BaseDaoImpl implements EventDao {
         } catch (NoSuchEntityException e) {
             return false;
         }
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public List<Event> getAll() {
+        return jdbcTemplate.query(SELECT_ALL_EVENTS, new RowMapper<Event>() {
+            @Override
+            public Event mapRow(ResultSet rs, int rowNum) throws SQLException {
+                return new Event(rs.getInt("ID"), rs.getString("NAME"));
+            }
+        });
     }
 
 }

@@ -10,6 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -54,6 +56,13 @@ public class EventDaoImplTest {
     @Test (expected = NoSuchEntityException.class)
     public void testGetByNameWhenNotExistingEvenShouldThrownNoSuchEntityException() {
         Event result = eventDao.getEventByName("Abc");
+    }
+
+    @Test
+    public void testGetAllEventShouldReturnListOfEvents() {
+        List<Event> result = eventDao.getAll();
+
+        assertTrue(result.size() == 2);
     }
 
 }
