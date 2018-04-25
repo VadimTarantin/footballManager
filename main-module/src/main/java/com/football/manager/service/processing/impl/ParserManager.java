@@ -5,7 +5,7 @@ import com.football.manager.dto.input.ParsedTablesDto;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-public class ParserManager implements Runnable {
+public class ParserManager extends BaseProcessor {
 
     private ArrayBlockingQueue<CrawledTablesDto> crawledTablesDtos;
     private ArrayBlockingQueue<ParsedTablesDto> parsedTablesDtos;
@@ -16,7 +16,7 @@ public class ParserManager implements Runnable {
     }
 
     @Override
-    public void run() {
+    protected void doWork() throws InterruptedException {
         //CrawledTablesDto -> ParsedTablesDto
     }
 

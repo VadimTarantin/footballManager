@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.Closeable;
-import java.io.IOException;
+import java.sql.Connection;
 
 public class SystemUtil {
 
@@ -23,8 +23,18 @@ public class SystemUtil {
             if (resource != null) {
                 resource.close();
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.warn("Error during closing resource: {}", resource);
+        }
+    }
+
+    public static void closeQuietlyConnection(Connection connection) {
+        try {
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        } catch (Exception e) {
+            log.warn("Error during closing connection: {}", connection);
         }
     }
 

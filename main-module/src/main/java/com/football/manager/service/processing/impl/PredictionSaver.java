@@ -5,7 +5,7 @@ import com.football.manager.entity.Prediction;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-public class PredictionSaver implements Runnable {
+public class PredictionSaver extends BaseProcessor {
 
     private ArrayBlockingQueue<Prediction> predictions;
     private PredictionDao predictionDao;
@@ -16,7 +16,7 @@ public class PredictionSaver implements Runnable {
     }
 
     @Override
-    public void run() {
+    protected void doWork() throws InterruptedException {
         //predictions -> database
     }
 

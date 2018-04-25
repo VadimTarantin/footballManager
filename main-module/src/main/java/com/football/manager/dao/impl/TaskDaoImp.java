@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.stereotype.Component;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public class TaskDaoImp extends BaseDaoImpl implements TaskDao {
     private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
     private static final String INSERT_NEW_TASK = "INSERT INTO TASKS (SESSION_ID, ROUND_ID, COMPETITION_ID, TYPE, PARSER_ID, EVENT_ID) " +
             "VALUES (?, ?, ?, ?, ?, ?);";
-    private static final String SELECT_ALL = "SELECT ID, SESSION_ID, ROUND_ID, COMPETITION_ID, TYPE, PARSER_ID, EVENT_ID FROM TASKS;";
+    public static final String SELECT_ALL = "SELECT ID, SESSION_ID, ROUND_ID, COMPETITION_ID, TYPE, PARSER_ID, EVENT_ID FROM TASKS;";
 
     @Override
     public void add(Task task) {
@@ -62,17 +63,20 @@ public class TaskDaoImp extends BaseDaoImpl implements TaskDao {
 
     @Override
     public List<Task> getAll() {
-        return jdbcTemplate.query(SELECT_ALL, (rs, rowNum) -> {
-            Task result = new Task();
-            result.setId(rs.getInt("ID"));
-            result.setSessionId(rs.getInt("SESSION_ID"));
-            result.setRoundId(rs.getInt("ROUND_ID"));
-            result.setCompetitionId(rs.getInt("COMPETITION_ID"));
-            result.setType(rs.getString("TYPE"));
-            result.setParserId(rs.getInt("PARSER_ID"));
-            result.setEventId(rs.getInt("EVENT_ID"));
-            return result;
-        });
+        return jdbcTemplate.query(SELECT_ALL, (rs, rowNum) -> extractTask(rs));
+    }
+
+    @Override
+    public Task extractTask(ResultSet rs) throws SQLException {
+        Task result = new Task();
+        result.setId(rs.getInt("ID"));
+        result.setSessionId(rs.getInt("SESSION_ID"));
+        result.setRoundId(rs.getInt("ROUND_ID"));
+        result.setCompetitionId(rs.getInt("COMPETITION_ID"));
+        result.setType(rs.getString("TYPE"));
+        result.setParserId(rs.getInt("PARSER_ID"));
+        result.setEventId(rs.getInt("EVENT_ID"));
+        return result;
     }
 
 }

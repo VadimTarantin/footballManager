@@ -5,7 +5,7 @@ import com.football.manager.entity.Task;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-public class TaskProcessingManager implements Runnable {
+public class TaskProcessingManager extends BaseProcessor {
 
     private ArrayBlockingQueue<Task> tasks;
     private ArrayBlockingQueue<BusinessTaskDto> businessTaskDtos;
@@ -17,7 +17,7 @@ public class TaskProcessingManager implements Runnable {
     }
 
     @Override
-    public void run() {
+    protected void doWork() throws InterruptedException {
         //tasks -> BusinessTaskTdo
     }
 

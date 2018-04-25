@@ -5,7 +5,7 @@ import com.football.manager.entity.Prediction;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-public class PredictionManager implements Runnable {
+public class PredictionManager extends BaseProcessor {
 
     private ArrayBlockingQueue<ParsedTablesDto> parsedTablesDtos;
     private ArrayBlockingQueue<Prediction> predictions;
@@ -16,7 +16,7 @@ public class PredictionManager implements Runnable {
     }
 
     @Override
-    public void run() {
+    protected void doWork() throws InterruptedException {
         //ParsedTablesDto -> predictions
     }
 
