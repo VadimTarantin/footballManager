@@ -19,7 +19,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executor;
 
 @Service
-public class ProcessingManager implements Runnable {
+public class ProcessingManager {
 
     private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
 
@@ -53,65 +53,42 @@ public class ProcessingManager implements Runnable {
     @Autowired
     private PredictionDao predictionDao;
 
-
-    //Executors
     @Autowired
-    @Qualifier("getTasksFromDatabaseTaskExecutor")
-    private Executor getTasksFromDatabaseTaskExecutor;
+    @Qualifier("predictionsCalculationTaskExecutor")
+    private Executor predictionsCalculationTaskExecutor;
 
-    @Autowired
-    @Qualifier("tasksProcessingTaskExecutor")
-    private Executor tasksProcessingTaskExecutor;
-
-    @Autowired
-    @Qualifier("crawlerTaskExecutor")
-    private Executor crawlerTaskExecutor;
-
-    @Autowired
-    @Qualifier("parsersTaskExecutor")
-    private Executor parsersTaskExecutor;
-
-    @Autowired
-    @Qualifier("calculatePredictionsTaskExecutor")
-    private Executor calculatePredictionsTaskExecutor;
-
-    @Autowired
-    @Qualifier("saverPredictionsInDatabaseTaskExecutor")
-    private Executor saverPredictionsInDatabaseTaskExecutor;
-
-    @Override
-    public void run() {
-        log.info("Procession manager starts. Will started managers...");
+    public void startPredictionsCalculating() {
+        log.info("Procession manager starts. Will start managers...");
         for (int i = 0; i < amountTasksGettingManagers; i++) {
-            getTasksFromDatabaseTaskExecutor.execute(new TaskGettingManager(taskDao, tasks));
+            predictionsCalculationTaskExecutor.execute(new TaskGettingManager(taskDao, tasks));
         }
         log.info("{} TaskGettingManagers started", amountTasksGettingManagers);
 
         for (int i = 0; i < amountTasksProcessingManagers; i++) {
-            getTasksFromDatabaseTaskExecutor.execute(new TaskProcessingManager(tasks, businessTaskDtos));
+            predictionsCalculationTaskExecutor.execute(new TaskProcessingManager(tasks, businessTaskDtos));
         }
         log.info("{} TaskProcessingManagers started", amountTasksProcessingManagers);
 
         for (int i = 0; i < amountCrawlerManagers; i++) {
-            crawlerTaskExecutor.execute(new CrawlerManager(businessTaskDtos, crawledTablesDtos));
+            predictionsCalculationTaskExecutor.execute(new CrawlerManager(businessTaskDtos, crawledTablesDtos));
         }
         log.info("{} CrawlerManagers started", amountCrawlerManagers);
 
         for (int i = 0; i < amountParsersManagers; i++) {
-            parsersTaskExecutor.execute(new ParserManager(crawledTablesDtos, parsedTablesDtos));
+            predictionsCalculationTaskExecutor.execute(new ParserManager(crawledTablesDtos, parsedTablesDtos));
         }
         log.info("{} ParserManager started", amountParsersManagers);
 
         for (int i = 0; i < amountPredictionsManagers; i++) {
-            calculatePredictionsTaskExecutor.execute(new PredictionManager(parsedTablesDtos, predictions));
+            predictionsCalculationTaskExecutor.execute(new PredictionManager(parsedTablesDtos, predictions));
         }
         log.info("{} PredictionManager started", amountPredictionsManagers);
 
         for (int i = 0; i < amountCalculatePredictionManagers; i++) {
-            saverPredictionsInDatabaseTaskExecutor.execute( new PredictionSaver(predictions, predictionDao));
+            predictionsCalculationTaskExecutor.execute( new PredictionSaver(predictions, predictionDao));
         }
         log.info("{} PredictionSaver started", amountCalculatePredictionManagers);
-        log.info("Processing prediction has ben started successful");
+        log.info("Processing prediction has been started successful");
     }
 
     public void setAmountTasksGettingManagers(int amountTasksGettingManagers) {
