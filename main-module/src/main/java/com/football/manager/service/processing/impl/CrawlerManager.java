@@ -1,26 +1,24 @@
 package com.football.manager.service.processing.impl;
 
-import com.football.manager.entity.Task;
+import com.football.manager.dto.input.BusinessTaskDto;
+import com.football.manager.dto.input.CrawledTablesDto;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
 public class CrawlerManager implements Runnable {
 
-    private ArrayBlockingQueue<Task> tasks;
-    private ArrayBlockingQueue<String> wideAndFormResponse;
-    private ArrayBlockingQueue<String> OverUnderResponse;
+    private ArrayBlockingQueue<BusinessTaskDto> businessTaskDtos;
+    private ArrayBlockingQueue<CrawledTablesDto> crawledTablesDtos;
 
-    public CrawlerManager(ArrayBlockingQueue<Task> tasks,
-                          ArrayBlockingQueue<String> wideAndFormResponse,
-                          ArrayBlockingQueue<String> overUnderResponse) {
-        this.tasks = tasks;
-        this.wideAndFormResponse = wideAndFormResponse;
-        OverUnderResponse = overUnderResponse;
+    public CrawlerManager(ArrayBlockingQueue<BusinessTaskDto> businessTaskDtos,
+                          ArrayBlockingQueue<CrawledTablesDto> crawledTablesDtos) {
+        this.businessTaskDtos = businessTaskDtos;
+        this.crawledTablesDtos = crawledTablesDtos;
     }
 
     @Override
     public void run() {
-        //tasks -> wideAndFormResponse and OverUnderResponse
+        //BusinessTaskTdo -> CrawledTablesDto
     }
 
 }

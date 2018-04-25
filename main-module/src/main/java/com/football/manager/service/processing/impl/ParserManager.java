@@ -1,32 +1,23 @@
 package com.football.manager.service.processing.impl;
 
-import com.football.manager.entity.OverUnderTableTeam;
-import com.football.manager.entity.TableTeam;
+import com.football.manager.dto.input.CrawledTablesDto;
+import com.football.manager.dto.input.ParsedTablesDto;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
 public class ParserManager implements Runnable {
 
-    private ArrayBlockingQueue<String> wideAndFormResponse;
-    private ArrayBlockingQueue<String> overUnderResponse;
+    private ArrayBlockingQueue<CrawledTablesDto> crawledTablesDtos;
+    private ArrayBlockingQueue<ParsedTablesDto> parsedTablesDtos;
 
-    private ArrayBlockingQueue<TableTeam> wideAndFormTableTeams;
-    private ArrayBlockingQueue<OverUnderTableTeam> overUnderTableTeams;
-
-    public ParserManager(ArrayBlockingQueue<String> wideAndFormResponse,
-                         ArrayBlockingQueue<String> overUnderResponse,
-                         ArrayBlockingQueue<TableTeam> wideAndFormTableTeams,
-                         ArrayBlockingQueue<OverUnderTableTeam> overUnderTableTeams) {
-        this.wideAndFormResponse = wideAndFormResponse;
-        this.overUnderResponse = overUnderResponse;
-        this.wideAndFormTableTeams = wideAndFormTableTeams;
-        this.overUnderTableTeams = overUnderTableTeams;
+    public ParserManager(ArrayBlockingQueue<CrawledTablesDto> crawledTablesDtos, ArrayBlockingQueue<ParsedTablesDto> parsedTablesDtos) {
+        this.crawledTablesDtos = crawledTablesDtos;
+        this.parsedTablesDtos = parsedTablesDtos;
     }
 
     @Override
     public void run() {
-        //wideAndFormResponse -> wideAndFormTableTeams
-        //overUnderResponse -> overUnderTableTeams
+        //CrawledTablesDto -> ParsedTablesDto
     }
 
 }

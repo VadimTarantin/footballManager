@@ -30,8 +30,15 @@
     </bean>
 
     <bean id="getTasksFromDatabaseTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
-        <property name="corePoolSize" value="${amount.tasks.managers}" />
-        <property name="maxPoolSize" value="${amount.tasks.managers}" />
+        <property name="corePoolSize" value="${amount.tasks.getting.managers}" />
+        <property name="maxPoolSize" value="${amount.tasks.getting.managers}" />
+        <property name="WaitForTasksToCompleteOnShutdown" value="true" />
+        <property name="queueCapacity" value="1000"/>
+    </bean>
+
+    <bean id="tasksProcessingTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="${amount.tasks.processing.managers}" />
+        <property name="maxPoolSize" value="${amount.tasks.processing.managers}" />
         <property name="WaitForTasksToCompleteOnShutdown" value="true" />
         <property name="queueCapacity" value="1000"/>
     </bean>
@@ -51,8 +58,8 @@
     </bean>
 
     <bean id="calculatePredictionsTaskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
-        <property name="corePoolSize" value="${amount.predictions.managers}" />
-        <property name="maxPoolSize" value="${amount.predictions.managers}" />
+        <property name="corePoolSize" value="${amount.prediction.calculate.managers}" />
+        <property name="maxPoolSize" value="${amount.prediction.calculate.managers}" />
         <property name="WaitForTasksToCompleteOnShutdown" value="true" />
         <property name="queueCapacity" value="1000"/>
     </bean>

@@ -5,12 +5,13 @@ import com.football.manager.entity.Task;
 
 import java.util.concurrent.ArrayBlockingQueue;
 
-public class TaskManager implements Runnable {
+public class TaskGettingManager implements Runnable {
 
     private TaskDao taskDao;
     private ArrayBlockingQueue<Task> tasks;
 
-    public TaskManager(TaskDao taskDao, ArrayBlockingQueue<Task> tasks) {
+    public TaskGettingManager(TaskDao taskDao,
+                              ArrayBlockingQueue<Task> tasks) {
         this.taskDao = taskDao;
         this.tasks = tasks;
     }

@@ -2,9 +2,10 @@ package com.football.manager.service.processing.impl;
 
 import com.football.manager.dao.PredictionDao;
 import com.football.manager.dao.TaskDao;
-import com.football.manager.entity.OverUnderTableTeam;
+import com.football.manager.dto.input.BusinessTaskDto;
+import com.football.manager.dto.input.CrawledTablesDto;
+import com.football.manager.dto.input.ParsedTablesDto;
 import com.football.manager.entity.Prediction;
-import com.football.manager.entity.TableTeam;
 import com.football.manager.entity.Task;
 import com.football.manager.util.SystemUtil;
 import org.apache.logging.log4j.LogManager;
@@ -25,16 +26,17 @@ public class ProcessingManager implements Runnable {
     @Autowired
     private TaskDao taskDao;
     private ArrayBlockingQueue<Task> tasks = new ArrayBlockingQueue<>(1500);
-    @Value("${amount.tasks.managers}")
-    private int amountTasksManagers;
+    @Value("${amount.tasks.getting.managers}")
+    private int amountTasksGettingManagers;
+    private ArrayBlockingQueue<BusinessTaskDto> businessTaskDtos = new ArrayBlockingQueue<>(500);
 
-    private ArrayBlockingQueue<String> wideAndFormResponse = new ArrayBlockingQueue<>(1000);
-    private ArrayBlockingQueue<String> overUnderResponse = new ArrayBlockingQueue<>(500);
+    @Value("${amount.tasks.processing.managers}")
+    private int amountTasksProcessingManagers;
+    private ArrayBlockingQueue<CrawledTablesDto> crawledTablesDtos = new ArrayBlockingQueue<>(500);
     @Value("${amount.crawlers.managers}")
     private int amountCrawlerManagers;
 
-    private ArrayBlockingQueue<TableTeam> wideAndFormTableTeams = new ArrayBlockingQueue<>(1000);
-    private ArrayBlockingQueue<OverUnderTableTeam> overUnderTableTeams = new ArrayBlockingQueue<>(500);
+    private ArrayBlockingQueue<ParsedTablesDto> parsedTablesDtos = new ArrayBlockingQueue<>(500);
     @Value("${amount.parsers.managers}")
     private int amountParsersManagers;
 
@@ -42,14 +44,24 @@ public class ProcessingManager implements Runnable {
     @Value("${amount.predictions.managers}")
     private int amountPredictionsManagers;
 
+    @Value("${amount.prediction.calculate.managers}")
+    private int amountCalculatePredictionManagers;
+
+    @Value("${amount.prediction.saver.in.database.managers}")
+    private int amountPredictionSaverInDatabaseManagers;
+
     @Autowired
     private PredictionDao predictionDao;
-    @Value("${amount.prediction.savers.managers}")
-    private int amountPredictionSaversManagers;
 
+
+    //Executors
     @Autowired
     @Qualifier("getTasksFromDatabaseTaskExecutor")
     private Executor getTasksFromDatabaseTaskExecutor;
+
+    @Autowired
+    @Qualifier("tasksProcessingTaskExecutor")
+    private Executor tasksProcessingTaskExecutor;
 
     @Autowired
     @Qualifier("crawlerTaskExecutor")
@@ -70,35 +82,40 @@ public class ProcessingManager implements Runnable {
     @Override
     public void run() {
         log.info("Procession manager starts. Will started managers...");
-        for (int i = 0; i < amountTasksManagers; i++) {
-            getTasksFromDatabaseTaskExecutor.execute(new TaskManager(taskDao, tasks));
+        for (int i = 0; i < amountTasksGettingManagers; i++) {
+            getTasksFromDatabaseTaskExecutor.execute(new TaskGettingManager(taskDao, tasks));
         }
+        log.info("{} TaskGettingManagers started", amountTasksGettingManagers);
 
-        log.info("{} TaskManagers started", amountTasksManagers);
+        for (int i = 0; i < amountTasksProcessingManagers; i++) {
+            getTasksFromDatabaseTaskExecutor.execute(new TaskProcessingManager(tasks, businessTaskDtos));
+        }
+        log.info("{} TaskProcessingManagers started", amountTasksProcessingManagers);
+
         for (int i = 0; i < amountCrawlerManagers; i++) {
-            crawlerTaskExecutor.execute(new CrawlerManager(tasks, wideAndFormResponse, overUnderResponse));
+            crawlerTaskExecutor.execute(new CrawlerManager(businessTaskDtos, crawledTablesDtos));
         }
         log.info("{} CrawlerManagers started", amountCrawlerManagers);
 
         for (int i = 0; i < amountParsersManagers; i++) {
-            parsersTaskExecutor.execute(new ParserManager(wideAndFormResponse, overUnderResponse, wideAndFormTableTeams, overUnderTableTeams));
+            parsersTaskExecutor.execute(new ParserManager(crawledTablesDtos, parsedTablesDtos));
         }
         log.info("{} ParserManager started", amountParsersManagers);
 
         for (int i = 0; i < amountPredictionsManagers; i++) {
-            calculatePredictionsTaskExecutor.execute(new PredictionManager(wideAndFormTableTeams, overUnderTableTeams, predictions));
+            calculatePredictionsTaskExecutor.execute(new PredictionManager(parsedTablesDtos, predictions));
         }
         log.info("{} PredictionManager started", amountPredictionsManagers);
 
-        for (int i = 0; i < amountPredictionSaversManagers; i++) {
+        for (int i = 0; i < amountCalculatePredictionManagers; i++) {
             saverPredictionsInDatabaseTaskExecutor.execute( new PredictionSaver(predictions, predictionDao));
         }
-        log.info("{} PredictionSaver started", amountPredictionSaversManagers);
+        log.info("{} PredictionSaver started", amountCalculatePredictionManagers);
         log.info("Processing prediction has ben started successful");
     }
 
-    public void setAmountTasksManagers(int amountTasksManagers) {
-        this.amountTasksManagers = amountTasksManagers;
+    public void setAmountTasksGettingManagers(int amountTasksGettingManagers) {
+        this.amountTasksGettingManagers = amountTasksGettingManagers;
     }
 
     public void setAmountCrawlerManagers(int amountCrawlerManagers) {
@@ -113,8 +130,12 @@ public class ProcessingManager implements Runnable {
         this.amountPredictionsManagers = amountPredictionsManagers;
     }
 
-    public void setAmountPredictionSaversManagers(int amountPredictionSaversManagers) {
-        this.amountPredictionSaversManagers = amountPredictionSaversManagers;
+    public void setAmountCalculatePredictionManagers(int amountCalculatePredictionManagers) {
+        this.amountCalculatePredictionManagers = amountCalculatePredictionManagers;
+    }
+
+    public void setAmountTasksProcessingManagers(int amountTasksProcessingManagers) {
+        this.amountTasksProcessingManagers = amountTasksProcessingManagers;
     }
 
 }
