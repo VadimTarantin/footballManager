@@ -11,24 +11,12 @@ public abstract class BaseDaoImpl {
     @Autowired
     protected JdbcTemplate jdbcTemplate;
 
-    @Autowired
-    @Qualifier("dataSource")
-    protected DataSource dataSource;
-
     public JdbcTemplate getJdbcTemplate() {
         return jdbcTemplate;
     }
 
     public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
-    }
-
-    public DataSource getDataSource() {
-        return dataSource;
-    }
-
-    public void setDataSource(DataSource dataSource) {
-        this.dataSource = dataSource;
     }
 
 }

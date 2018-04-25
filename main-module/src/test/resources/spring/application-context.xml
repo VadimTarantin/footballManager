@@ -15,6 +15,7 @@
     <import resource="classpath:spring/service.xml"/>
     <import resource="classpath:spring/parsers.xml"/>
     <import resource="classpath:spring/crawler.xml"/>
+    <import resource="classpath:spring/processing-predictions.xml"/>
 
     <context:annotation-config />
 
@@ -27,6 +28,5 @@
             </list>
         </property>
     </bean>
-
 
 </beans>

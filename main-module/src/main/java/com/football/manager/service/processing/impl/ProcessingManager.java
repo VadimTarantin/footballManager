@@ -15,7 +15,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executor;
 
@@ -26,7 +27,7 @@ public class ProcessingManager {
 
     @Autowired
     private TaskDao taskDao;
-    private ArrayBlockingQueue<Task> tasks = new ArrayBlockingQueue<>(1500);
+    private List<Task> tasks = new ArrayList<>(1500);
     @Value("${amount.tasks.getting.managers}")
     private int amountTasksGettingManagers;
     private ArrayBlockingQueue<BusinessTaskDto> businessTaskDtos = new ArrayBlockingQueue<>(500);

@@ -20,7 +20,7 @@ public class TaskDaoImp extends BaseDaoImpl implements TaskDao {
     private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
     private static final String INSERT_NEW_TASK = "INSERT INTO TASKS (SESSION_ID, ROUND_ID, COMPETITION_ID, TYPE, PARSER_ID, EVENT_ID) " +
             "VALUES (?, ?, ?, ?, ?, ?);";
-    public static final String SELECT_ALL = "SELECT ID, SESSION_ID, ROUND_ID, COMPETITION_ID, TYPE, PARSER_ID, EVENT_ID FROM TASKS;";
+    private static final String SELECT_ALL = "SELECT ID, SESSION_ID, ROUND_ID, COMPETITION_ID, TYPE, PARSER_ID, EVENT_ID FROM TASKS;";
 
     @Override
     public void add(Task task) {
