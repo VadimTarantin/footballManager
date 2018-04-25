@@ -110,4 +110,8 @@ public class Task {
                 '}';
     }
 
+    public boolean fromSameEvent(Task task) {
+        return this.sessionId == task.sessionId & this.roundId == task.roundId && this.competitionId == task.competitionId;
+    }
+
 }

@@ -47,4 +47,12 @@ public enum ParsersMapping {
         return result;
     }
 
+    public Integer getParserId() {
+        return parserId;
+    }
+
+    public String getType() {
+        return type;
+    }
+
 }

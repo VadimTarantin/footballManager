@@ -17,4 +17,13 @@
         </constructor-arg>
     </bean>
 
+    <bean id="taskProcessingManager" class="com.football.manager.service.processing.impl.TaskProcessingManager">
+        <constructor-arg index="0">
+            <null/>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <null/>
+        </constructor-arg>
+    </bean>
+
 </beans>
