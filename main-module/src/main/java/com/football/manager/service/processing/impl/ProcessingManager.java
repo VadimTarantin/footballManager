@@ -8,6 +8,8 @@ import com.football.manager.dto.input.ParsedTablesDto;
 import com.football.manager.entity.Prediction;
 import com.football.manager.entity.Task;
 import com.football.manager.service.crawler.Crawler;
+import com.football.manager.service.parser.OverUnderParser;
+import com.football.manager.service.parser.Parser;
 import com.football.manager.util.SystemUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -45,6 +47,15 @@ public class ProcessingManager {
     @Value("${amount.parsers.managers}")
     private int amountParsersManagers;
 
+    @Autowired
+    @Qualifier(value = "wideTableTeamParser")
+    private Parser wideTableTeamParser;
+    @Autowired
+    @Qualifier(value = "formTableTeamParser")
+    private Parser formTableTeamParser;
+    @Autowired
+    private OverUnderParser overUnderTableTeamParser;
+
     private ArrayBlockingQueue<Prediction> predictions = new ArrayBlockingQueue<>(1500);
     @Value("${amount.predictions.managers}")
     private int amountPredictionsManagers;
@@ -80,7 +91,8 @@ public class ProcessingManager {
         log.info("{} CrawlerManagers started", amountCrawlerManagers);
 
         for (int i = 0; i < amountParsersManagers; i++) {
-            predictionsCalculationTaskExecutor.execute(new ParserManager(crawledTablesDtos, parsedTablesDtos));
+            predictionsCalculationTaskExecutor.execute(new ParserManager(crawledTablesDtos, parsedTablesDtos,
+                    wideTableTeamParser, formTableTeamParser, overUnderTableTeamParser));
         }
         log.info("{} ParserManager started", amountParsersManagers);
 
