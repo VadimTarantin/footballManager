@@ -12,6 +12,7 @@ public abstract class BaseProcessor implements Runnable {
     @Override
     public void run() {
         String currentClass = SystemUtil.getCurrentClass();
+        long start = System.currentTimeMillis();
         log.info("{} starting", currentClass);
         init();
         log.info("{} started", currentClass);
@@ -21,7 +22,9 @@ public abstract class BaseProcessor implements Runnable {
             }
         } catch (InterruptedException e) {
         }
-        log.info("{} has finished", currentClass);
+        long finish = System.currentTimeMillis();
+        long delay = (finish - start) / 1000L;
+        log.info("{} has finished, elapsed time: {} seconds", currentClass, delay);
     }
 
     protected void init() {}
