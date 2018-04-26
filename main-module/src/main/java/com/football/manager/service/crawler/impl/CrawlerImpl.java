@@ -8,6 +8,7 @@ import org.apache.http.protocol.HTTP;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -19,6 +20,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.zip.GZIPInputStream;
 
 @Service
+@Scope("prototype")
 public class CrawlerImpl implements Crawler {
 
     private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
@@ -28,9 +30,12 @@ public class CrawlerImpl implements Crawler {
     private static final String ACCEPT_ENCODING_KEY = "Accept-Encoding";
     private static final String ACCEPT_ENCODING = "GZIP";
 
-
     @Value("${url.pattern}")
     private String urlPattern;
+
+    public CrawlerImpl(String urlPattern) {
+        this.urlPattern = urlPattern;
+    }
 
     @Override
     public String get(Task task) {

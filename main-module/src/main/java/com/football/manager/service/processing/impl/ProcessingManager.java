@@ -7,10 +7,13 @@ import com.football.manager.dto.input.CrawledTablesDto;
 import com.football.manager.dto.input.ParsedTablesDto;
 import com.football.manager.entity.Prediction;
 import com.football.manager.entity.Task;
+import com.football.manager.service.crawler.Crawler;
+import com.football.manager.service.crawler.impl.CrawlerImpl;
 import com.football.manager.util.SystemUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Lookup;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -37,6 +40,7 @@ public class ProcessingManager {
     private ArrayBlockingQueue<CrawledTablesDto> crawledTablesDtos = new ArrayBlockingQueue<>(500);
     @Value("${amount.crawlers.managers}")
     private int amountCrawlerManagers;
+    private Crawler crawler;
 
     private ArrayBlockingQueue<ParsedTablesDto> parsedTablesDtos = new ArrayBlockingQueue<>(500);
     @Value("${amount.parsers.managers}")
@@ -72,7 +76,7 @@ public class ProcessingManager {
         log.info("{} TaskProcessingManagers started", amountTasksProcessingManagers);
 
         for (int i = 0; i < amountCrawlerManagers; i++) {
-            predictionsCalculationTaskExecutor.execute(new CrawlerManager(businessTaskDtos, crawledTablesDtos));
+            predictionsCalculationTaskExecutor.execute(new CrawlerManager(businessTaskDtos, crawledTablesDtos, crawler));
         }
         log.info("{} CrawlerManagers started", amountCrawlerManagers);
 
@@ -115,6 +119,11 @@ public class ProcessingManager {
 
     public void setAmountTasksProcessingManagers(int amountTasksProcessingManagers) {
         this.amountTasksProcessingManagers = amountTasksProcessingManagers;
+    }
+
+    @Lookup
+    public Crawler getCrawler() {
+        return null;
     }
 
 }

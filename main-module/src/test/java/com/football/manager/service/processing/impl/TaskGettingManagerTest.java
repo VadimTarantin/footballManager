@@ -1,7 +1,5 @@
 package com.football.manager.service.processing.impl;
 
-import com.football.manager.util.SystemUtil;
-import org.apache.logging.log4j.LogManager;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.ArrayList;
 
 public class TaskGettingManagerTest extends BaseManagerTest {
-
-    private static final org.apache.logging.log4j.Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
 
     @Autowired
     private TaskGettingManager taskGettingManager;

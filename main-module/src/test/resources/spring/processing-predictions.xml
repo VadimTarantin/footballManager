@@ -26,4 +26,13 @@
         </constructor-arg>
     </bean>
 
+    <bean id="crawlerManager" class="com.football.manager.service.processing.impl.CrawlerManager">
+        <constructor-arg index="0">
+            <null/>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <null/>
+        </constructor-arg>
+        <constructor-arg index="2" ref="crawler"/>
+    </bean>
 </beans>
