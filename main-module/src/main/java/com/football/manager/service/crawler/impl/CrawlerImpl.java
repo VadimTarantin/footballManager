@@ -8,7 +8,6 @@ import org.apache.http.protocol.HTTP;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -20,7 +19,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.zip.GZIPInputStream;
 
 @Service
-@Scope("prototype")
 public class CrawlerImpl implements Crawler {
 
     private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
@@ -67,9 +65,7 @@ public class CrawlerImpl implements Crawler {
     private void checkResponse(HttpURLConnection con) throws IOException {
         int responseCode = con.getResponseCode();
         if (responseCode != 200) {
-            String msg = String.format("Bad response code: %s", responseCode);
-            log.warn(msg);
-            throw new CrawlerException(msg);
+            throw new CrawlerException("Bad response code: " + responseCode);
         }
     }
 

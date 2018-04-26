@@ -3,6 +3,7 @@ package com.football.manager.service.parser.impl;
 import com.football.manager.entity.OverUnderTableTeam;
 import com.football.manager.entity.OverUnderTableTeamImpl;
 import com.football.manager.service.handler.OverUnderTableTeamParserHandler;
+import org.springframework.stereotype.Service;
 
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -11,6 +12,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class OverUnderTableTeamParser extends BaseOverUnderTableTeamParser {
 
     @Override
