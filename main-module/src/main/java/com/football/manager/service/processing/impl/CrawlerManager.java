@@ -58,8 +58,8 @@ public class CrawlerManager extends BaseProcessor {
     }
 
     @Override
-    protected void logInfo(String message, Object p0, Object p1) {
-        log.info(message, p0, p1);
+    protected void logInfo(String message) {
+        log.info(message);
     }
 
 }

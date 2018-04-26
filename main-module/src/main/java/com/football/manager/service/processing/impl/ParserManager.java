@@ -19,8 +19,8 @@ public class ParserManager extends BaseProcessor {
 
     private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
 
-    private ArrayBlockingQueue<CrawledTablesDto> crawledTablesDtos;
-    private ArrayBlockingQueue<ParsedTablesDto> parsedTablesDtos;
+    ArrayBlockingQueue<CrawledTablesDto> crawledTablesDtos;
+    ArrayBlockingQueue<ParsedTablesDto> parsedTablesDtos;
 
     private Parser wideTableTeamParser;
     private Parser formTableTeamParser;
@@ -63,8 +63,8 @@ public class ParserManager extends BaseProcessor {
     }
 
     @Override
-    protected void logInfo(String message, Object p0, Object p1) {
-        log.info(message, p0, p1);
+    protected void logInfo(String message) {
+        log.info(message);
     }
 
 }

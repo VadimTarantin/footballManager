@@ -1,18 +1,15 @@
 package com.football.manager.service.processing.impl;
 
-import com.football.manager.util.SystemUtil;
-
 public abstract class BaseProcessor implements Runnable {
 
     protected final long TIMEOUT = 120_000L;
 
     @Override
     public void run() {
-        String currentClass = SystemUtil.getCurrentClass();
         long start = System.currentTimeMillis();
-        logInfo("{} starting", currentClass);
+        logInfo("Starting...");
         init();
-        logInfo("{} started", currentClass);
+        logInfo("Started");
         try {
             while (true) {
                 doWork();
@@ -21,15 +18,15 @@ public abstract class BaseProcessor implements Runnable {
         }
         long finish = System.currentTimeMillis();
         long delay = (finish - start) / 1000L;
-        logInfo("{} has finished, elapsed time: {} seconds", currentClass, delay);
+        logInfo("Finished, elapsed time: {} seconds", delay);
     }
 
     protected void init() {}
 
     protected abstract void doWork() throws InterruptedException;
 
-    protected abstract void logInfo(String message, Object p0);
+    protected abstract void logInfo(String message);
 
-    protected abstract void logInfo(String message, Object p0, Object p1);
+    protected abstract void logInfo(String message, Object p0);
 
 }

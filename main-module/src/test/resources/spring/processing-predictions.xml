@@ -35,4 +35,16 @@
         </constructor-arg>
         <constructor-arg index="2" ref="crawler"/>
     </bean>
+
+    <bean id="parserManager" class="com.football.manager.service.processing.impl.ParserManager">
+        <constructor-arg index="0">
+            <null/>
+        </constructor-arg>
+        <constructor-arg index="1">
+            <null/>
+        </constructor-arg>
+        <constructor-arg index="2" ref="wideTableTeamParser"/>
+        <constructor-arg index="3" ref="formTableTeamParser"/>
+        <constructor-arg index="4" ref="overUnderTableTeamParser"/>
+    </bean>
 </beans>
