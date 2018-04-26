@@ -10,6 +10,7 @@ import com.football.manager.entity.Task;
 import com.football.manager.service.crawler.Crawler;
 import com.football.manager.service.parser.OverUnderParser;
 import com.football.manager.service.parser.Parser;
+import com.football.manager.service.prediction.impl.Predictor;
 import com.football.manager.util.SystemUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -56,14 +57,14 @@ public class ProcessingManager {
     @Autowired
     private OverUnderParser overUnderTableTeamParser;
 
-    private ArrayBlockingQueue<Prediction> predictions = new ArrayBlockingQueue<>(1500);
-    @Value("${amount.predictions.managers}")
+    private ArrayBlockingQueue<List<Prediction>> predictions = new ArrayBlockingQueue<>(1500);
+    @Value("${amount.predictions.calculate.managers}")
     private int amountPredictionsManagers;
 
-    @Value("${amount.prediction.calculate.managers}")
-    private int amountCalculatePredictionManagers;
+    @Autowired
+    private Predictor predictor;
 
-    @Value("${amount.prediction.saver.in.database.managers}")
+    @Value("${amount.prediction.savers.managers}")
     private int amountPredictionSaverInDatabaseManagers;
 
     @Autowired
@@ -97,14 +98,14 @@ public class ProcessingManager {
         log.info("{} ParserManager started", amountParsersManagers);
 
         for (int i = 0; i < amountPredictionsManagers; i++) {
-            predictionsCalculationTaskExecutor.execute(new PredictionManager(parsedTablesDtos, predictions));
+            predictionsCalculationTaskExecutor.execute(new PredictionManager(parsedTablesDtos, predictions, predictor));
         }
         log.info("{} PredictionManager started", amountPredictionsManagers);
 
-        for (int i = 0; i < amountCalculatePredictionManagers; i++) {
+        for (int i = 0; i < amountPredictionSaverInDatabaseManagers; i++) {
             predictionsCalculationTaskExecutor.execute( new PredictionSaver(predictions, predictionDao));
         }
-        log.info("{} PredictionSaver started", amountCalculatePredictionManagers);
+        log.info("{} PredictionSaver started", amountPredictionSaverInDatabaseManagers);
         log.info("Processing prediction has been started successful");
     }
 
@@ -124,8 +125,8 @@ public class ProcessingManager {
         this.amountPredictionsManagers = amountPredictionsManagers;
     }
 
-    public void setAmountCalculatePredictionManagers(int amountCalculatePredictionManagers) {
-        this.amountCalculatePredictionManagers = amountCalculatePredictionManagers;
+    public void setAmountPredictionSaverInDatabaseManagers(int amountPredictionSaverInDatabaseManagers) {
+        this.amountPredictionSaverInDatabaseManagers = amountPredictionSaverInDatabaseManagers;
     }
 
     public void setAmountTasksProcessingManagers(int amountTasksProcessingManagers) {
