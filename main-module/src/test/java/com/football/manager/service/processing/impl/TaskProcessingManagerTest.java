@@ -5,6 +5,7 @@ import com.football.manager.dto.input.BusinessTaskDto;
 import com.football.manager.entity.Task;
 import com.football.manager.util.SystemUtil;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -15,7 +16,7 @@ import static org.junit.Assert.assertFalse;
 
 public class TaskProcessingManagerTest extends BaseManagerTest {
 
-    private static final org.apache.logging.log4j.Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
+    private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
 
     @Autowired
     private TaskProcessingManager taskProcessingManager;

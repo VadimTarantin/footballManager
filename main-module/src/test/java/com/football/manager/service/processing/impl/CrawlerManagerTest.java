@@ -3,6 +3,9 @@ package com.football.manager.service.processing.impl;
 import com.football.manager.dto.input.BusinessTaskDto;
 import com.football.manager.dto.input.CrawledTablesDto;
 import com.football.manager.entity.Task;
+import com.football.manager.util.SystemUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +16,8 @@ import static org.junit.Assert.assertFalse;
 
 @Ignore
 public class CrawlerManagerTest extends BaseManagerTest {
+
+    private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
 
     @Autowired
     private CrawlerManager crawlerManager;

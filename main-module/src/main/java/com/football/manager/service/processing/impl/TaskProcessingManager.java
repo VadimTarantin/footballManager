@@ -3,12 +3,17 @@ package com.football.manager.service.processing.impl;
 import com.football.manager.dto.input.BusinessTaskDto;
 import com.football.manager.entity.Task;
 import com.football.manager.util.ParsersMapping;
+import com.football.manager.util.SystemUtil;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 public class TaskProcessingManager extends BaseProcessor {
+
+    private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
 
     List<Task> tasks;
     ArrayBlockingQueue<BusinessTaskDto> businessTaskDtos;
@@ -119,6 +124,16 @@ public class TaskProcessingManager extends BaseProcessor {
             return result;
         }
 
+    }
+
+    @Override
+    protected void logInfo(String message, Object p0) {
+        log.info(message, p0);
+    }
+
+    @Override
+    protected void logInfo(String message, Object p0, Object p1) {
+        log.info(message, p0, p1);
     }
 
 }

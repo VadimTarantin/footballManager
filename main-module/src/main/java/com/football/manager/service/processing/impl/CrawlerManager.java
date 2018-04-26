@@ -4,12 +4,17 @@ import com.football.manager.dto.input.BusinessTaskDto;
 import com.football.manager.dto.input.CrawledTablesDto;
 import com.football.manager.service.crawler.Crawler;
 import com.football.manager.service.crawler.CrawlerException;
+import com.football.manager.util.SystemUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
 public class CrawlerManager extends BaseProcessor {
+
+    private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
 
     ArrayBlockingQueue<BusinessTaskDto> businessTaskDtos;
     ArrayBlockingQueue<CrawledTablesDto> crawledTablesDtos;
@@ -45,6 +50,16 @@ public class CrawlerManager extends BaseProcessor {
             throw new CrawlerException(errorMessage);
         }
         return new CrawledTablesDto(wide, form, overUnder);
+    }
+
+    @Override
+    protected void logInfo(String message, Object p0) {
+        log.info(message, p0);
+    }
+
+    @Override
+    protected void logInfo(String message, Object p0, Object p1) {
+        log.info(message, p0, p1);
     }
 
 }
