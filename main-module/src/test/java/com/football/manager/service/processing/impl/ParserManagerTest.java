@@ -36,7 +36,7 @@ public class ParserManagerTest extends BaseTableTeamParserTest {
 
         ArrayBlockingQueue<CrawledTablesDto> crawledTablesDtos = new ArrayBlockingQueue<>(10);
         ArrayBlockingQueue<ParsedTablesDto> parsedTablesDtos = new ArrayBlockingQueue<>(10);
-        crawledTablesDtos.put(new CrawledTablesDto(wideTableResponse, formTableResponse, overUnderTableResponse));
+        crawledTablesDtos.put(new CrawledTablesDto(wideTableResponse, formTableResponse, overUnderTableResponse, 42));
 
         parserManager.crawledTablesDtos = crawledTablesDtos;
         parserManager.parsedTablesDtos = parsedTablesDtos;

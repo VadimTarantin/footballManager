@@ -62,9 +62,22 @@ public class TaskProcessingManager extends BaseProcessor {
         Task form = tripleTask.getTaskByType(ParsersMapping.FORM_TABLE_TEAM.getType());
         Task overUnder = tripleTask.getTaskByType(ParsersMapping.OVER_UNDER_TABLE_TEAM.getType());
         if (wide != null && form != null && overUnder != null) {
-            businessTaskDtos.offer(new BusinessTaskDto(wide, form, overUnder), TIMEOUT, TimeUnit.MILLISECONDS);
+            createBusinessTaskDto(wide, form, overUnder);
         } else {
             log.warn("Created TripleTask is invalid: first={}, second={}, third={}", wide, form, overUnder);
+        }
+    }
+
+    private void createBusinessTaskDto(Task wide, Task form, Task overUnder) throws InterruptedException {
+        int wideEventId = wide.getEventId();
+        int formEventId = form.getEventId();
+        int overUnderEventId = overUnder.getEventId();
+        if  (wideEventId != 0 && wideEventId == formEventId && wideEventId == overUnderEventId) {
+            BusinessTaskDto businessTaskDto = new BusinessTaskDto(wide, form, overUnder, wideEventId);
+            businessTaskDtos.offer(businessTaskDto, TIMEOUT, TimeUnit.MILLISECONDS);
+            log.info("BusinessTaskDto with eventId={} was created successful", wideEventId);
+        } else {
+            log.warn("EventId in tasks don't equals. Wide={}, Form={}, overUnder={}", wide, form, overUnder);
         }
     }
 

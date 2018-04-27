@@ -11,11 +11,14 @@ public class ParsedTablesDto {
     private List<? extends TableTeam> wideTableTeams;
     private List<? extends TableTeam> formTableTeams;
     private List<? extends OverUnderTableTeam> overUnderTableTeams;
+    private int eventId;
 
-    public ParsedTablesDto(List<? extends TableTeam> wideTableTeam, List<? extends TableTeam> formTableTeams, List<? extends OverUnderTableTeam> overUnderTableTeams) {
+    public ParsedTablesDto(List<? extends TableTeam> wideTableTeam, List<? extends TableTeam> formTableTeams,
+                           List<? extends OverUnderTableTeam> overUnderTableTeams, int eventId) {
         this.wideTableTeams = wideTableTeam;
         this.formTableTeams = formTableTeams;
         this.overUnderTableTeams = overUnderTableTeams;
+        this.eventId = eventId;
     }
 
     public List<? extends TableTeam> getWideTableTeams() {
@@ -30,19 +33,24 @@ public class ParsedTablesDto {
         return overUnderTableTeams;
     }
 
+    public int getEventId() {
+        return eventId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ParsedTablesDto that = (ParsedTablesDto) o;
-        return Objects.equals(wideTableTeams, that.wideTableTeams) &&
+        return eventId == that.eventId &&
+                Objects.equals(wideTableTeams, that.wideTableTeams) &&
                 Objects.equals(formTableTeams, that.formTableTeams) &&
                 Objects.equals(overUnderTableTeams, that.overUnderTableTeams);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(wideTableTeams, formTableTeams, overUnderTableTeams);
+        return Objects.hash(wideTableTeams, formTableTeams, overUnderTableTeams, eventId);
     }
 
     @Override
@@ -51,6 +59,7 @@ public class ParsedTablesDto {
                 "wideTableTeams=" + wideTableTeams +
                 ", formTableTeams=" + formTableTeams +
                 ", overUnderTableTeams=" + overUnderTableTeams +
+                ", eventId=" + eventId +
                 '}';
     }
 

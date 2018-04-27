@@ -35,6 +35,7 @@ public class CrawlerManager extends BaseProcessor {
             businessTaskDto = businessTaskDtos.poll(TIMEOUT, TimeUnit.MILLISECONDS);
             CrawledTablesDto crawledTablesDto = createCrawledTablesDto(businessTaskDto);
             crawledTablesDtos.offer(crawledTablesDto, TIMEOUT, TimeUnit.MILLISECONDS);
+            log.info("CrawledTablesDto with eventID={} was created successful", crawledTablesDto.getEventId());
         } catch (CrawlerException e) {
             log.warn("Exception during crawling BusinessTaskDto: {}", businessTaskDto, e);
         }
@@ -49,7 +50,7 @@ public class CrawlerManager extends BaseProcessor {
                     wide, form, overUnder);
             throw new CrawlerException(errorMessage);
         }
-        return new CrawledTablesDto(wide, form, overUnder);
+        return new CrawledTablesDto(wide, form, overUnder, businessTaskDto.getEventId());
     }
 
     @Override

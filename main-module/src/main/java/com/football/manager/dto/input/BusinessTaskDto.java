@@ -6,14 +6,16 @@ import java.util.Objects;
 
 public class BusinessTaskDto {
 
+    private int eventId;
     private Task taskForWideTable;
     private Task taskForFormTable;
     private Task taskForOverUnderTable;
 
-    public BusinessTaskDto(Task taskForWideTable, Task taskForFormTable, Task taskForOverUnderTable) {
+    public BusinessTaskDto(Task taskForWideTable, Task taskForFormTable, Task taskForOverUnderTable, int eventId) {
         this.taskForWideTable = taskForWideTable;
         this.taskForFormTable = taskForFormTable;
         this.taskForOverUnderTable = taskForOverUnderTable;
+        this.eventId = eventId;
     }
 
     public Task getTaskForWideTable() {
@@ -28,28 +30,34 @@ public class BusinessTaskDto {
         return taskForOverUnderTable;
     }
 
+    public int getEventId() {
+        return eventId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BusinessTaskDto that = (BusinessTaskDto) o;
-        return Objects.equals(taskForWideTable, that.taskForWideTable) &&
+        return eventId == that.eventId &&
+                Objects.equals(taskForWideTable, that.taskForWideTable) &&
                 Objects.equals(taskForFormTable, that.taskForFormTable) &&
                 Objects.equals(taskForOverUnderTable, that.taskForOverUnderTable);
     }
 
     @Override
     public int hashCode() {
-
-        return Objects.hash(taskForWideTable, taskForFormTable, taskForOverUnderTable);
+        return Objects.hash(eventId, taskForWideTable, taskForFormTable, taskForOverUnderTable);
     }
 
     @Override
     public String toString() {
         return "BusinessTaskDto{" +
-                "taskForWideTable=" + taskForWideTable +
+                "eventId=" + eventId +
+                ", taskForWideTable=" + taskForWideTable +
                 ", taskForFormTable=" + taskForFormTable +
                 ", taskForOverUnderTable=" + taskForOverUnderTable +
                 '}';
     }
+
 }

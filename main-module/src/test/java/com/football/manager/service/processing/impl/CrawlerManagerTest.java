@@ -71,7 +71,7 @@ public class CrawlerManagerTest extends BaseManagerTest {
         overUnder.setParserId(3);
         overUnder.setEventId(1);
 
-        return new BusinessTaskDto(wide, form, overUnder);
+        return new BusinessTaskDto(wide, form, overUnder, 1);
     }
 
 }

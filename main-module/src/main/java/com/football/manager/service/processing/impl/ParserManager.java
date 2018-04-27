@@ -45,6 +45,7 @@ public class ParserManager extends BaseProcessor {
             crawledTablesDto = crawledTablesDtos.poll(TIMEOUT, TimeUnit.MILLISECONDS);
             ParsedTablesDto parsedTablesDto = createParsedTablesDto(crawledTablesDto);
             parsedTablesDtos.offer(parsedTablesDto, TIMEOUT, TimeUnit.MILLISECONDS);
+            log.info("ParsedTablesDto with eventID={} was created successful", parsedTablesDto.getEventId());
         } catch (ParserException e) {
             log.warn("Exception during parsing CrawledTablesDto: {}", crawledTablesDto, e);
         }
@@ -54,7 +55,7 @@ public class ParserManager extends BaseProcessor {
         List<? extends TableTeam> wideTables = wideTableTeamParser.parse(crawledTablesDto.getWideTableResponse());
         List<? extends TableTeam> formTables = formTableTeamParser.parse(crawledTablesDto.getFormTableResponse());
         List<? extends OverUnderTableTeam> overUnderTable = overUnderTableTeamParser.parse(crawledTablesDto.getOverUnderTableResponse());
-        return new ParsedTablesDto(wideTables, formTables, overUnderTable);
+        return new ParsedTablesDto(wideTables, formTables, overUnderTable, crawledTablesDto.getEventId());
     }
 
     @Override
