@@ -27,7 +27,7 @@ public class TeamServiceImpl implements TeamService {
         try {
             return teamDao.getAll();
         } catch (Exception e) {
-            log.warn("Unexpected exception while getting all teams", e);
+            log.warn("Unexpected exception while getting all teams");
             throw new ServiceException("Cannot get all teams", e);
         }
     }

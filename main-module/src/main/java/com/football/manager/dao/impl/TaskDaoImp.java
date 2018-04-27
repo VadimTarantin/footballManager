@@ -28,7 +28,7 @@ public class TaskDaoImp extends BaseDaoImpl implements TaskDao {
             jdbcTemplate.update(INSERT_NEW_TASK, new Object());
         } catch (Exception e) {
             String errorMessage = String.format("Error during add new task %s", task);
-            log.error(errorMessage, e);
+            log.error(errorMessage);
             throw new TaskDaoException(errorMessage, e);
         }
 

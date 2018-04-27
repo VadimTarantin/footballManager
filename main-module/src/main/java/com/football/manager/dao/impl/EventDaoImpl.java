@@ -36,7 +36,7 @@ public class EventDaoImpl extends BaseDaoImpl implements EventDao {
             return keyHolder.getKey().intValue();
         } catch (Exception e) {
             String errorMessage = String.format("Error during add new event %s", event);
-            log.error(errorMessage, e);
+            log.error(errorMessage);
             throw new EventDaoException(errorMessage, e);
         }
 
