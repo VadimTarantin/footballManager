@@ -1,6 +1,5 @@
 package com.football.manager.dao;
 
-import com.football.manager.entity.Prediction;
 import com.football.manager.util.SystemUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,7 +23,6 @@ public class DatabaseCheck {
     private static final String SELECT_ALL = "SELECT t.ID, t.SESSION_ID, t.ROUND_ID, t.COMPETITION_ID, t.TYPE, " +
             "p.NAME PARSER_NAME, e.NAME EVENT_NAME " +
             "FROM TASKS t JOIN PARSERS p ON t.PARSER_ID = p.ID JOIN EVENTS e ON t.EVENT_ID = e.ID;";
-    private static final String SELECT_ALL_PREDICTIONS = "SELECT * FROM PREDICTIONS;";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -70,32 +68,6 @@ public class DatabaseCheck {
                     '}';
         }
 
-    }
-
-    @Test
-    public void testPredictions() {
-        List<Prediction> predictions = jdbcTemplate.query(SELECT_ALL_PREDICTIONS, (rs, rowNum) -> {
-            Prediction prediction = new Prediction();
-            prediction.setId(rs.getInt("ID"));
-            prediction.setIdTeamHome(rs.getInt("ID_TEAM_HOME"));
-            prediction.setDoesGoalsHome(rs.getFloat("DOES_GOALS_HOME"));
-            prediction.setDoesMissedHome(rs.getFloat("DOES_MISSED_HOME"));
-            prediction.setVictoriesHomePercents(rs.getFloat("VICTORIES_HOME_PERCENTS"));
-            prediction.setDrawnsHomePercents(rs.getFloat("DRAWNS_HOME_PERCENTS"));
-            prediction.setLostsHomePercens(rs.getFloat("LOSTS_HOME_PERCENTS"));
-            prediction.setIdTeamAway(rs.getInt("ID_TEAM_AWAY"));
-            prediction.setDoesGoalsAway(rs.getFloat("DOES_GOALS_AWAY"));
-            prediction.setDoesMissedAway(rs.getFloat("DOES_MISSED_AWAY"));
-            prediction.setVictoriesAwayPercents(rs.getFloat("VICTORIES_AWAY_PERCENTS"));
-            prediction.setDrawnAwayPercents(rs.getFloat("DRAWNS_AWAY_PERCENTS"));
-            prediction.setLostsAwayPercents(rs.getFloat("LOSTS_AWAY_PERCENTS"));
-            prediction.setEventId(rs.getInt("EVENT_ID"));
-            return prediction;
-        });
-        for (Prediction prediction : predictions) {
-           log.info(prediction.toString());
-        }
-        assertTrue(predictions.size() == 3);
     }
 
 }
