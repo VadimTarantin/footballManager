@@ -49,7 +49,7 @@ public class Predictor implements Predicable {
                                 wideTableTeams.get(j), formTableTeams.get(j), overUnderTableTeams.get(j), e);
                     }
                     try {
-                        result.add(calculatePredictionForPairFirstAwaySecondHome(parsedTablesDto, j, i));
+                        result.add(calculatePredictionForPairFirstAwaySecondHome(parsedTablesDto, i, j));
                     } catch (Exception e) {
                         log.warn("Cannot calculate prediction for teams: {}, {}, {} and {}, {}, {}",
                                 wideTableTeams.get(i), formTableTeams.get(i), overUnderTableTeams.get(i),
