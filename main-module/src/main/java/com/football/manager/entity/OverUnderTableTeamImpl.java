@@ -1,32 +1,24 @@
 package com.football.manager.entity;
 
-public class OverUnderTableTeamImpl implements OverUnderTableTeam {
+import java.util.Objects;
 
-    protected String overUnderTableName;
+public class OverUnderTableTeamImpl implements OverUnderTableTeam {
 
     protected String teamName;
 
     protected int totalMatches;
     protected int zeroGoals;
-    protected Integer oneGoals;
+    protected Integer oneGoal;
     protected Integer twoGoals;
     protected Integer threeGoals;
     protected Integer fourGoals;
     protected Integer fiveGoals;
     protected Integer sixGoals;
     protected Integer sevenGoals;
-    protected Integer moThenSevenGoals;
+    protected Integer moreThenSevenGoals;
     protected float averageGoals;
 
     public OverUnderTableTeamImpl() {
-    }
-
-    public String getOverUnderTableName() {
-        return overUnderTableName;
-    }
-
-    public void setOverUnderTableName(String overUnderTableName) {
-        this.overUnderTableName = overUnderTableName;
     }
 
     public String getTeamName() {
@@ -53,12 +45,12 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
         this.zeroGoals = zeroGoals;
     }
 
-    public Integer getOneGoals() {
-        return oneGoals;
+    public Integer getOneGoal() {
+        return oneGoal;
     }
 
-    public void setOneGoals(int oneGoals) {
-        this.oneGoals = oneGoals;
+    public void setOneGoal(int oneGoal) {
+        this.oneGoal = oneGoal;
     }
 
     public Integer getTwoGoals() {
@@ -110,11 +102,11 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
     }
 
     public Integer getMoreThenSevenGoals() {
-        return moThenSevenGoals;
+        return moreThenSevenGoals;
     }
 
     public void setMoreThenSevenGoals(int moThenSevenGoals) {
-        this.moThenSevenGoals = moThenSevenGoals;
+        this.moreThenSevenGoals = moThenSevenGoals;
     }
 
     public float getAverageGoals() {
@@ -128,20 +120,45 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
     @Override
     public String toString() {
         return "OverUnderTableTeamImpl{" +
-                "overUnderTableName='" + overUnderTableName + '\'' +
                 ", teamName='" + teamName + '\'' +
                 ", totalMatches=" + totalMatches +
                 ", zeroGoals=" + zeroGoals +
-                ", oneGoals=" + oneGoals +
+                ", oneGoal=" + oneGoal +
                 ", twoGoals=" + twoGoals +
                 ", threeGoals=" + threeGoals +
                 ", fourGoals=" + fourGoals +
                 ", fiveGoals=" + fiveGoals +
                 ", sixGoals=" + sixGoals +
                 ", sevenGoals=" + sevenGoals +
-                ", moThenSevenGoals=" + moThenSevenGoals +
+                ", moreThenSevenGoals=" + moreThenSevenGoals +
                 ", averageGoals=" + averageGoals +
                 '}';
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        OverUnderTableTeamImpl that = (OverUnderTableTeamImpl) o;
+        return totalMatches == that.totalMatches &&
+                zeroGoals == that.zeroGoals &&
+                Float.compare(that.averageGoals, averageGoals) == 0 &&
+                Objects.equals(teamName, that.teamName) &&
+                Objects.equals(oneGoal, that.oneGoal) &&
+                Objects.equals(twoGoals, that.twoGoals) &&
+                Objects.equals(threeGoals, that.threeGoals) &&
+                Objects.equals(fourGoals, that.fourGoals) &&
+                Objects.equals(fiveGoals, that.fiveGoals) &&
+                Objects.equals(sixGoals, that.sixGoals) &&
+                Objects.equals(sevenGoals, that.sevenGoals) &&
+                Objects.equals(moreThenSevenGoals, that.moreThenSevenGoals);
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(teamName, totalMatches, zeroGoals, oneGoal, twoGoals, threeGoals, fourGoals, fiveGoals, sixGoals, sevenGoals, moreThenSevenGoals, averageGoals);
     }
 
 }

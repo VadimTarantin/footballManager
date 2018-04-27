@@ -2,9 +2,6 @@ package com.football.manager.entity;
 
 public interface TableTeam {
 
-    String getWideTableName();
-    void setWideTableName(String wideTableName);
-
     String getTeamName();
     void setTeamName(String teamName);
 

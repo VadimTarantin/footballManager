@@ -2,9 +2,6 @@ package com.football.manager.entity;
 
 public interface OverUnderTableTeam {
 
-    String getOverUnderTableName();
-    void setOverUnderTableName(String overUnderTableName);
-
     String getTeamName();
     void setTeamName(String teamName);
 
@@ -14,8 +11,8 @@ public interface OverUnderTableTeam {
     int getZeroGoals();
     void setZeroGoals(int zeroGoals);
 
-    Integer getOneGoals();
-    void setOneGoals(int oneGoals);
+    Integer getOneGoal();
+    void setOneGoal(int oneGoal);
 
     Integer getTwoGoals();
     void setTwoGoals(int twoGoals);

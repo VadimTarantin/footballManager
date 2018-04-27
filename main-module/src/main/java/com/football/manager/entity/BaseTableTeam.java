@@ -1,8 +1,8 @@
 package com.football.manager.entity;
 
-public abstract class BaseTableTeam implements TableTeam {
+import java.util.Objects;
 
-    protected String wideTableName;
+public abstract class BaseTableTeam implements TableTeam {
 
     protected String teamName;
 
@@ -31,16 +31,6 @@ public abstract class BaseTableTeam implements TableTeam {
     protected int score;
 
     public BaseTableTeam() {
-    }
-
-    @Override
-    public String getWideTableName() {
-        return wideTableName;
-    }
-
-    @Override
-    public void setWideTableName(String wideTableName) {
-        this.wideTableName = wideTableName;
     }
 
     @Override
@@ -256,7 +246,6 @@ public abstract class BaseTableTeam implements TableTeam {
     @Override
     public String toString() {
         return "BaseTableTeam{" +
-                "wideTableName='" + wideTableName + '\'' +
                 ", teamName='" + teamName + '\'' +
                 ", totalMatches=" + totalMatches +
                 ", totalMatchesWon=" + totalMatchesWon +
@@ -279,6 +268,39 @@ public abstract class BaseTableTeam implements TableTeam {
                 ", differenceGoalsMissed=" + differenceGoalsMissed +
                 ", score=" + score +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BaseTableTeam that = (BaseTableTeam) o;
+        return totalMatches == that.totalMatches &&
+                totalMatchesWon == that.totalMatchesWon &&
+                totalMatchesDrawn == that.totalMatchesDrawn &&
+                totalMatchesLost == that.totalMatchesLost &&
+                totalGoals == that.totalGoals &&
+                totalMissed == that.totalMissed &&
+                totalMatchesHome == that.totalMatchesHome &&
+                totalMatchesWonHome == that.totalMatchesWonHome &&
+                totalMatchesDrawnHome == that.totalMatchesDrawnHome &&
+                totalMatchesLostHome == that.totalMatchesLostHome &&
+                totalGoalsHome == that.totalGoalsHome &&
+                totalMissedHome == that.totalMissedHome &&
+                totalMatchesAway == that.totalMatchesAway &&
+                totalMatchesWonAway == that.totalMatchesWonAway &&
+                totalMatchesDrawnAway == that.totalMatchesDrawnAway &&
+                totalMatchesLostAway == that.totalMatchesLostAway &&
+                totalGoalsAway == that.totalGoalsAway &&
+                totalMissedAway == that.totalMissedAway &&
+                differenceGoalsMissed == that.differenceGoalsMissed &&
+                score == that.score &&
+                Objects.equals(teamName, that.teamName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(teamName, totalMatches, totalMatchesWon, totalMatchesDrawn, totalMatchesLost, totalGoals, totalMissed, totalMatchesHome, totalMatchesWonHome, totalMatchesDrawnHome, totalMatchesLostHome, totalGoalsHome, totalMissedHome, totalMatchesAway, totalMatchesWonAway, totalMatchesDrawnAway, totalMatchesLostAway, totalGoalsAway, totalMissedAway, differenceGoalsMissed, score);
     }
 
 }

@@ -85,8 +85,8 @@ public class OverUnderTableTeamParserHandler extends DefaultHandler {
     }
 
     private void processNumberClass(int value) {
-        if (overUnderTableTeamImpl.getOneGoals() == null) {
-            overUnderTableTeamImpl.setOneGoals(value);
+        if (overUnderTableTeamImpl.getOneGoal() == null) {
+            overUnderTableTeamImpl.setOneGoal(value);
         } else if (overUnderTableTeamImpl.getTwoGoals() == null) {
             overUnderTableTeamImpl.setTwoGoals(value);
         } else if (overUnderTableTeamImpl.getThreeGoals() == null) {
