@@ -32,7 +32,8 @@ public class PredictionManager extends BaseProcessor {
         ParsedTablesDto parsedTablesDto = parsedTablesDtos.poll(TIMEOUT, TimeUnit.MILLISECONDS);
         List<Prediction> preds = predictor.calculate(parsedTablesDto);
         predictions.offer(preds, TIMEOUT, TimeUnit.MILLISECONDS);
-
+        log.info("List of Predictions with size={} for eventID={} was created successful",
+                preds.size(), parsedTablesDto.getEventId());
     }
 
     @Override
