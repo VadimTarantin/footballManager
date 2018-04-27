@@ -49,7 +49,7 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
         return oneGoal;
     }
 
-    public void setOneGoal(int oneGoal) {
+    public void setOneGoal(Integer oneGoal) {
         this.oneGoal = oneGoal;
     }
 
@@ -57,7 +57,7 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
         return twoGoals;
     }
 
-    public void setTwoGoals(int twoGoals) {
+    public void setTwoGoals(Integer twoGoals) {
         this.twoGoals = twoGoals;
     }
 
@@ -65,7 +65,7 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
         return threeGoals;
     }
 
-    public void setThreeGoals(int threeGoals) {
+    public void setThreeGoals(Integer threeGoals) {
         this.threeGoals = threeGoals;
     }
 
@@ -73,7 +73,7 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
         return fourGoals;
     }
 
-    public void setFourGoals(int fourGoals) {
+    public void setFourGoals(Integer fourGoals) {
         this.fourGoals = fourGoals;
     }
 
@@ -81,7 +81,7 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
         return fiveGoals;
     }
 
-    public void setFiveGoals(int fiveGoals) {
+    public void setFiveGoals(Integer fiveGoals) {
         this.fiveGoals = fiveGoals;
     }
 
@@ -89,7 +89,7 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
         return sixGoals;
     }
 
-    public void setSixGoals(int sixGoals) {
+    public void setSixGoals(Integer sixGoals) {
         this.sixGoals = sixGoals;
     }
 
@@ -97,7 +97,7 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
         return sevenGoals;
     }
 
-    public void setSevenGoals(int sevenGoals) {
+    public void setSevenGoals(Integer sevenGoals) {
         this.sevenGoals = sevenGoals;
     }
 
@@ -105,7 +105,7 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
         return moreThenSevenGoals;
     }
 
-    public void setMoreThenSevenGoals(int moThenSevenGoals) {
+    public void setMoreThenSevenGoals(Integer moThenSevenGoals) {
         this.moreThenSevenGoals = moThenSevenGoals;
     }
 
@@ -118,23 +118,9 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
     }
 
     @Override
-    public String toString() {
-        return "OverUnderTableTeamImpl{" +
-                ", teamName='" + teamName + '\'' +
-                ", totalMatches=" + totalMatches +
-                ", zeroGoals=" + zeroGoals +
-                ", oneGoal=" + oneGoal +
-                ", twoGoals=" + twoGoals +
-                ", threeGoals=" + threeGoals +
-                ", fourGoals=" + fourGoals +
-                ", fiveGoals=" + fiveGoals +
-                ", sixGoals=" + sixGoals +
-                ", sevenGoals=" + sevenGoals +
-                ", moreThenSevenGoals=" + moreThenSevenGoals +
-                ", averageGoals=" + averageGoals +
-                '}';
+    public int compareTo(OverUnderTableTeam o) {
+        return this.teamName.compareTo(o.getTeamName());
     }
-
 
     @Override
     public boolean equals(Object o) {
@@ -157,8 +143,25 @@ public class OverUnderTableTeamImpl implements OverUnderTableTeam {
 
     @Override
     public int hashCode() {
-
         return Objects.hash(teamName, totalMatches, zeroGoals, oneGoal, twoGoals, threeGoals, fourGoals, fiveGoals, sixGoals, sevenGoals, moreThenSevenGoals, averageGoals);
+    }
+
+    @Override
+    public String toString() {
+        return "OverUnderTableTeamImpl{" +
+                "teamName='" + teamName + '\'' +
+                ", totalMatches=" + totalMatches +
+                ", zeroGoals=" + zeroGoals +
+                ", oneGoal=" + oneGoal +
+                ", twoGoals=" + twoGoals +
+                ", threeGoals=" + threeGoals +
+                ", fourGoals=" + fourGoals +
+                ", fiveGoals=" + fiveGoals +
+                ", sixGoals=" + sixGoals +
+                ", sevenGoals=" + sevenGoals +
+                ", moreThenSevenGoals=" + moreThenSevenGoals +
+                ", averageGoals=" + averageGoals +
+                '}';
     }
 
 }

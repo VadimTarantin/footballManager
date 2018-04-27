@@ -2,6 +2,7 @@ package com.football.manager.dao.impl;
 
 import com.football.manager.dao.TeamDao;
 import com.football.manager.entity.Team;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import java.util.List;
 
 import static org.junit.Assert.*;
 
+@Ignore
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring/application-context.xml")
 public class TeamDaoImplTest {

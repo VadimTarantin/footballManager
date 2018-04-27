@@ -303,4 +303,9 @@ public abstract class BaseTableTeam implements TableTeam {
         return Objects.hash(teamName, totalMatches, totalMatchesWon, totalMatchesDrawn, totalMatchesLost, totalGoals, totalMissed, totalMatchesHome, totalMatchesWonHome, totalMatchesDrawnHome, totalMatchesLostHome, totalGoalsHome, totalMissedHome, totalMatchesAway, totalMatchesWonAway, totalMatchesDrawnAway, totalMatchesLostAway, totalGoalsAway, totalMissedAway, differenceGoalsMissed, score);
     }
 
+    @Override
+    public int compareTo(TableTeam o) {
+        return this.teamName.compareTo(o.getTeamName());
+    }
+
 }

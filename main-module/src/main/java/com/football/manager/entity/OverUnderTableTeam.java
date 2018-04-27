@@ -1,6 +1,6 @@
 package com.football.manager.entity;
 
-public interface OverUnderTableTeam {
+public interface OverUnderTableTeam extends Comparable<OverUnderTableTeam> {
 
     String getTeamName();
     void setTeamName(String teamName);
@@ -12,28 +12,28 @@ public interface OverUnderTableTeam {
     void setZeroGoals(int zeroGoals);
 
     Integer getOneGoal();
-    void setOneGoal(int oneGoal);
+    void setOneGoal(Integer oneGoal);
 
     Integer getTwoGoals();
-    void setTwoGoals(int twoGoals);
+    void setTwoGoals(Integer twoGoals);
 
     Integer getThreeGoals();
-    void setThreeGoals(int threeGoals);
+    void setThreeGoals(Integer threeGoals);
 
     Integer getFourGoals();
-    void setFourGoals(int fourGoals);
+    void setFourGoals(Integer fourGoals);
 
     Integer getFiveGoals();
-    void setFiveGoals(int fiveGoals);
+    void setFiveGoals(Integer fiveGoals);
 
     Integer getSixGoals();
-    void setSixGoals(int sixGoals);
+    void setSixGoals(Integer sixGoals);
 
     Integer getSevenGoals();
-    void setSevenGoals(int sevenGoals);
+    void setSevenGoals(Integer sevenGoals);
 
     Integer getMoreThenSevenGoals();
-    void setMoreThenSevenGoals(int moThenSevenGoals);
+    void setMoreThenSevenGoals(Integer moreThenSevenGoals);
 
     float getAverageGoals();
     void setAverageGoals(float averageGoals);

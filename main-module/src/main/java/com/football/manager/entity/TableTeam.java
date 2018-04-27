@@ -1,6 +1,6 @@
 package com.football.manager.entity;
 
-public interface TableTeam {
+public interface TableTeam extends Comparable<TableTeam> {
 
     String getTeamName();
     void setTeamName(String teamName);
