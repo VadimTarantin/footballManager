@@ -74,9 +74,9 @@ public class PredictionServiceTest extends BaseTableTeamParserTest {
 
         HashSet<Prediction> copyPredictions = new HashSet<>(predictions);
         predictionService.insertOrUpdate(copyPredictions);
-        List<Prediction> predictionsFromDatabasSecond = predictionService.getAll();
+        List<Prediction> predictionsFromDatabaseSecond = predictionService.getAll();
 
-        assertEquals(4, predictionsFromDatabasSecond.size());
+        assertEquals(4, predictionsFromDatabaseSecond.size());
     }
 
 }
