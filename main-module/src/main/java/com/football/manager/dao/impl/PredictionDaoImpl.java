@@ -4,6 +4,8 @@ import com.football.manager.dao.PredictionDao;
 import com.football.manager.entity.Prediction;
 import org.springframework.stereotype.Component;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 @Component
@@ -160,46 +162,52 @@ public class PredictionDaoImpl extends BaseDaoImpl implements PredictionDao {
     public List<Prediction> getAll() {
         return jdbcTemplate.query(SELECT_ALL_PREDICTIONS, (rs, rowNum) -> {
             Prediction result = new Prediction();
-            result.setEventId(rs.getInt("EVENT_ID"));
-            result.setTeamHomeName(rs.getString("TEAM_HOME_NAME"));
-            result.setTeamAwayName(rs.getString("TEAM_AWAY_NAME"));
-
-            result.setGoalsForGameForAllGamesForHomeTeam(rs.getFloat("GOALS_FOR_GAME_FOR_ALL_GAMES_FOR_HOME_TEAM"));
-            result.setMissesForGameForAllGamesForHomeTeam(rs.getFloat("MISSES_FOR_GAME_FOR_ALL_GAMES_FOR_HOME_TEAM"));
-            result.setWonsForAllGamesForHomeTeam(rs.getFloat("WONS_FOR_ALL_GAMES_FOR_HOME_TEAM"));
-            result.setDrawnsForAllGamesForHomeTeam(rs.getFloat("DRAWNS_FOR_ALL_GAMES_FOR_HOME_TEAM"));
-            result.setLostsForAllGamesForHomeTeam(rs.getFloat("LOSTS_FOR_ALL_GAMES_FOR_HOME_TEAM"));
-            result.setTotalForMatchForAllGamesForHomeTeam(rs.getFloat("TOTAL_FOR_MATCH_FOR_ALL_GAMES_FOR_HOME_TEAM"));
-            result.setGamesTb2Point5ForAllGamesForHomeTeam(rs.getFloat("GAMES_TB_2_POINT_5_FOR_ALL_GAMES_FOR_HOME_TEAM"));
-            result.setGamesTm2Point5ForAllGamesForHomeTeam(rs.getFloat("GAMES_TM_2_POINT_5_FOR_ALL_GAMES_FOR_HOME_TEAM"));
-            result.setGamesTb1Point5ForAllGamesForHomeTeam(rs.getFloat("GAMES_TB_1_POINT_5_FOR_ALL_GAMES_FOR_HOME_TEAM"));
-            result.setGamesTm1Point5ForAllGamesForHomeTeam(rs.getFloat("GAMES_TM_1_POINT_5_FOR_ALL_GAMES_FOR_HOME_TEAM"));
-            result.setGoalsForGameForLastThreeGamesForHomeTeam(rs.getFloat("GOALS_FOR_GAME_FOR_LAST_THREE_GAMES_FOR_HOME_TEAM"));
-            result.setMissesForGameForLastThreeGamesForHomeTeam(rs.getFloat("MISSES_FOR_GAME_FOR_LAST_THREE_GAMES_FOR_HOME_TEAM"));
-            result.setWonsForLastThreeGamesForHomeTeam(rs.getFloat("WONS_FOR_LAST_THREE_GAMES_FOR_HOME_TEAM"));
-            result.setDrawnsForLastThreeGamesForHomeTeam(rs.getFloat("DRAWNS_FOR_LAST_THREE_GAMES_FOR_HOME_TEAM"));
-            result.setLostsForLastThreeGamesForHomeTeam(rs.getFloat("LOSTS_FOR_LAST_THREE_GAMES_FOR_HOME_TEAM"));
-            result.setTotalForMatchForLastThreeGamesForHomeTeam(rs.getFloat("TOTAL_FOR_MATCH_FOR_LAST_THREE_GAMES_FOR_HOME_TEAM"));
-
-            result.setGoalsForGameForAllGamesForAwayTeam(rs.getFloat("GOALS_FOR_GAME_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
-            result.setMissesForGameForAllGamesForAwayTeam(rs.getFloat("MISSES_FOR_GAME_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
-            result.setWonsForAllGamesForAwayTeam(rs.getFloat("WONS_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
-            result.setDrawnsForAllGamesForAwayTeam(rs.getFloat("DRAWNS_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
-            result.setLostsForAllGamesForAwayTeam(rs.getFloat("LOSTS_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
-            result.setTotalForMatchForAllGamesForAwayTeam(rs.getFloat("TOTAL_FOR_MATCH_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
-            result.setGamesTb2Point5ForAllGamesForAwayTeam(rs.getFloat("GAMES_TB_2_POINT_5_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
-            result.setGamesTm2Point5ForAllGamesForAwayTeam(rs.getFloat("GAMES_TM_2_POINT_5_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
-            result.setGamesTb1Point5ForAllGamesForAwayTeam(rs.getFloat("GAMES_TB_1_POINT_5_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
-            result.setGamesTm1Point5ForAllGamesForAwayTeam(rs.getFloat("GAMES_TM_1_POINT_5_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
-            result.setGoalsForGameForLastThreeGamesForAwayTeam(rs.getFloat("GOALS_FOR_GAME_FOR_LAST_THREE_GAMES_FOR_AWAY_TEAM"));
-            result.setMissesForGameForLastThreeGamesForAwayTeam(rs.getFloat("MISSES_FOR_GAME_FOR_LAST_THREE_GAMES_FOR_AWAY_TEAM"));
-            result.setWonsForLastThreeGamesForAwayTeam(rs.getFloat("WONS_FOR_LAST_THREE_GAMES_FOR_AWAY_TEAM"));
-            result.setDrawnsForLastThreeGamesForAwayTeam(rs.getFloat("DRAWNS_FOR_LAST_THREE_GAMES_FOR_AWAY_TEAM"));
-            result.setLostsForLastThreeGamesForAwayTeam(rs.getFloat("LOSTS_FOR_LAST_THREE_GAMES_FOR_AWAY_TEAM"));
-            result.setTotalForMatchForLastThreeGamesForAwayTeam(rs.getFloat("TOTAL_FOR_MATCH_FOR_LAST_THREE_GAMES_FOR_AWAY_TEAM"));
-
+            fillPrediction(rs, result);
             return result;
         });
+    }
+
+    private void fillPrediction(ResultSet rs, Prediction result) throws SQLException {
+        //pk
+        result.setEventId(rs.getInt("EVENT_ID"));
+        result.setTeamHomeName(rs.getString("TEAM_HOME_NAME"));
+        result.setTeamAwayName(rs.getString("TEAM_AWAY_NAME"));
+
+        //home
+        result.setGoalsForGameForAllGamesForHomeTeam(rs.getFloat("GOALS_FOR_GAME_FOR_ALL_GAMES_FOR_HOME_TEAM"));
+        result.setMissesForGameForAllGamesForHomeTeam(rs.getFloat("MISSES_FOR_GAME_FOR_ALL_GAMES_FOR_HOME_TEAM"));
+        result.setWonsForAllGamesForHomeTeam(rs.getFloat("WONS_FOR_ALL_GAMES_FOR_HOME_TEAM"));
+        result.setDrawnsForAllGamesForHomeTeam(rs.getFloat("DRAWNS_FOR_ALL_GAMES_FOR_HOME_TEAM"));
+        result.setLostsForAllGamesForHomeTeam(rs.getFloat("LOSTS_FOR_ALL_GAMES_FOR_HOME_TEAM"));
+        result.setTotalForMatchForAllGamesForHomeTeam(rs.getFloat("TOTAL_FOR_MATCH_FOR_ALL_GAMES_FOR_HOME_TEAM"));
+        result.setGamesTb2Point5ForAllGamesForHomeTeam(rs.getFloat("GAMES_TB_2_POINT_5_FOR_ALL_GAMES_FOR_HOME_TEAM"));
+        result.setGamesTm2Point5ForAllGamesForHomeTeam(rs.getFloat("GAMES_TM_2_POINT_5_FOR_ALL_GAMES_FOR_HOME_TEAM"));
+        result.setGamesTb1Point5ForAllGamesForHomeTeam(rs.getFloat("GAMES_TB_1_POINT_5_FOR_ALL_GAMES_FOR_HOME_TEAM"));
+        result.setGamesTm1Point5ForAllGamesForHomeTeam(rs.getFloat("GAMES_TM_1_POINT_5_FOR_ALL_GAMES_FOR_HOME_TEAM"));
+        result.setGoalsForGameForLastThreeGamesForHomeTeam(rs.getFloat("GOALS_FOR_GAME_FOR_LAST_THREE_GAMES_FOR_HOME_TEAM"));
+        result.setMissesForGameForLastThreeGamesForHomeTeam(rs.getFloat("MISSES_FOR_GAME_FOR_LAST_THREE_GAMES_FOR_HOME_TEAM"));
+        result.setWonsForLastThreeGamesForHomeTeam(rs.getFloat("WONS_FOR_LAST_THREE_GAMES_FOR_HOME_TEAM"));
+        result.setDrawnsForLastThreeGamesForHomeTeam(rs.getFloat("DRAWNS_FOR_LAST_THREE_GAMES_FOR_HOME_TEAM"));
+        result.setLostsForLastThreeGamesForHomeTeam(rs.getFloat("LOSTS_FOR_LAST_THREE_GAMES_FOR_HOME_TEAM"));
+        result.setTotalForMatchForLastThreeGamesForHomeTeam(rs.getFloat("TOTAL_FOR_MATCH_FOR_LAST_THREE_GAMES_FOR_HOME_TEAM"));
+
+        //away
+        result.setGoalsForGameForAllGamesForAwayTeam(rs.getFloat("GOALS_FOR_GAME_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
+        result.setMissesForGameForAllGamesForAwayTeam(rs.getFloat("MISSES_FOR_GAME_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
+        result.setWonsForAllGamesForAwayTeam(rs.getFloat("WONS_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
+        result.setDrawnsForAllGamesForAwayTeam(rs.getFloat("DRAWNS_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
+        result.setLostsForAllGamesForAwayTeam(rs.getFloat("LOSTS_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
+        result.setTotalForMatchForAllGamesForAwayTeam(rs.getFloat("TOTAL_FOR_MATCH_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
+        result.setGamesTb2Point5ForAllGamesForAwayTeam(rs.getFloat("GAMES_TB_2_POINT_5_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
+        result.setGamesTm2Point5ForAllGamesForAwayTeam(rs.getFloat("GAMES_TM_2_POINT_5_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
+        result.setGamesTb1Point5ForAllGamesForAwayTeam(rs.getFloat("GAMES_TB_1_POINT_5_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
+        result.setGamesTm1Point5ForAllGamesForAwayTeam(rs.getFloat("GAMES_TM_1_POINT_5_FOR_ALL_GAMES_FOR_AWAY_TEAM"));
+        result.setGoalsForGameForLastThreeGamesForAwayTeam(rs.getFloat("GOALS_FOR_GAME_FOR_LAST_THREE_GAMES_FOR_AWAY_TEAM"));
+        result.setMissesForGameForLastThreeGamesForAwayTeam(rs.getFloat("MISSES_FOR_GAME_FOR_LAST_THREE_GAMES_FOR_AWAY_TEAM"));
+        result.setWonsForLastThreeGamesForAwayTeam(rs.getFloat("WONS_FOR_LAST_THREE_GAMES_FOR_AWAY_TEAM"));
+        result.setDrawnsForLastThreeGamesForAwayTeam(rs.getFloat("DRAWNS_FOR_LAST_THREE_GAMES_FOR_AWAY_TEAM"));
+        result.setLostsForLastThreeGamesForAwayTeam(rs.getFloat("LOSTS_FOR_LAST_THREE_GAMES_FOR_AWAY_TEAM"));
+        result.setTotalForMatchForLastThreeGamesForAwayTeam(rs.getFloat("TOTAL_FOR_MATCH_FOR_LAST_THREE_GAMES_FOR_AWAY_TEAM"));
     }
 
 }
