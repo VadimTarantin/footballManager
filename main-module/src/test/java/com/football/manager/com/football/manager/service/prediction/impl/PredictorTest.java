@@ -34,6 +34,13 @@ public class PredictorTest extends BaseTableTeamParserTest {
     @Value("${predictor.test.over.under}")
     private String overUnderFileName;
 
+    @Value("${wide.table.team.parser.test.file.name}")
+    private String wideTableFileNameTwentyFourTeam;
+    @Value("${form.table.team.parser.test.file.name}")
+    private String formTableFileNameTwentyFourTeam;
+    @Value("${over.under.table.team.parser.test.file.name}")
+    private String overUnderFileNameTwentyFourTeam;
+
     @Autowired
     @Qualifier(value = "wideTableTeamParser")
     private Parser wideTableParser;
@@ -47,7 +54,7 @@ public class PredictorTest extends BaseTableTeamParserTest {
     private OverUnderParser overUnderTableParser;
 
     @Test
-    public void testPredictor() throws Exception {
+    public void testPredictorWhenTwoTeamsShouldBeTwoPredictions() throws Exception {
         List<? extends TableTeam> wideTableTeams = wideTableParser.parse(getResponse(wideTableFileName));
         List<? extends TableTeam> formTableTeams = formTableParser.parse(getResponse(formTableFileName));
         List<? extends OverUnderTableTeam> overUnderTableTeams = overUnderTableParser.parse(getResponse(overUnderFileName));
@@ -58,6 +65,21 @@ public class PredictorTest extends BaseTableTeamParserTest {
 
         log.info("predictions.size()={}", predictions.size());
         assertEquals(2, predictions.size());
+    }
+
+    @Test
+    public void testPredictorWhenTwentyFourTeamsShouldBeFiveHundredFiftyPredictions() throws Exception {
+        List<? extends TableTeam> wideTableTeams = wideTableParser.parse(getResponse(wideTableFileNameTwentyFourTeam));
+        List<? extends TableTeam> formTableTeams = formTableParser.parse(getResponse(formTableFileNameTwentyFourTeam));
+        List<? extends OverUnderTableTeam> overUnderTableTeams = overUnderTableParser.parse(getResponse(overUnderFileNameTwentyFourTeam));
+
+        ParsedTablesDto parsedTablesDto = new ParsedTablesDto(wideTableTeams, formTableTeams, overUnderTableTeams, 1);
+
+        List<Prediction> predictions = predictor.calculate(parsedTablesDto);
+
+        log.info("predictions.size()={}", predictions.size());
+        //double C2 24 minus 2
+        assertEquals(550, predictions.size());
     }
 
 }

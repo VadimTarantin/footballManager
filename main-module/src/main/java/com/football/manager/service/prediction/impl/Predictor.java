@@ -38,7 +38,7 @@ public class Predictor implements Predicable {
 
         for (int i = 0; i < wideTableTeams.size(); i++) {
             String currentTeamName = wideTableTeams.get(i).getTeamName();
-            for (int j = 0; j < wideTableTeams.size(); j++) {
+            for (int j = i; j < wideTableTeams.size(); j++) {
                 String secondTeamName = wideTableTeams.get(j).getTeamName();
                 if (!currentTeamName.equals(secondTeamName)) {
                     try {
