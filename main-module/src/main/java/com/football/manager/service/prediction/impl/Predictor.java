@@ -106,7 +106,7 @@ public class Predictor implements Predicable {
         result.setGoalsForGameForAllGamesForAwayTeam(awayWideTableTeam.getTotalGoalsAway() / awayWideTableTeam.getTotalMatchesAway());
         result.setMissesForGameForAllGamesForAwayTeam(awayWideTableTeam.getTotalMissedAway() / awayWideTableTeam.getTotalMatchesAway());
         result.setWonsForAllGamesForAwayTeam(100 * awayWideTableTeam.getTotalMatchesWonAway() / awayWideTableTeam.getTotalMatchesAway());
-        result.setLostsForAllGamesForAwayTeam(awayWideTableTeam.getTotalGoalsAway() / awayWideTableTeam.getTotalMatchesAway());
+        result.setLostsForAllGamesForAwayTeam(awayWideTableTeam.getTotalMatchesLostAway() / awayWideTableTeam.getTotalMatchesAway());
         result.setDrawnsForAllGamesForAwayTeam(100 - result.getWonsForAllGamesForAwayTeam() - result.getLostsForAllGamesForAwayTeam());
         result.setTotalForMatchForAllGamesForAwayTeam((awayWideTableTeam.getTotalGoalsAway() + awayWideTableTeam.getTotalMissedAway()) / awayWideTableTeam.getTotalMatchesAway());
 
