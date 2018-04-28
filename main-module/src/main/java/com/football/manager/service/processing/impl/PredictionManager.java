@@ -30,10 +30,19 @@ public class PredictionManager extends BaseProcessor {
     @Override
     protected void doWork() throws InterruptedException {
         ParsedTablesDto parsedTablesDto = parsedTablesDtos.poll(TIMEOUT, TimeUnit.MILLISECONDS);
+        if (parsedTablesDto == null) {
+            String message = String.format("Queue was empty during waiting time=%s so work will be stopped", TIMEOUT);
+            log.info(message);
+            throw new InterruptedException(message);
+        }
         List<Prediction> preds = predictor.calculate(parsedTablesDto);
-        predictions.offer(preds, TIMEOUT, TimeUnit.MILLISECONDS);
-        log.info("List of Predictions with size={} for eventID={} was created successful",
-                preds.size(), parsedTablesDto.getEventId());
+        boolean offerIsSuccess = predictions.offer(preds, TIMEOUT, TimeUnit.MILLISECONDS);
+        if (offerIsSuccess) {
+            log.info("List of Predictions with size={} for eventID={} was created successful", preds.size(), parsedTablesDto.getEventId());
+        } else {
+            log.warn("List of Predictions with size={} for eventID={} cannot put in queue to processing because queue is full",
+                    preds.size(), parsedTablesDto.getEventId());
+        }
     }
 
     @Override

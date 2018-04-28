@@ -74,8 +74,13 @@ public class TaskProcessingManager extends BaseProcessor {
         int overUnderEventId = overUnder.getEventId();
         if  (wideEventId != 0 && wideEventId == formEventId && wideEventId == overUnderEventId) {
             BusinessTaskDto businessTaskDto = new BusinessTaskDto(wide, form, overUnder, wideEventId);
-            businessTaskDtos.offer(businessTaskDto, TIMEOUT, TimeUnit.MILLISECONDS);
-            log.info("BusinessTaskDto with eventId={} was created successful", wideEventId);
+            boolean offerIsSuccess = businessTaskDtos.offer(businessTaskDto, TIMEOUT, TimeUnit.MILLISECONDS);
+            if (offerIsSuccess) {
+                log.info("BusinessTaskDto with eventId={} was created successful", wideEventId);
+            } else {
+                log.warn("BusinessTaskDto with eventId={} cannot put in queue to processing because queue is full",
+                        wideEventId);
+            }
         } else {
             log.warn("EventId in tasks don't equals. Wide={}, Form={}, overUnder={}", wide, form, overUnder);
         }

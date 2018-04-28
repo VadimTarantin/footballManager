@@ -43,9 +43,19 @@ public class ParserManager extends BaseProcessor {
         CrawledTablesDto crawledTablesDto = null;
         try {
             crawledTablesDto = crawledTablesDtos.poll(TIMEOUT, TimeUnit.MILLISECONDS);
+            if (crawledTablesDto == null) {
+                String message = String.format("Queue was empty during waiting time=%s so work will be stopped", TIMEOUT);
+                log.info(message);
+                throw new InterruptedException(message);
+            }
             ParsedTablesDto parsedTablesDto = createParsedTablesDto(crawledTablesDto);
-            parsedTablesDtos.offer(parsedTablesDto, TIMEOUT, TimeUnit.MILLISECONDS);
-            log.info("ParsedTablesDto with eventID={} was created successful", parsedTablesDto.getEventId());
+            boolean offerIsSuccess = parsedTablesDtos.offer(parsedTablesDto, TIMEOUT, TimeUnit.MILLISECONDS);
+            if (offerIsSuccess) {
+                log.info("ParsedTablesDto with eventId={} was created successful", parsedTablesDto.getEventId());
+            } else {
+                log.warn("ParsedTablesDto with eventId={} cannot put in queue to processing because queue is full",
+                        parsedTablesDto.getEventId());
+            }
         } catch (ParserException e) {
             log.warn("Exception during parsing CrawledTablesDto: {}", crawledTablesDto, e);
         }

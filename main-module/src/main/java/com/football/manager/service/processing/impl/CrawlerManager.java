@@ -33,9 +33,19 @@ public class CrawlerManager extends BaseProcessor {
         BusinessTaskDto businessTaskDto = null;
         try {
             businessTaskDto = businessTaskDtos.poll(TIMEOUT, TimeUnit.MILLISECONDS);
+            if (businessTaskDto == null) {
+                String message = String.format("Queue was empty during waiting time=%s so work will be stopped", TIMEOUT);
+                log.info(message);
+                throw new InterruptedException(message);
+            }
             CrawledTablesDto crawledTablesDto = createCrawledTablesDto(businessTaskDto);
-            crawledTablesDtos.offer(crawledTablesDto, TIMEOUT, TimeUnit.MILLISECONDS);
-            log.info("CrawledTablesDto with eventID={} was created successful", crawledTablesDto.getEventId());
+            boolean offerIsSuccess = crawledTablesDtos.offer(crawledTablesDto, TIMEOUT, TimeUnit.MILLISECONDS);
+            if (offerIsSuccess) {
+                log.info("CrawledTablesDto with eventId={} was created successful", crawledTablesDto.getEventId());
+            } else {
+                log.warn("CrawledTablesDto with eventId={} cannot put in queue to processing because queue is full",
+                        crawledTablesDto.getEventId());
+            }
         } catch (CrawlerException e) {
             log.warn("Exception during crawling BusinessTaskDto: {}", businessTaskDto, e);
         }
