@@ -73,32 +73,33 @@ public class Predictor implements Predicable {
         result.setTeamAwayName(wideTableTeams.get(j).getTeamName());
 
         //home team
-        result.setGoalsForGameForAllGamesForHomeTeam(wideTableTeams.get(i).getTotalGoalsHome() / wideTableTeams.get(i).getTotalMatchesHome());
-        result.setMissesForGameForAllGamesForHomeTeam(wideTableTeams.get(i).getTotalMissedHome() / wideTableTeams.get(i).getTotalMatchesHome());
-        result.setWonsForAllGamesForHomeTeam(wideTableTeams.get(i).getTotalMatchesWonHome() * 100 / wideTableTeams.get(i).getTotalMatchesHome());
-        result.setLostsForAllGamesForHomeTeam(wideTableTeams.get(i).getTotalMatchesLostHome() * 100 / wideTableTeams.get(i).getTotalMatchesHome());
+        TableTeam homeTableTeam = wideTableTeams.get(i);
+        result.setGoalsForGameForAllGamesForHomeTeam(homeTableTeam.getTotalGoalsHome() / homeTableTeam.getTotalMatchesHome());
+        result.setMissesForGameForAllGamesForHomeTeam(homeTableTeam.getTotalMissedHome() / homeTableTeam.getTotalMatchesHome());
+        result.setWonsForAllGamesForHomeTeam(homeTableTeam.getTotalMatchesWonHome() * 100 / homeTableTeam.getTotalMatchesHome());
+        result.setLostsForAllGamesForHomeTeam(homeTableTeam.getTotalMatchesLostHome() * 100 / homeTableTeam.getTotalMatchesHome());
         result.setDrawnsForAllGamesForHomeTeam(100 - result.getWonsForAllGamesForHomeTeam() - result.getLostsForAllGamesForHomeTeam());
-        result.setTotalForMatchForAllGamesForHomeTeam((wideTableTeams.get(i).getTotalGoalsHome() + wideTableTeams.get(i).getTotalMissedHome()) / wideTableTeams.get(i).getTotalMatchesHome());
+        result.setTotalForMatchForAllGamesForHomeTeam((homeTableTeam.getTotalGoalsHome() + homeTableTeam.getTotalMissedHome()) / homeTableTeam.getTotalMatchesHome());
 
-        OverUnderTableTeam currentOverUnderTableTeam = overUnderTableTeams.get(i);
-        result.setGamesTb2Point5ForAllGamesForHomeTeam((currentOverUnderTableTeam.getThreeGoals() + currentOverUnderTableTeam.getFourGoals()
-                + currentOverUnderTableTeam.getFiveGoals() + currentOverUnderTableTeam.getSixGoals()
-                + currentOverUnderTableTeam.getSevenGoals() + currentOverUnderTableTeam.getMoreThenSevenGoals()) * 100
-                / currentOverUnderTableTeam.getTotalMatches());
+        OverUnderTableTeam homeOverUnderTableTeam = overUnderTableTeams.get(i);
+        result.setGamesTb2Point5ForAllGamesForHomeTeam((homeOverUnderTableTeam.getThreeGoals() + homeOverUnderTableTeam.getFourGoals()
+                + homeOverUnderTableTeam.getFiveGoals() + homeOverUnderTableTeam.getSixGoals()
+                + homeOverUnderTableTeam.getSevenGoals() + homeOverUnderTableTeam.getMoreThenSevenGoals()) * 100
+                / homeOverUnderTableTeam.getTotalMatches());
         result.setGamesTm2Point5ForAllGamesForHomeTeam(100 - result.getGamesTb2Point5ForAllGamesForHomeTeam());
-        result.setGamesTb1Point5ForAllGamesForHomeTeam((currentOverUnderTableTeam.getTwoGoals() + currentOverUnderTableTeam.getThreeGoals()
-                + currentOverUnderTableTeam.getFourGoals() + currentOverUnderTableTeam.getFiveGoals() + currentOverUnderTableTeam.getSixGoals()
-                + currentOverUnderTableTeam.getSevenGoals() + currentOverUnderTableTeam.getMoreThenSevenGoals()) * 100
-                / currentOverUnderTableTeam.getTotalMatches());
+        result.setGamesTb1Point5ForAllGamesForHomeTeam((homeOverUnderTableTeam.getTwoGoals() + homeOverUnderTableTeam.getThreeGoals()
+                + homeOverUnderTableTeam.getFourGoals() + homeOverUnderTableTeam.getFiveGoals() + homeOverUnderTableTeam.getSixGoals()
+                + homeOverUnderTableTeam.getSevenGoals() + homeOverUnderTableTeam.getMoreThenSevenGoals()) * 100
+                / homeOverUnderTableTeam.getTotalMatches());
         result.setGamesTm1Point5ForAllGamesForHomeTeam(100 - result.getGamesTb1Point5ForAllGamesForHomeTeam());
 
-        TableTeam currentFormTableTeam = formTableTeams.get(i);
-        result.setGoalsForGameForLastThreeGamesForHomeTeam(currentFormTableTeam.getTotalGoalsHome() / currentFormTableTeam.getTotalMatchesHome());
-        result.setMissesForGameForLastThreeGamesForHomeTeam(currentFormTableTeam.getTotalMissedHome() / currentFormTableTeam.getTotalMatchesHome());
-        result.setWonsForLastThreeGamesForHomeTeam(100 * currentFormTableTeam.getTotalMatchesWonHome() / currentFormTableTeam.getTotalMatchesHome());
-        result.setDrawnsForLastThreeGamesForHomeTeam(100 * currentFormTableTeam.getTotalMatchesDrawnHome() / currentFormTableTeam.getTotalMatchesHome());
+        TableTeam homeFormTableTeam = formTableTeams.get(i);
+        result.setGoalsForGameForLastThreeGamesForHomeTeam(homeFormTableTeam.getTotalGoalsHome() / homeFormTableTeam.getTotalMatchesHome());
+        result.setMissesForGameForLastThreeGamesForHomeTeam(homeFormTableTeam.getTotalMissedHome() / homeFormTableTeam.getTotalMatchesHome());
+        result.setWonsForLastThreeGamesForHomeTeam(100 * homeFormTableTeam.getTotalMatchesWonHome() / homeFormTableTeam.getTotalMatchesHome());
+        result.setDrawnsForLastThreeGamesForHomeTeam(100 * homeFormTableTeam.getTotalMatchesDrawnHome() / homeFormTableTeam.getTotalMatchesHome());
         result.setLostsForLastThreeGamesForHomeTeam(100 - result.getWonsForLastThreeGamesForHomeTeam() - result.getDrawnsForLastThreeGamesForHomeTeam());
-        result.setTotalForMatchForLastThreeGamesForHomeTeam((currentFormTableTeam.getTotalGoalsHome() + currentFormTableTeam.getTotalMissedHome()) / currentFormTableTeam.getTotalMatchesHome());
+        result.setTotalForMatchForLastThreeGamesForHomeTeam((homeFormTableTeam.getTotalGoalsHome() + homeFormTableTeam.getTotalMissedHome()) / homeFormTableTeam.getTotalMatchesHome());
 
 
         //away team
@@ -127,11 +128,75 @@ public class Predictor implements Predicable {
         result.setDrawnsForLastThreeGamesForAwayTeam(100 * awayTableTeam.getTotalMatchesDrawnAway() / awayTableTeam.getTotalMatchesAway());
         result.setLostsForLastThreeGamesForAwayTeam(100 - result.getWonsForLastThreeGamesForAwayTeam() - result.getDrawnsForLastThreeGamesForAwayTeam());
         result.setTotalForMatchForLastThreeGamesForAwayTeam((awayTableTeam.getTotalGoalsAway() + awayTableTeam.getTotalMissedAway()) / awayTableTeam.getTotalMatchesAway());
+
         return result;
     }
 
     private Prediction calculatePredictionForPairFirstAwaySecondHome(ParsedTablesDto parsedTablesDto, int i, int j) {
-        return null;
+        //i - away
+        //j - home
+        List<? extends TableTeam> wideTableTeams = parsedTablesDto.getWideTableTeams();
+        List<? extends TableTeam> formTableTeams = parsedTablesDto.getFormTableTeams();
+        List<? extends OverUnderTableTeam> overUnderTableTeams = parsedTablesDto.getOverUnderTableTeams();
+
+        Prediction result = new Prediction();
+        result.setTeamAwayName(wideTableTeams.get(i).getTeamName());
+        result.setTeamHomeName(wideTableTeams.get(j).getTeamName());
+
+        //away team
+        TableTeam homeWideTableTeam = wideTableTeams.get(j);
+        result.setGoalsForGameForAllGamesForAwayTeam(homeWideTableTeam.getTotalGoalsAway() / homeWideTableTeam.getTotalMatchesAway());
+        result.setMissesForGameForAllGamesForAwayTeam(homeWideTableTeam.getTotalMissedAway() / homeWideTableTeam.getTotalMatchesAway());
+        result.setWonsForAllGamesForAwayTeam(100 * homeWideTableTeam.getTotalMatchesWonAway() / homeWideTableTeam.getTotalMatchesAway());
+        result.setLostsForAllGamesForAwayTeam(100 * homeWideTableTeam.getTotalMissedAway() / homeWideTableTeam.getTotalMatchesAway());
+        result.setDrawnsForAllGamesForAwayTeam(100 - result.getWonsForAllGamesForAwayTeam() - result.getLostsForAllGamesForAwayTeam());
+        result.setTotalForMatchForAllGamesForAwayTeam((homeWideTableTeam.getTotalGoalsAway() + homeWideTableTeam.getTotalMissedAway()) / homeWideTableTeam.getTotalMatchesAway());
+
+        OverUnderTableTeam homeOverUnderTableTeam = overUnderTableTeams.get(j);
+        result.setGamesTb2Point5ForAllGamesForAwayTeam(100 * (homeOverUnderTableTeam.getThreeGoals() + homeOverUnderTableTeam.getFourGoals() + homeOverUnderTableTeam.getFiveGoals()
+        + homeOverUnderTableTeam.getSixGoals() + homeOverUnderTableTeam.getSevenGoals() + homeOverUnderTableTeam.getMoreThenSevenGoals()) / homeOverUnderTableTeam.getTotalMatches());
+        result.setGamesTm2Point5ForAllGamesForAwayTeam(100 - result.getGamesTb2Point5ForAllGamesForAwayTeam());
+        result.setGamesTb1Point5ForAllGamesForAwayTeam(100 * (homeOverUnderTableTeam.getTwoGoals() + homeOverUnderTableTeam.getThreeGoals() + homeOverUnderTableTeam.getFourGoals()
+                + homeOverUnderTableTeam.getFiveGoals() + homeOverUnderTableTeam.getSixGoals() + homeOverUnderTableTeam.getSevenGoals()
+                + homeOverUnderTableTeam.getMoreThenSevenGoals()) / homeOverUnderTableTeam.getTotalMatches());
+        result.setGamesTm1Point5ForAllGamesForAwayTeam(100 - result.getGamesTb1Point5ForAllGamesForAwayTeam());
+
+        TableTeam homeTableTeam = formTableTeams.get(j);
+        result.setGoalsForGameForLastThreeGamesForAwayTeam(homeTableTeam.getTotalGoalsAway() / homeTableTeam.getTotalMatchesAway());
+        result.setMissesForGameForLastThreeGamesForAwayTeam(homeTableTeam.getTotalMissedAway() / homeTableTeam.getTotalMatchesAway());
+        result.setWonsForLastThreeGamesForAwayTeam(100 * homeTableTeam.getTotalMatchesWonAway() / homeTableTeam.getTotalMatchesAway());
+        result.setLostsForLastThreeGamesForAwayTeam(100 * homeTableTeam.getTotalMatchesLostAway() / homeTableTeam.getTotalMatchesAway());
+        result.setDrawnsForLastThreeGamesForAwayTeam(100 - result.getWonsForLastThreeGamesForAwayTeam() - result.getLostsForLastThreeGamesForAwayTeam());
+        result.setTotalForMatchForLastThreeGamesForAwayTeam((homeTableTeam.getTotalGoalsAway() + homeTableTeam.getTotalMissedAway()) / homeTableTeam.getTotalMatchesAway());
+
+
+        //home team
+        TableTeam awayTableTeam = wideTableTeams.get(i);
+        result.setGoalsForGameForAllGamesForHomeTeam(awayTableTeam.getTotalGoalsHome() / awayTableTeam.getTotalMatchesHome());
+        result.setMissesForGameForAllGamesForHomeTeam(awayTableTeam.getTotalMissedHome() / awayTableTeam.getTotalMatchesHome());
+        result.setWonsForAllGamesForHomeTeam(100 * awayTableTeam.getTotalMatchesWonHome() / awayTableTeam.getTotalMatchesHome());
+        result.setLostsForAllGamesForHomeTeam(100 * awayTableTeam.getTotalMatchesLostHome() / awayTableTeam.getTotalMatchesHome());
+        result.setDrawnsForAllGamesForHomeTeam(100 - result.getWonsForAllGamesForHomeTeam() - result.getLostsForAllGamesForHomeTeam());
+        result.setTotalForMatchForAllGamesForHomeTeam((awayTableTeam.getTotalGoalsHome() + awayTableTeam.getTotalMissedHome()) / awayTableTeam.getTotalMatchesHome());
+
+        OverUnderTableTeam awayOverUnderTableTeam = overUnderTableTeams.get(i);
+        result.setGamesTb2Point5ForAllGamesForHomeTeam((awayOverUnderTableTeam.getThreeGoals() + awayOverUnderTableTeam.getFourGoals() + awayOverUnderTableTeam.getFiveGoals()
+        + awayOverUnderTableTeam.getSixGoals() + awayOverUnderTableTeam.getSevenGoals() + awayOverUnderTableTeam.getMoreThenSevenGoals()) / awayOverUnderTableTeam.getTotalMatches());
+        result.setGamesTm2Point5ForAllGamesForHomeTeam(result.getGamesTb2Point5ForAllGamesForHomeTeam());
+        result.setGamesTb1Point5ForAllGamesForHomeTeam((awayOverUnderTableTeam.getTwoGoals() + awayOverUnderTableTeam.getThreeGoals() + awayOverUnderTableTeam.getFourGoals()
+                + awayOverUnderTableTeam.getFiveGoals() + awayOverUnderTableTeam.getSixGoals() + awayOverUnderTableTeam.getSevenGoals()
+                + awayOverUnderTableTeam.getMoreThenSevenGoals()) / awayOverUnderTableTeam.getTotalMatches());
+        result.setGamesTm1Point5ForAllGamesForHomeTeam(result.getGamesTb1Point5ForAllGamesForHomeTeam());
+
+        TableTeam awayFormTableTeam = formTableTeams.get(i);
+        result.setGoalsForGameForLastThreeGamesForHomeTeam(awayFormTableTeam.getTotalGoalsHome() / awayFormTableTeam.getTotalMatchesHome());
+        result.setMissesForGameForLastThreeGamesForHomeTeam(awayFormTableTeam.getTotalMissedHome() / awayFormTableTeam.getTotalMatchesHome());
+        result.setWonsForLastThreeGamesForHomeTeam(100 * awayFormTableTeam.getTotalMatchesWonHome() / awayFormTableTeam.getTotalMatchesHome());
+        result.setLostsForLastThreeGamesForHomeTeam(100 * awayFormTableTeam.getTotalMatchesLostHome() / awayFormTableTeam.getTotalMatchesHome());
+        result.setDrawnsForLastThreeGamesForHomeTeam(100 - result.getWonsForLastThreeGamesForHomeTeam() - result.getLostsForLastThreeGamesForHomeTeam());
+        result.setTotalForMatchForLastThreeGamesForHomeTeam((awayFormTableTeam.getTotalGoalsHome() + awayFormTableTeam.getTotalMissedHome()) / awayFormTableTeam.getTotalMatchesHome());
+
+        return result;
     }
 
     private void setEventId(List<Prediction> result, int eventId) {
