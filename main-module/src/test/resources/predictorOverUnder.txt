@@ -1,0 +1,93 @@
+https://ru.soccerway.com/a/block_competition_tables?
+block_id=page_competition_1_block_competition_tables_7&
+callback_params={"season_id":"14218","round_id":"42070","outgroup":"false","competition_id":"70","new_design_callback":"false"}&
+action=changeTable&
+params={"type":"competition_overunder_table"}
+
+{
+commands: [
+{
+name: "updateContainer",
+parameters: {
+content: "<div class="block_competition_overunder_table block clearfix" id="page_competition_1_block_competition_tables_7_block_competition_overunder_table_1">
+	<form action="" method="post" accept-charset="utf-8">
+		<table class="leaguetable overundertable table" id="page_competition_1_block_competition_tables_7_block_competition_overunder_table_1_table">
+			<thead>
+				<tr class="sub-head">
+					<th title="Место" class="sortasc">#</th>
+					<th class="text team">Команда</th>
+					<th class="number total mp">
+						<acronym title="Сыграно матчей">МС</acronym>
+					</th>
+					<th class="number zero-goals">0</th>
+					<th class="number ">1</th>
+					<th class="number ">2</th>
+					<th class="number ">3</th>
+					<th class="number ">4</th>
+					<th class="number ">5</th>
+					<th class="number ">6</th>
+					<th class="number ">7</th>
+					<th class="number ">&gt;7</th>
+					<th class="number avg-goals">
+						<acronym title="Среднее количество голов за матч">AVG</acronym>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="odd ">
+					<td class="rank">1</td>
+					<td class="text team large-link">
+						<a href="/teams/england/hull-city-afc/725/">Вулверхэмптон Уондерерс</a>
+					</td>
+					<td class="number mp">43</td>
+					<td class="number zero-goals">5</td>
+					<td class="number">7</td>
+					<td class="number">6</td>
+					<td class="number">7</td>
+					<td class="number">8</td>
+					<td class="number">8</td>
+					<td class="number">0</td>
+					<td class="number">2</td>
+					<td class="number">0</td>
+					<td class="number avg-goals">2.93</td>
+				</tr>
+				<tr class="even ">
+					<td class="rank">2</td>
+					<td class="text team large-link">
+						<a href="/teams/england/sunderland-association-football-club/683/">Кардифф Сити</a>
+					</td>
+					<td class="number mp">43</td>
+					<td class="number zero-goals">1</td>
+					<td class="number">8</td>
+					<td class="number">13</td>
+					<td class="number">7</td>
+					<td class="number">8</td>
+					<td class="number">1</td>
+					<td class="number">4</td>
+					<td class="number">1</td>
+					<td class="number">0</td>
+					<td class="number avg-goals">2.86</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<script type="text/javascript" charset="utf-8">LeagueTable('page_competition_1_block_competition_tables_7_block_competition_overunder_table_1_table');</script>
+</div>
+<script type="text/javascript" charset="utf-8">(function() {var block = new Block('page_competition_1_block_competition_tables_7_block_competition_overunder_table_1', 'block_competition_overunder_table', null);TimestampFormatter.format('page_competition_1_block_competition_tables_7_block_competition_overunder_table_1');})(); </script>"
+}
+},
+{
+name: "updateCallbackParams",
+parameters: {
+params: {
+season_id: "14218",
+round_id: "42070",
+outgroup: "",
+competition_id: "70",
+new_design_callback: ""
+}
+}
+}
+],
+timestamp: "Fri, 20 Apr 2018 20:09:56 +0200"
+}

@@ -47,4 +47,6 @@
         <constructor-arg index="3" ref="formTableTeamParser"/>
         <constructor-arg index="4" ref="overUnderTableTeamParser"/>
     </bean>
+
+    <bean id="predictor" class="com.football.manager.service.prediction.impl.Predictor"/>
 </beans>

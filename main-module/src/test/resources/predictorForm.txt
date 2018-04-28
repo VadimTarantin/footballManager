@@ -1,0 +1,170 @@
+https://ru.soccerway.com/a/block_competition_tables?
+block_id=page_competition_1_block_competition_tables_7&
+callback_params={"season_id":"14218","round_id":"42070","outgroup":"","competition_id":"70","new_design_callback":""}&
+action=changeTable&
+params={"type":"competition_form_table"}
+
+
+{
+commands: [
+{
+name: "updateContainer",
+parameters: {
+content: "<div class="block_competition_form_table block block-nomb clearfix" id="page_competition_1_block_competition_tables_7_block_competition_form_table_1">
+	<form action="/teams/comparison/" method="get" accept-charset="utf-8">
+		<table class="leaguetable sortable table detailed-table fixed-wide-table" id="page_competition_1_block_competition_tables_7_block_competition_form_table_1_table">
+			<thead>
+				<tr class="main-head">
+					<th class="rank">&nbsp;</th>
+					<th class="direction">&nbsp;</th>
+					<th class="team">&nbsp;</th>
+					<th colspan="6" class="type">Итого</th>
+					<th colspan="6" class="type">Дома</th>
+					<th colspan="6" class="type">В гостях</th>
+					<th class="number gd">&nbsp;</th>
+					<th class="number points">&nbsp;</th>
+				</tr>
+				<tr class="sub-head">
+					<th title="Место" class="sortasc sortdefaultasc">#</th>
+					<th class="direction nosort">&nbsp;</th>
+					<th class="text team sortdefaultasc">Команда</th>
+					<th class="number total mp">
+						<acronym title="Сыграно матчей">МС</acronym>
+					</th>
+					<th class="number total won total_won">
+						<acronym title="Победы">В</acronym>
+					</th>
+					<th class="number total drawn total_drawn">
+						<acronym title="Ничьи">Н</acronym>
+					</th>
+					<th class="number total lost total_lost">
+						<acronym title="Поражения">П</acronym>
+					</th>
+					<th class="number total gf total_gf">
+						<acronym title="Забитые мячи">З</acronym>
+					</th>
+					<th class="number total ga total_ga">
+						<acronym title="Пропущенные мячи">Пр</acronym>
+					</th>
+					<th class="number home mp home_total">
+						<acronym title="Сыграно матчей">МС</acronym>
+					</th>
+					<th class="number home won home_won">
+						<acronym title="Победы">В</acronym>
+					</th>
+					<th class="number home drawn home_drawn">
+						<acronym title="Ничьи">Н</acronym>
+					</th>
+					<th class="number home lost home_lost">
+						<acronym title="Поражения">П</acronym>
+					</th>
+					<th class="number home gf home_gf">
+						<acronym title="Забитые мячи">З</acronym>
+					</th>
+					<th class="number home ga home_ga">
+						<acronym title="Пропущенные мячи">Пр</acronym>
+					</th>
+					<th class="number away mp away_total">
+						<acronym title="Сыграно матчей">МС</acronym>
+					</th>
+					<th class="number away won away_won">
+						<acronym title="Победы">В</acronym>
+					</th>
+					<th class="number away drawn away_drawn">
+						<acronym title="Ничьи">Н</acronym>
+					</th>
+					<th class="number away lost away_lost">
+						<acronym title="Поражения">П</acronym>
+					</th>
+					<th class="number away gf away_gf">
+						<acronym title="Забитые мячи">З</acronym>
+					</th>
+					<th class="number away ga away_ga">
+						<acronym title="Пропущенные мячи">Пр</acronym>
+					</th>
+					<th class="number gd">
+						<acronym title="Разница забитых и пропущенных">Р</acronym>
+					</th>
+					<th class="number points">
+						<acronym title="Очки">О</acronym>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="odd team_rank" id="team_rank_row_667" data-team_id="667" >
+					<td class="rank ">1</td>
+					<td class="direction"/>
+					<td class="text team large-link">
+						<a href="/teams/england/fulham-football-club/667/" title="Вулверхэмптон Уондерерс">Вулверхэмптон Уондерерс</a>
+					</td>
+					<td class="number total mp" >6</td>
+					<td class="number total won total_won">5</td>
+					<td class="number total drawn total_drawn">1</td>
+					<td class="number total lost total_lost">0</td>
+					<td class="number total gf total_gf">9</td>
+					<td class="number total ga total_ga">2</td>
+					<td class="number home mp home_total">3</td>
+					<td class="number home won home_won">2</td>
+					<td class="number home drawn home_drawn">1</td>
+					<td class="number home lost home_lost">0</td>
+					<td class="number home gf home_gf">4</td>
+					<td class="number home ga home_ga">1</td>
+					<td class="number away mp away_total">3</td>
+					<td class="number away won away_won">3</td>
+					<td class="number away drawn away_drawn">0</td>
+					<td class="number away lost away_lost">0</td>
+					<td class="number away gf away_gf">5</td>
+					<td class="number away ga away_ga">1</td>
+					<td class="number gd">+7</td>
+					<td class="number points">16</td>
+				</tr>
+				<tr class="even team_rank" id="team_rank_row_689" data-team_id="689" >
+					<td class="rank ">2</td>
+					<td class="direction"/>
+					<td class="text team large-link">
+						<a href="/teams/england/millwall-fc/689/" title="Кардифф Сити">Кардифф Сити</a>
+					</td>
+					<td class="number total mp" >6</td>
+					<td class="number total won total_won">4</td>
+					<td class="number total drawn total_drawn">2</td>
+					<td class="number total lost total_lost">0</td>
+					<td class="number total gf total_gf">10</td>
+					<td class="number total ga total_ga">3</td>
+					<td class="number home mp home_total">3</td>
+					<td class="number home won home_won">3</td>
+					<td class="number home drawn home_drawn">0</td>
+					<td class="number home lost home_lost">0</td>
+					<td class="number home gf home_gf">5</td>
+					<td class="number home ga home_ga">0</td>
+					<td class="number away mp away_total">3</td>
+					<td class="number away won away_won">1</td>
+					<td class="number away drawn away_drawn">2</td>
+					<td class="number away lost away_lost">0</td>
+					<td class="number away gf away_gf">5</td>
+					<td class="number away ga away_ga">3</td>
+					<td class="number gd">+7</td>
+					<td class="number points">14</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+	<script type="text/javascript" charset="utf-8">LeagueTable('page_competition_1_block_competition_tables_7_block_competition_form_table_1_table'); </script>
+</div>
+<script type="text/javascript" charset="utf-8">(function() {var block = new Block('page_competition_1_block_competition_tables_7_block_competition_form_table_1', 'block_competition_form_table', null);TimestampFormatter.format('page_competition_1_block_competition_tables_7_block_competition_form_table_1');})(); </script>"
+}
+},
+{
+name: "updateCallbackParams",
+parameters: {
+params: {
+season_id: "14218",
+round_id: "42070",
+outgroup: "",
+competition_id: "70",
+new_design_callback: ""
+}
+}
+}
+],
+timestamp: "Fri, 20 Apr 2018 20:08:38 +0200"
+}
