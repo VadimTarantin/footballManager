@@ -8,6 +8,7 @@ import com.football.manager.dto.input.ParsedTablesDto;
 import com.football.manager.entity.Prediction;
 import com.football.manager.entity.Task;
 import com.football.manager.service.crawler.Crawler;
+import com.football.manager.service.domain.PredictionService;
 import com.football.manager.service.parser.OverUnderParser;
 import com.football.manager.service.parser.Parser;
 import com.football.manager.service.prediction.impl.Predictor;
@@ -69,7 +70,7 @@ public class ProcessingManager {
     private int amountPredictionSaverInDatabaseManagers;
 
     @Autowired
-    private PredictionDao predictionDao;
+    private PredictionService predictionService;
 
     @Autowired
     @Qualifier("predictionsCalculationTaskExecutor")
@@ -104,7 +105,7 @@ public class ProcessingManager {
         log.info("{} PredictionManager started", amountPredictionsManagers);
 
         for (int i = 0; i < amountPredictionSaverInDatabaseManagers; i++) {
-            predictionsCalculationTaskExecutor.execute(new PredictionSaver(predictions, predictionDao));
+            predictionsCalculationTaskExecutor.execute(new PredictionSaver(predictions, predictionService));
         }
         log.info("{} PredictionSaver started", amountPredictionSaverInDatabaseManagers);
         log.info("Processing prediction has been started successful");

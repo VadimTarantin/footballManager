@@ -50,7 +50,7 @@ public class EventDaoImpl extends BaseDaoImpl implements EventDao {
                 if (rs.next()) {
                     return new Event(rs.getInt("ID"), name);
                 }
-                throw new NoSuchEntityException("Event with name " + name + " does not exist!");
+                throw new NoSuchEntityException("Event with name " + name + " does not exists!");
             });
         } catch (NoSuchEntityException e1) {
             log.info("Attempt to select event by not existing name ({})", name);
