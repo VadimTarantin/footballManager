@@ -16,9 +16,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 
 public class PredictorTest extends BaseTableTeamParserTest {
 
@@ -80,6 +84,121 @@ public class PredictorTest extends BaseTableTeamParserTest {
         log.info("predictions.size()={}", predictions.size());
         //double C2 24 minus 2
         assertEquals(550, predictions.size());
+    }
+
+    @Test
+    public void testPredictorPredictionValues() throws Exception {
+        List<? extends TableTeam> wideTableTeams = wideTableParser.parse(getResponse(wideTableFileName));
+        List<? extends TableTeam> formTableTeams = formTableParser.parse(getResponse(formTableFileName));
+        List<? extends OverUnderTableTeam> overUnderTableTeams = overUnderTableParser.parse(getResponse(overUnderFileName));
+
+        ParsedTablesDto parsedTablesDto = new ParsedTablesDto(wideTableTeams, formTableTeams, overUnderTableTeams, 1);
+
+        List<Prediction> predictions = predictor.calculate(parsedTablesDto);
+
+        log.info("predictions.size()={}", predictions.size());
+
+        Collections.sort(predictions, new Comparator<Prediction>() {
+            @Override
+            public int compare(Prediction o1, Prediction o2) {
+                return o1.getTeamHomeName().compareTo(o2.getTeamHomeName());
+            }
+        });
+        Prediction first = predictions.get(0);
+        log.info("first: {}", first);
+
+
+        Prediction second = predictions.get(1);
+        log.info("second: {}", second);
+
+        assertFalse(first.getEventId() == 0);
+        assertEquals(first.getEventId(), second.getEventId());
+        assertEquals(first.getTeamHomeName(), second.getTeamAwayName());
+        assertEquals(first.getTeamAwayName(), second.getTeamHomeName());
+
+        //home team
+        first.getGoalsForGameForAllGamesForHomeTeam();
+        first.getMissesForGameForAllGamesForHomeTeam();
+        first.getWonsForAllGamesForHomeTeam();
+        first.getDrawnsForAllGamesForHomeTeam();
+        first.getLostsForAllGamesForHomeTeam();
+        first.getTotalForMatchForAllGamesForHomeTeam();
+
+        first.getGamesTb2Point5ForAllGamesForHomeTeam();
+        first.getGamesTm2Point5ForAllGamesForHomeTeam();
+        first.getGamesTb1Point5ForAllGamesForHomeTeam();
+        first.getGamesTm1Point5ForAllGamesForHomeTeam();
+
+        first.getGoalsForGameForLastThreeGamesForHomeTeam();
+        first.getMissesForGameForLastThreeGamesForHomeTeam();
+        first.getWonsForLastThreeGamesForHomeTeam();
+        first.getDrawnsForLastThreeGamesForHomeTeam();
+        first.getLostsForLastThreeGamesForHomeTeam();
+        first.getTotalForMatchForLastThreeGamesForHomeTeam();
+
+
+        //away team
+        first.getGoalsForGameForAllGamesForAwayTeam();
+        first.getMissesForGameForAllGamesForAwayTeam();
+        first.getWonsForAllGamesForAwayTeam();
+        first.getDrawnsForAllGamesForAwayTeam();
+        first.getLostsForAllGamesForAwayTeam();
+        first.getTotalForMatchForAllGamesForAwayTeam();
+
+        first.getGamesTb2Point5ForAllGamesForAwayTeam();
+        first.getGamesTm2Point5ForAllGamesForAwayTeam();
+        first.getGamesTb1Point5ForAllGamesForAwayTeam();
+        first.getGamesTm1Point5ForAllGamesForAwayTeam();
+
+        first.getGoalsForGameForLastThreeGamesForAwayTeam();
+        first.getMissesForGameForLastThreeGamesForAwayTeam();
+        first.getWonsForLastThreeGamesForAwayTeam();
+        first.getDrawnsForLastThreeGamesForAwayTeam();
+        first.getLostsForLastThreeGamesForAwayTeam();
+        first.getTotalForMatchForLastThreeGamesForAwayTeam();
+
+
+        //second
+        //home team
+        second.getGoalsForGameForAllGamesForHomeTeam();
+        second.getMissesForGameForAllGamesForHomeTeam();
+        second.getWonsForAllGamesForHomeTeam();
+        second.getDrawnsForAllGamesForHomeTeam();
+        second.getLostsForAllGamesForHomeTeam();
+        second.getTotalForMatchForAllGamesForHomeTeam();
+
+        second.getGamesTb2Point5ForAllGamesForHomeTeam();
+        second.getGamesTm2Point5ForAllGamesForHomeTeam();
+        second.getGamesTb1Point5ForAllGamesForHomeTeam();
+        second.getGamesTm1Point5ForAllGamesForHomeTeam();
+
+        second.getGoalsForGameForLastThreeGamesForHomeTeam();
+        second.getMissesForGameForLastThreeGamesForHomeTeam();
+        second.getWonsForLastThreeGamesForHomeTeam();
+        second.getDrawnsForLastThreeGamesForHomeTeam();
+        second.getLostsForLastThreeGamesForHomeTeam();
+        second.getTotalForMatchForLastThreeGamesForHomeTeam();
+
+
+        //away team
+        second.getGoalsForGameForAllGamesForAwayTeam();
+        second.getMissesForGameForAllGamesForAwayTeam();
+        second.getWonsForAllGamesForAwayTeam();
+        second.getDrawnsForAllGamesForAwayTeam();
+        second.getLostsForAllGamesForAwayTeam();
+        second.getTotalForMatchForAllGamesForAwayTeam();
+
+        second.getGamesTb2Point5ForAllGamesForAwayTeam();
+        second.getGamesTm2Point5ForAllGamesForAwayTeam();
+        second.getGamesTb1Point5ForAllGamesForAwayTeam();
+        second.getGamesTm1Point5ForAllGamesForAwayTeam();
+
+        second.getGoalsForGameForLastThreeGamesForAwayTeam();
+        second.getMissesForGameForLastThreeGamesForAwayTeam();
+        second.getWonsForLastThreeGamesForAwayTeam();
+        second.getDrawnsForLastThreeGamesForAwayTeam();
+        second.getLostsForLastThreeGamesForAwayTeam();
+        second.getTotalForMatchForLastThreeGamesForAwayTeam();
     }
 
 }
