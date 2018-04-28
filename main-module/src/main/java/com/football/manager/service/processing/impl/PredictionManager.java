@@ -7,7 +7,7 @@ import com.football.manager.util.SystemUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
@@ -16,11 +16,11 @@ public class PredictionManager extends BaseProcessor {
     private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
 
     private ArrayBlockingQueue<ParsedTablesDto> parsedTablesDtos;
-    private ArrayBlockingQueue<List<Prediction>> predictions;
+    private ArrayBlockingQueue<Set<Prediction>> predictions;
     private Predictor predictor;
 
     public PredictionManager(ArrayBlockingQueue<ParsedTablesDto> parsedTablesDtos,
-                             ArrayBlockingQueue<List<Prediction>> predictions,
+                             ArrayBlockingQueue<Set<Prediction>> predictions,
                              Predictor predictor) {
         this.parsedTablesDtos = parsedTablesDtos;
         this.predictions = predictions;
@@ -35,7 +35,7 @@ public class PredictionManager extends BaseProcessor {
             log.info(message);
             throw new InterruptedException(message);
         }
-        List<Prediction> preds = predictor.calculate(parsedTablesDto);
+        Set<Prediction> preds = predictor.calculate(parsedTablesDto);
         boolean offerIsSuccess = predictions.offer(preds, TIMEOUT, TimeUnit.MILLISECONDS);
         if (offerIsSuccess) {
             log.info("List of Predictions with size={} for eventID={} was created successful", preds.size(), parsedTablesDto.getEventId());

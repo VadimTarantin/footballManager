@@ -10,24 +10,23 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class Predictor implements Predicable {
 
     private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
+    private static final int INITIAL_CAPACITY = 600;
 
     @Override
-    public List<Prediction> calculate(ParsedTablesDto parsedTablesDto) {
-        List<Prediction> result = calc(parsedTablesDto);
+    public Set<Prediction> calculate(ParsedTablesDto parsedTablesDto) {
+        Set<Prediction> result = calc(parsedTablesDto);
         setEventId(result, parsedTablesDto.getEventId());
         return result;
     }
 
-    private List<Prediction> calc(ParsedTablesDto parsedTablesDto) {
-        List<Prediction> result = new LinkedList<>();
+    private Set<Prediction> calc(ParsedTablesDto parsedTablesDto) {
+        Set<Prediction> result = new HashSet<>(INITIAL_CAPACITY);
         List<? extends TableTeam> wideTableTeams = parsedTablesDto.getWideTableTeams();
         List<? extends TableTeam> formTableTeams = parsedTablesDto.getFormTableTeams();
         List<? extends OverUnderTableTeam> overUnderTableTeams = parsedTablesDto.getOverUnderTableTeams();
@@ -199,7 +198,7 @@ public class Predictor implements Predicable {
         return result;
     }
 
-    private void setEventId(List<Prediction> result, int eventId) {
+    private void setEventId(Collection<Prediction> result, int eventId) {
         for (Prediction prediction : result) {
             prediction.setEventId(eventId);
         }

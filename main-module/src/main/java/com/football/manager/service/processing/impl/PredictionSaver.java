@@ -6,17 +6,17 @@ import com.football.manager.util.SystemUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
 
 public class PredictionSaver extends BaseProcessor {
 
     private static final Logger log = LogManager.getLogger(SystemUtil.getCurrentClass());
 
-    private ArrayBlockingQueue<List<Prediction>> predictions;
+    private ArrayBlockingQueue<Set<Prediction>> predictions;
     private PredictionDao predictionDao;
 
-    public PredictionSaver(ArrayBlockingQueue<List<Prediction>> predictions, PredictionDao predictionDao) {
+    public PredictionSaver(ArrayBlockingQueue<Set<Prediction>> predictions, PredictionDao predictionDao) {
         this.predictions = predictions;
         this.predictionDao = predictionDao;
     }

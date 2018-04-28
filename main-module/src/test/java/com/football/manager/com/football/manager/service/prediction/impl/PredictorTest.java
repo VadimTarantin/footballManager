@@ -17,9 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -65,7 +63,7 @@ public class PredictorTest extends BaseTableTeamParserTest {
 
         ParsedTablesDto parsedTablesDto = new ParsedTablesDto(wideTableTeams, formTableTeams, overUnderTableTeams, 1);
 
-        List<Prediction> predictions = predictor.calculate(parsedTablesDto);
+        Set<Prediction> predictions = predictor.calculate(parsedTablesDto);
 
         log.info("predictions.size()={}", predictions.size());
         assertEquals(2, predictions.size());
@@ -80,7 +78,7 @@ public class PredictorTest extends BaseTableTeamParserTest {
 
         ParsedTablesDto parsedTablesDto = new ParsedTablesDto(wideTableTeams, formTableTeams, overUnderTableTeams, 1);
 
-        List<Prediction> predictions = predictor.calculate(parsedTablesDto);
+        Set<Prediction> predictions = predictor.calculate(parsedTablesDto);
 
         log.info("predictions.size()={}", predictions.size());
         //double C2 24 minus 2
@@ -95,7 +93,7 @@ public class PredictorTest extends BaseTableTeamParserTest {
 
         ParsedTablesDto parsedTablesDto = new ParsedTablesDto(wideTableTeams, formTableTeams, overUnderTableTeams, 1);
 
-        List<Prediction> predictions = predictor.calculate(parsedTablesDto);
+        List<Prediction> predictions = new ArrayList<>(predictor.calculate(parsedTablesDto));
 
         log.info("predictions.size()={}", predictions.size());
 

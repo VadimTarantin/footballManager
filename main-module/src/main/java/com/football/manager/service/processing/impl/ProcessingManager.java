@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Executor;
 
@@ -57,7 +58,7 @@ public class ProcessingManager {
     @Autowired
     private OverUnderParser overUnderTableTeamParser;
 
-    private ArrayBlockingQueue<List<Prediction>> predictions = new ArrayBlockingQueue<>(1500);
+    private ArrayBlockingQueue<Set<Prediction>> predictions = new ArrayBlockingQueue<>(1500);
     @Value("${amount.predictions.calculate.managers}")
     private int amountPredictionsManagers;
 
@@ -103,7 +104,7 @@ public class ProcessingManager {
         log.info("{} PredictionManager started", amountPredictionsManagers);
 
         for (int i = 0; i < amountPredictionSaverInDatabaseManagers; i++) {
-            predictionsCalculationTaskExecutor.execute( new PredictionSaver(predictions, predictionDao));
+            predictionsCalculationTaskExecutor.execute(new PredictionSaver(predictions, predictionDao));
         }
         log.info("{} PredictionSaver started", amountPredictionSaverInDatabaseManagers);
         log.info("Processing prediction has been started successful");
