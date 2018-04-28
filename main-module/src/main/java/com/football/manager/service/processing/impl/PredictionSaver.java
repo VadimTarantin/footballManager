@@ -33,8 +33,9 @@ public class PredictionSaver extends BaseProcessor {
         }
         try {
             predictionService.insertOrUpdate(predictions);
+            log.info("Set of predictions with size={} was stored successful", predictions.size());
         } catch (PredictionServiceException e) {
-            log.warn("Unexpected exception during storing predictions", e);
+            log.warn("Unexpected exception during storing predictions with size={}", predictions.size(), e);
         }
     }
 

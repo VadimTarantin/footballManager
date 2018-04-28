@@ -38,9 +38,9 @@ public class PredictionManager extends BaseProcessor {
         Set<Prediction> preds = predictor.calculate(parsedTablesDto);
         boolean offerIsSuccess = predictions.offer(preds, TIMEOUT, TimeUnit.MILLISECONDS);
         if (offerIsSuccess) {
-            log.info("List of Predictions with size={} for eventID={} was created successful", preds.size(), parsedTablesDto.getEventId());
+            log.info("Set of predictions with size={} for eventID={} was created successful", preds.size(), parsedTablesDto.getEventId());
         } else {
-            log.warn("List of Predictions with size={} for eventID={} cannot put in queue to processing because queue is full",
+            log.warn("Set of predictions with size={} for eventID={} cannot put in queue to processing because queue is full",
                     preds.size(), parsedTablesDto.getEventId());
         }
     }
