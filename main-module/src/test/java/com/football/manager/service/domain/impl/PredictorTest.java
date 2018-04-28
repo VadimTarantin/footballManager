@@ -1,4 +1,4 @@
-package com.football.manager.com.football.manager.service.prediction.impl;
+package com.football.manager.service.domain.impl;
 
 import com.football.manager.dto.input.ParsedTablesDto;
 import com.football.manager.entity.OverUnderTableTeam;

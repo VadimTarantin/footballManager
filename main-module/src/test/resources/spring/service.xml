@@ -15,4 +15,8 @@
         <property name="eventDao" ref="eventDao"/>
     </bean>
 
+    <bean id="predictionService" class="com.football.manager.service.domain.impl.PredictionServiceImpl">
+        <property name="predictionDao" ref="predictionDao"/>
+    </bean>
+
 </beans>
